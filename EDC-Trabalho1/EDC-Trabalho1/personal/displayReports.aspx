@@ -13,7 +13,7 @@
                 <asp:BoundField DataField="payterms" HeaderText="payterms" SortExpression="payterms" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pubsConnectionString %>" SelectCommand="Procedure" SelectCommandType="StoredProcedure">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pubsConnectionString1 %>" SelectCommand="Procedure" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:Parameter Name="UserName" />
             </SelectParameters>
