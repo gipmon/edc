@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Courses.aspx.cs" Inherits="EDC_Trabalho2.Courses" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <br /><br />
-    <asp:GridView runat="server" CssClass="table table-stripped table-hover" AllowPaging="True" DataSourceID="XmlDataSource1" GridLines="None">
+    <br />
+    <h2>Lista de cursos</h2>
+    <asp:GridView runat="server" CssClass="table table-striped table-hover" AutoGenerateColumns="false" AllowPaging="True" DataSourceID="XmlDataSource1" GridLines="None">
         <Columns>
-            <asp:CommandField ShowSelectButton="True" />
+            <asp:HyperLinkField DataTextField="Guid" DataNavigateUrlFields="Guid" DataNavigateUrlFormatString="Course.aspx?ID={0}" HeaderText="Guid" />
+            <asp:BoundField DataField="Nome" HeaderText="Nome" />
+            <asp:BoundField DataField="Grau" HeaderText="Grau" />
+            <asp:BoundField DataField="Local" HeaderText="Local" />
         </Columns>
         <PagerStyle CssClass="pagination-ys" />
     </asp:GridView>
