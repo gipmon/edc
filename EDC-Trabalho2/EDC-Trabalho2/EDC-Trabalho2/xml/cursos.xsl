@@ -5,16 +5,16 @@
       <xsl:for-each select="curso">
         <xsl:sort select="nome"/>
         <curso>
-          <xsl:attribute name="Guid">
+          <xsl:attribute name="guid">
             <xsl:value-of select="guid"/>
           </xsl:attribute>
-          <xsl:attribute name="Nome">
+          <xsl:attribute name="nome">
             <xsl:value-of select="nome"/>
           </xsl:attribute>
-          <xsl:attribute name="Grau">
+          <xsl:attribute name="grau">
             <xsl:value-of select="grau"/>
           </xsl:attribute>
-          <xsl:attribute name="Local">
+          <xsl:attribute name="local">
             <xsl:value-of select="local"/>
           </xsl:attribute>
         </curso>
