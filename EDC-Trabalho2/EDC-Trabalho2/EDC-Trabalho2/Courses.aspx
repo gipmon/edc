@@ -19,6 +19,16 @@
             <asp:BoundField DataField="grau" HeaderText="Grau" />
             <asp:BoundField DataField="local" HeaderText="Local" />
         </Columns>
+        <EmptyDataTemplate>
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title">Atenção!!</h3>
+              </div>
+              <div class="panel-body">
+                Não há cursos desse tipo nessa instituição.
+              </div>
+            </div>
+        </EmptyDataTemplate>
         <PagerStyle CssClass="pagination-ys" />
     </asp:GridView>
     <asp:XmlDataSource ID="XmlDataSource1" runat="server" 
