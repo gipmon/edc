@@ -11,7 +11,15 @@ namespace EDC_Trabalho2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string guid = Request.QueryString["ID"];
+            if (guid == null)
+            {
+                guid = "31";
+            }
+            string url = "http://acesso.ua.pt/xml/curso.asp?i=" + guid;
 
+            XmlDataSource1.DataFile = url;
         }
+        
     }
 }
