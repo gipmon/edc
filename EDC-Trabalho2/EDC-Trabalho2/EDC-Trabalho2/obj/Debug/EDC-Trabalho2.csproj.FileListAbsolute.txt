@@ -147,3 +147,8 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC-Trabalho2\EDC-Trabalho2\EDC-Trabalho2\obj\Debug\EDC-Trabalho2.csprojResolveAssemblyReference.cache
 \\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC-Trabalho2\EDC-Trabalho2\EDC-Trabalho2\obj\Debug\EDC-Trabalho2.dll
 \\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC-Trabalho2\EDC-Trabalho2\EDC-Trabalho2\obj\Debug\EDC-Trabalho2.pdb
+\\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC-Trabalho2\EDC-Trabalho2\EDC-Trabalho2\bin\System.Web.Mvc.dll
+\\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC-Trabalho2\EDC-Trabalho2\EDC-Trabalho2\bin\System.Web.WebPages.dll
+\\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC-Trabalho2\EDC-Trabalho2\EDC-Trabalho2\bin\System.Web.Razor.dll
+\\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC-Trabalho2\EDC-Trabalho2\EDC-Trabalho2\bin\System.Web.WebPages.Razor.dll
+\\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC-Trabalho2\EDC-Trabalho2\EDC-Trabalho2\bin\System.Web.WebPages.Deployment.dll
