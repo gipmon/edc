@@ -1,0 +1,44 @@
+<properties>
+  <property>
+    <land_register>100</land_register>
+    <address>
+      <city>Porto</city>
+      <street>Rua do Dragão</street>
+      <port_number>5</port_number>
+    </address>
+    <value>1000000€</value>
+    <owner>
+      <name>Jorge Nuno</name>
+      <tax_number>20000</tax_number>
+      <date_purchase>10/08/1999</date_purchase>
+    </owner>
+  </property>
+  <property>
+    <land_register></land_register>
+    <address>
+      <city></city>
+      <street></street>
+      <port_number></port_number>
+    </address>
+    <value></value>
+    <owner>
+      <name></name>
+      <tax_number></tax_number>
+      <date_purchase></date_purchase>
+    </owner>
+  </property>
+  <property>
+    <land_register></land_register>
+    <address>
+      <city></city>
+      <street></street>
+      <port_number></port_number>
+    </address>
+    <value></value>
+    <owner>
+      <name></name>
+      <tax_number></tax_number>
+      <date_purchase></date_purchase>
+    </owner>
+  </property>
+</properties>
