@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cursos>
+
+	<curso>
+		<guid>54</guid>
+		<codigo>0300/9002</codigo>
+		<nome>Administração Pública</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Ciências Sociais, Políticas e do Território</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências Sociais</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas:<br />
+17 Mat. Apl. Ciências Soc.<br />
+16 Matemática<br />
+18 Português<br />
+<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>14</guid>
+		<codigo>0300/9011</codigo>
+		<nome>Biologia</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Biologia</departamento></departamentos>
+		<areascientificas><areacientifica>Biologia</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:<br />
+02 Biologia e Geologia <br />
+      ou <br />
+02 Biologia e Geologia<br />
+07 Física e Química <br />
+      ou<br />
+02 Biologia e Geologia<br />
+16 Matemática
+<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>15</guid>
+		<codigo>0300/9012</codigo>
+		<nome>Biologia e Geologia</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Biologia</departamento><departamento>Departamento de Geociências</departamento></departamentos>
+		<areascientificas><areacientifica>Biologia</areacientifica><areacientifica>Geologia</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:<br />
+02 Biologia e Geologia <br />
+      ou <br />
+02 Biologia e Geologia<br />
+07 Física e Química <br />
+      ou<br />
+02 Biologia e Geologia<br />
+16 Matemática
+<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>16</guid>
+		<codigo>0300/9015</codigo>
+		<nome>Bioquímica</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Química</departamento></departamentos>
+		<areascientificas><areacientifica>Bioquímica</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: <br />Biologia e Geologia (02)<br /> ou <br />Física e Química (07)<br /> ou <br />Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>17</guid>
+		<codigo>0300/9016</codigo>
+		<nome>Biotecnologia</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Biologia</departamento><departamento>Departamento de Química</departamento></departamentos>
+		<areascientificas><areacientifica>Biologia</areacientifica><areacientifica>Bioquímica</areacientifica><areacientifica>Engenharia Química</areacientifica><areacientifica>Química</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas:
+Biologia e Geologia (02) ou Física e Química (07) ou Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>18</guid>
+		<codigo>0300/9351</codigo>
+		<nome>Ciências Biomédicas</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Secção Autónoma de Ciências da Saúde</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências Biomédicas</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:
+Biologia e Geologia (02) e Física e Química (07) ou Biologia e Geologia (02) e Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>50% da nota da prova de ingresso</li></ul></provas>
+		<m23>False</m23>
+	</curso>
+
+	<curso>
+		<guid>19</guid>
+		<codigo>0300/9041</codigo>
+		<nome>Ciências do Mar</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Ambiente e Ordenamento</departamento><departamento>Departamento de Biologia</departamento><departamento>Departamento de Física</departamento><departamento>Departamento de Geociências</departamento><departamento>Departamento de Química</departamento></departamentos>
+		<areascientificas><areacientifica>Biologia</areacientifica><areacientifica>Ciências e Engenharia do Ambiente</areacientifica><areacientifica>Física</areacientifica><areacientifica>Geociências</areacientifica><areacientifica>Química</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: Biologia e Geologia (02) ou Física e Química (07) ou Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>50% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>48</guid>
+		<codigo>3011/9056</codigo>
+		<nome>Contabilidade</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Instituto Superior de Contabilidade e Administração da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Contabilidade</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno ou noturno</regime>
+		<local>ISCA, Aveiro (junto ao Campus Universitário de Santiago)</local>
+		<provas>Uma das seguintes provas: Economia (04)<br /> ou<br /> Matemática (16)<br /> ou <br />Português (18)<br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>245</guid>
+		<codigo>3011/8449</codigo>
+		<nome>Contabilidade à Distância</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Instituto Superior de Contabilidade e Administração da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Contabilidade</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>à distância</regime>
+		<local>ISCA, Aveiro (junto ao Campus Universitário de Santiago)</local>
+		<provas>Uma das seguintes provas: Economia (04)<br />ou<br />Matemática (16)<br /> ou<br /> Português (18)<br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>20</guid>
+		<codigo>0300/9069</codigo>
+		<nome>Design</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Comunicação e Arte</departamento></departamentos>
+		<areascientificas><areacientifica>Design</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: Desenho (03) ou Geometria Descritiva (10)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>21</guid>
+		<codigo>0300/9081</codigo>
+		<nome>Economia</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Economia, Gestão e Engenharia Industrial</departamento></departamentos>
+		<areascientificas><areacientifica>Economia</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos: Matemática (19) ou Geografia (09) e Matemática (19) ou Economia (04) e Matemática (19)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>94</guid>
+		<codigo>0300/9853</codigo>
+		<nome>Educação Básica</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Educação</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências da Educação</areacientifica><areacientifica>Ciências da Linguagem</areacientifica><areacientifica>Ciências Sociais</areacientifica><areacientifica>Didática e Tecnologia Educativa</areacientifica><areacientifica>Estudos de Arte</areacientifica><areacientifica>Estudos Literários</areacientifica><areacientifica>Geografia</areacientifica><areacientifica>Matemática</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: Economia (04) ou Geografia (09) ou História (11) ou Matemática Aplicada às Ciências Sociais (17) ou Português (18)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>50% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>168</guid>
+		<codigo>3013/9500</codigo>
+		<nome>Enfermagem</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Saúde da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Enfermagem</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:<br />
+02 Biologia e Geologia<br />
+      ou<br />
+02 Biologia e Geologia<br />
+07 Física e Química<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>95</guid>
+		<codigo>0300/9360</codigo>
+		<nome>Engenharia Civil</nome>
+		<grau>Mestrado Integrado</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Engenharia Civil</departamento></departamentos>
+		<areascientificas><areacientifica>Engenharia Civil</areacientifica></areascientificas>	
+		<areasformacao><areaformacao>Ciências da Engenharia e Tecnologias</areaformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química <br />
+19 Matemática A <br />
+<strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul><a href="http://www.ua.pt/sga/PageText.aspx?id=15727">Edital de candidatura</a>
+<br />Candidaturas para o 2º ciclo, de 6 de julho a 24 de agosto</provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>23</guid>
+		<codigo>0300/9361</codigo>
+		<nome>Engenharia de Computadores e Telemática</nome>
+		<grau>Mestrado Integrado</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Eletrónica, Telecomunicações e Informática</departamento></departamentos>
+		<areascientificas><areacientifica>Informática</areacientifica></areascientificas>	
+		<areasformacao><areaformacao>Ciências da Engenharia e Tecnologias</areaformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:
+19 Matemática A
+      ou
+02 Biologia e Geologia
+19 Matemática A
+      ou
+07 Física e Química
+19 Matemática A
+<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>24</guid>
+		<codigo>0300/9096</codigo>
+		<nome>Engenharia de Materiais</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Engenharia de Materiais e Cerâmica</departamento></departamentos>
+		<areascientificas><areacientifica>Ciência e Engenharia dos Materiais</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química
+19 Matemática A<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>385</guid>
+		<codigo>0300/9508</codigo>
+		<nome>Engenharia do Ambiente</nome>
+		<grau>Mestrado Integrado</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Ambiente e Ordenamento</departamento></departamentos>
+		<areascientificas></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:
+(02) Biologia e Geologia e (19) Matemática A ou (07) Física e Química e (19) Matemática. A
+O cálculo da nota de acesso considera:<ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>False</m23>
+	</curso>
+
+	<curso>
+		<guid>26</guid>
+		<codigo>0300/9104</codigo>
+		<nome>Engenharia e Gestão Industrial</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Economia, Gestão e Engenharia Industrial</departamento></departamentos>
+		<areascientificas><areacientifica>Engenharia Industrial</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química
+19 Matemática A<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>27</guid>
+		<codigo>0300/9365</codigo>
+		<nome>Engenharia Eletrónica e Telecomunicações</nome>
+		<grau>Mestrado Integrado</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Eletrónica, Telecomunicações e Informática</departamento></departamentos>
+		<areascientificas><areacientifica>Eletrotecnia</areacientifica><areacientifica>Eletrotecnia / Análise e Processamento de Sinal</areacientifica><areacientifica>Eletrotecnia / Controlo</areacientifica><areacientifica>Eletrotecnia / Eletrónica (Elt)</areacientifica><areacientifica>Eletrotecnia / Eletrotecnia Geral</areacientifica><areacientifica>Eletrotecnia / Telecomunicações</areacientifica></areascientificas>	
+		<areasformacao><areaformacao>Ciências da Engenharia e Tecnologias</areaformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química
+
+19 Matemática A<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>62</guid>
+		<codigo>3012/9109</codigo>
+		<nome>Engenharia Eletrotécnica</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Tecnologia e Gestão de Águeda</departamento></departamentos>
+		<areascientificas><areacientifica>Eletrotecnia</areacientifica><areacientifica>Engenharia Mecânica</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>ESTGA, Águeda</local>
+		<provas>07 Física e Química
+16 Matemática <br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>28</guid>
+		<codigo>0300/A008</codigo>
+		<nome>Engenharia Física</nome>
+		<grau>Mestrado Integrado</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Física</departamento></departamentos>
+		<areascientificas><areacientifica>Física</areacientifica></areascientificas>	
+		<areasformacao><areaformacao>Ciências da Engenharia e Tecnologias</areaformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química
+19 Matemática A(19)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>50% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>29</guid>
+		<codigo>0300/9116</codigo>
+		<nome>Engenharia Geológica</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Geociências</departamento></departamentos>
+		<areascientificas><areacientifica>Geociências</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos: Matemática (19) e Biologia e Geologia (02) ou Matemática (19) e Física e Química (07) <br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>383</guid>
+		<codigo>8295</codigo>
+		<nome>Engenharia Informática</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Eletrónica, Telecomunicações e Informática</departamento></departamentos>
+		<areascientificas><areacientifica>Informática</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>"19 - Matemática A";
+
+ou
+
+"02 - Biologia e Geologia" e "19 - Matemática A"; 
+
+ou
+
+"07 - Física e Química" e "19 - Matemática A".
+<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>30</guid>
+		<codigo>0300/9369</codigo>
+		<nome>Engenharia Mecânica</nome>
+		<grau>Mestrado Integrado</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Engenharia Mecânica</departamento></departamentos>
+		<areascientificas><areacientifica>Engenharia Mecânica</areacientifica></areascientificas>	
+		<areasformacao><areaformacao>Ciências da Engenharia e Tecnologias</areaformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química
+19 Matemática A<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>50% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>31</guid>
+		<codigo>0300/A009</codigo>
+		<nome>Engenharia Química</nome>
+		<grau>Mestrado Integrado</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Química</departamento></departamentos>
+		<areascientificas><areacientifica>Engenharia Química</areacientifica></areascientificas>	
+		<areasformacao><areaformacao>Ciências da Engenharia e Tecnologias</areaformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química
+19 Matemática A (19)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>50</guid>
+		<codigo>3011/9140</codigo>
+		<nome>Finanças</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Instituto Superior de Contabilidade e Administração da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Gestão</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno ou noturno</regime>
+		<local>ISCA, Aveiro (junto ao Campus Universitário de Santiago)</local>
+		<provas>Uma das seguintes provas:<br />
+04 Economia<br />
+16 Matemática<br />
+18 Português<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>33</guid>
+		<codigo>0300/A008</codigo>
+		<nome>Física</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Física</departamento></departamentos>
+		<areascientificas><areacientifica>Física</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química
+19 Matemática A<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>50% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>170</guid>
+		<codigo>3013/9504</codigo>
+		<nome>Fisioterapia</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Saúde da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências e Tecnologias da Saúde</areacientifica><areacientifica>Ciências Sociais</areacientifica><areacientifica>Matemática</areacientifica><areacientifica>Psicologia</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:
+02 Biologia e Geologia<br />
+      ou<br />
+02 Biologia e Geologia<br />
+07 Física e Química<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>172</guid>
+		<codigo>3013/9833</codigo>
+		<nome>Gerontologia</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Saúde da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências e Tecnologias da Saúde</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:
+02 Biologia e Geologia<br />
+      ou<br />
+02 Biologia e Geologia<br />
+07 Física e Química<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>34</guid>
+		<codigo>0300/9147</codigo>
+		<nome>Gestão</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Economia, Gestão e Engenharia Industrial</departamento></departamentos>
+		<areascientificas><areacientifica>Gestão</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos: Matemática (16) ou Biologia e Geologia (02) e Matemática (16) ou Economia (04) e Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>64</guid>
+		<codigo>3012/L021</codigo>
+		<nome>Gestão Comercial</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Tecnologia e Gestão de Águeda</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências Empresariais e da Administração</areacientifica><areacientifica>Contabilidade</areacientifica><areacientifica>Gestão</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>ESTGA, Águeda</local>
+		<provas>Uma das seguintes provas:
+Economia (04)<br /> ou <br />Matemática (16)<br /> ou<br />Português (18)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>222</guid>
+		<codigo>3012/8405</codigo>
+		<nome>Gestão da Qualidade</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Tecnologia e Gestão de Águeda</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências da Engenharia</areacientifica><areacientifica>Ciências Sociais</areacientifica><areacientifica>Gestão</areacientifica><areacientifica>Informática</areacientifica><areacientifica>Línguas</areacientifica><areacientifica>Matemática</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>ESTGA, Águeda</local>
+		<provas>Uma das seguintes provas: <br />Economia (04)<br />ou<br /> Matemática (16)<br /> ou <br />Português (18)<br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>65</guid>
+		<codigo>3012/9769</codigo>
+		<nome>Gestão Pública e Autárquica</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Tecnologia e Gestão de Águeda</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências Empresariais e da Administração</areacientifica><areacientifica>Contabilidade</areacientifica><areacientifica>Economia</areacientifica><areacientifica>Gestão</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>ESTGA, Águeda</local>
+		<provas>Uma das seguintes provas: Economia (04)<br /> ou <br />Matemática (16) <br />ou<br /> Português (18)<br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>406</guid>
+		<codigo></codigo>
+		<nome>Imagem Médica e Radioterapia</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Saúde da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências da Imagem Médica e Radioterapia</areacientifica><areacientifica>Ciências da Saúde</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos: 02 Biologia e Geologia <br />ou<br /> 02 Biologia e Geologia 07<br />Física e Química <br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>False</m23>
+	</curso>
+
+	<curso>
+		<guid>35</guid>
+		<codigo>0300/9194</codigo>
+		<nome>Línguas e Estudos Editoriais</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Línguas e Culturas</departamento></departamentos>
+		<areascientificas><areacientifica>Estudos Culturais</areacientifica><areacientifica>Línguas</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: Alemão (01) ou Francês (08) ou
+Inglês (13) ou Literatura Portuguesa (15) ou Português (18)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>36</guid>
+		<codigo>0300/9196</codigo>
+		<nome>Línguas e Relações Empresariais</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Línguas e Culturas</departamento></departamentos>
+		<areascientificas><areacientifica>Gestão</areacientifica><areacientifica>Línguas</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos: Português (18) <br /> ou<br /> Alemão (01) e Inglês (13) <br />ou<br /> Francês (08) e Inglês (13)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>37</guid>
+		<codigo>0300/9204</codigo>
+		<nome>Línguas, Literaturas e Culturas</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Línguas e Culturas</departamento></departamentos>
+		<areascientificas><areacientifica>Estudos Culturais</areacientifica><areacientifica>Línguas</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: Literatura Portuguesa (15) ou Português (18)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>51</guid>
+		<codigo>3011/9205</codigo>
+		<nome>Marketing</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Instituto Superior de Contabilidade e Administração da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Gestão</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno ou noturno</regime>
+		<local>ISCA, Aveiro (junto ao Campus Universitário de Santiago)</local>
+		<provas>Uma das seguintes provas: Economia (04) <br />ou<br /> Matemática (16) <br />ou <br />Português (18)<br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>38</guid>
+		<codigo>0300/9209</codigo>
+		<nome>Matemática</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Matemática</departamento></departamentos>
+		<areascientificas><areacientifica>Matemática</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos:
+19 Matemática A
+      ou
+02 Biologia e Geologia
+19 Matemática A
+      ou
+07 Física e Química
+19 Matemática A<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>39</guid>
+		<codigo>0300/9212</codigo>
+		<nome>Meteorologia, Oceanografia e Geofísica</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Física</departamento></departamentos>
+		<areascientificas><areacientifica>Física</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos: Física e Química (07) ou Matemática (16) ou Biologia e Geologia (02) e Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>50% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>40</guid>
+		<codigo>0300/9214</codigo>
+		<nome>Música</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Comunicação e Arte</departamento></departamentos>
+		<areascientificas><areacientifica>Música</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: História da Cultura e Artes (12) ou Inglês (13) ou Matemática (16) ou Português (18)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li><li>15% nota do pré-requisito</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>41</guid>
+		<codigo>0300/9215</codigo>
+		<nome>Novas Tecnologias da Comunicação</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Comunicação e Arte</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências e Tecnologias da Comunicação</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: História da Cultura e Artes (12) ou Economia (04) ou Português (18)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>42</guid>
+		<codigo>0300/9219</codigo>
+		<nome>Psicologia</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Educação</departamento></departamentos>
+		<areascientificas><areacientifica>Psicologia</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: Biologia e Geologia (02) ou Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>50% da nota do ensino secundário</li><li>50% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>43</guid>
+		<codigo>0300/A009</codigo>
+		<nome>Química</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Química</departamento></departamentos>
+		<areascientificas><areacientifica>Química</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>07 Física e Química
+19 Matemática A<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>405</guid>
+		<codigo>0300/L094</codigo>
+		<nome>Reabilitação do Património</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Engenharia Civil</departamento></departamentos>
+		<areascientificas><areacientifica>Engenharia Civil</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas:
+03 Desenho
+10 Geometria Descritiva
+19 Matemática A
+<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>Média do secundário: 60%</li><li>Provas de ingresso: 40%</li></ul>
+</provas>
+		<m23>False</m23>
+	</curso>
+
+	<curso>
+		<guid>66</guid>
+		<codigo>3012/9805</codigo>
+		<nome>Técnico Superior de Secretariado</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Tecnologia e Gestão de Águeda</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências Empresariais e da Administração</areacientifica><areacientifica>Ciências Sociais</areacientifica><areacientifica>Línguas</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>ESTGA, Águeda</local>
+		<provas>Uma das seguintes provas: Economia (04)<br /> ou <br />Inglês (13)<br /> ou <br />Português (18)<br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>46</guid>
+		<codigo>3014/9245</codigo>
+		<nome>Tecnologia e Design de Produto</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior Aveiro Norte</departamento></departamentos>
+		<areascientificas><areacientifica>Design</areacientifica><areacientifica>Engenharia Mecânica</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Escola Superior Aveiro Norte, Oliveira de Azeméis</local>
+		<provas>Uma das seguintes provas: <br />Desenho (03)<br /> ou <br />Geometria Descritiva (10) <br />ou<br /> Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>63</guid>
+		<codigo>3012/8016</codigo>
+		<nome>Tecnologias da Informação</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Tecnologia e Gestão de Águeda</departamento></departamentos>
+		<areascientificas><areacientifica>Engenharia Geográfica</areacientifica><areacientifica>Informática</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>ESTGA, Águeda</local>
+		<provas>Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>65% da nota do ensino secundário</li><li>35% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>174</guid>
+		<codigo>3013/9890</codigo>
+		<nome>Terapia da Fala</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Escola Superior de Saúde da Universidade de Aveiro</departamento></departamentos>
+		<areascientificas><areacientifica>Ciências e Tecnologias da Saúde</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos: Biologia e Geologia (02)  e Matemática A (19)<br /> ou<br /> Biologia e Geologia (02) e Física e Química (07)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>44</guid>
+		<codigo>0300/9252</codigo>
+		<nome>Tradução</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Línguas e Culturas</departamento></departamentos>
+		<areascientificas><areacientifica>Línguas</areacientifica><areacientifica>Tradução</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Um dos seguintes conjuntos: Português (18) e Alemão (01) ou Espanhol (05) ou Francês (08) ou Inglês (13) <br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+	<curso>
+		<guid>45</guid>
+		<codigo>0300/9254</codigo>
+		<nome>Turismo</nome>
+		<grau>Licenciatura</grau>
+		<ciclo>1</ciclo>
+		<departamentos><departamento>Departamento de Economia, Gestão e Engenharia Industrial</departamento></departamentos>
+		<areascientificas><areacientifica>Gestão</areacientifica></areascientificas>	
+		<areasformacao></areasformacao>
+		<regime>diurno / laboral</regime>
+		<local>Campus Universitário de Santiago, Aveiro</local>
+		<provas>Uma das seguintes provas: Economia (04) ou Matemática Aplicada às Ciências Sociais (17) ou Matemática (16)<br /><br /><strong>O cálculo da nota de acesso considera:</strong><ul><li>60% da nota do ensino secundário</li><li>40% da nota da prova de ingresso</li></ul></provas>
+		<m23>True</m23>
+	</curso>
+
+</cursos>
