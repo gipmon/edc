@@ -14,31 +14,31 @@
     </owner>
   </property>
   <property>
-    <land_register></land_register>
+    <land_register>101</land_register>
     <address>
-      <city></city>
-      <street></street>
-      <port_number></port_number>
+      <city>Lisboa</city>
+      <street>Rua 25 de Abril</street>
+      <port_number>7</port_number>
     </address>
-    <value></value>
+    <value>340000€</value>
     <owner>
-      <name></name>
-      <tax_number></tax_number>
-      <date_purchase></date_purchase>
+      <name>Luis Carlos</name>
+      <tax_number>24556</tax_number>
+      <date_purchase>12/09/1995</date_purchase>
     </owner>
   </property>
   <property>
-    <land_register></land_register>
+    <land_register>102</land_register>
     <address>
-      <city></city>
-      <street></street>
-      <port_number></port_number>
+      <city>Aveiro</city>
+      <street>Avenida Lourenço Peixinho</street>
+      <port_number>27</port_number>
     </address>
-    <value></value>
+    <value>450230</value>
     <owner>
-      <name></name>
-      <tax_number></tax_number>
-      <date_purchase></date_purchase>
+      <name>Pedro Maia</name>
+      <tax_number>34059</tax_number>
+      <date_purchase>20/10/2006</date_purchase>
     </owner>
   </property>
 </properties>
