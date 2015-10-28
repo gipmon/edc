@@ -1,44 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <properties>
-  <property>
-    <land_register>100</land_register>
+  <property land_register="2">
+    <land_register>2</land_register>
     <address>
       <city>Porto</city>
       <street>Rua do Dragão</street>
       <port_number>5</port_number>
     </address>
-    <value>1000000€</value>
-    <owner>
-      <name>Jorge Nuno</name>
-      <tax_number>20000</tax_number>
-      <date_purchase>10/08/1999</date_purchase>
-    </owner>
+    <value>1000000</value>
+    <owners>
+      <owner name="Jorge Nuno" tax_number="20000" date_purchase="1999/08/09" />
+    </owners>
   </property>
-  <property>
-    <land_register>101</land_register>
+  <property land_register="20">
+    <land_register>20</land_register>
     <address>
       <city>Lisboa</city>
       <street>Rua 25 de Abril</street>
       <port_number>7</port_number>
     </address>
-    <value>340000€</value>
-    <owner>
-      <name>Luis Carlos</name>
-      <tax_number>24556</tax_number>
-      <date_purchase>12/09/1995</date_purchase>
-    </owner>
+    <value>340000</value>
+    <owners>
+      <owner name="Luis Carlos" tax_number="24556" date_purchase="1995/12/09" />
+    </owners>
   </property>
-  <property>
-    <land_register>102</land_register>
+  <property land_register="1">
+    <land_register>1</land_register>
     <address>
       <city>Aveiro</city>
       <street>Avenida Lourenço Peixinho</street>
       <port_number>27</port_number>
     </address>
     <value>450230</value>
-    <owner>
-      <name>Pedro Maia</name>
-      <tax_number>34059</tax_number>
-      <date_purchase>20/10/2006</date_purchase>
-    </owner>
+    <owners>
+      <owner name="Pedro Maia" tax_number="34059" date_purchase="2008/10/20" />
+    </owners>
+  </property>
+  <property land_register="10">
+    <land_register>10</land_register>
+    <address>
+      <city>Coimbra</city>
+      <street>Avenida Lourenço Paixao</street>
+      <port_number>32</port_number>
+    </address>
+    <value>450231</value>
+    <owners>
+      <owner name="Pedro Maia" tax_number="34059" date_purchase="2008/10/20" />
+      <owner name="Joao Maia" tax_number="34059" date_purchase="2006/10/20" data_sale="2008/10/2" />
+    </owners>
   </property>
 </properties>

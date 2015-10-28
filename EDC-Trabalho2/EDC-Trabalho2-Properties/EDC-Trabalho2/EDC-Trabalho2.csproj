@@ -190,6 +190,12 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="App_Data\properties.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\properties.xsl">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.flatly.css" />
@@ -210,12 +216,9 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="PropertiesList.aspx" />
-    <Content Include="xml\cursos.xml" />
-    <Content Include="xml\cursos.xsl" />
-    <Content Include="xml\EngenhariaQuimica.xml">
+    <None Include="App_Data\properties.xsd">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="xml\EngenhariaQuimica.xsl" />
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -262,12 +265,6 @@
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="xml\Courses.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="xml\EngenhariaQuimica.xsd">
-      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -436,9 +433,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
