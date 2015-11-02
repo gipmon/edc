@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
+using System.Data;
+using System.Web.UI.HtmlControls;
 
 namespace EDC_Trabalho2
 {
@@ -12,7 +14,7 @@ namespace EDC_Trabalho2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+  
         }
 
         protected void Unnamed1_SelectedIndexChanged(object sender, EventArgs e)
@@ -23,10 +25,9 @@ namespace EDC_Trabalho2
         protected void propertyItemUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = GridView1.Rows[e.RowIndex];
-
+            HyperLink hyper = (HyperLink)row.FindControl("HyperLink1");
             XmlDocument xdoc = XmlDataSource3.GetXmlDocument();
 
-            HyperLink hyper = (HyperLink) row.Cells[0].Controls[0];
             XmlElement property = xdoc.SelectSingleNode("properties/property[@land_register='" + hyper.Text + "']") as XmlElement;
             XmlNode address = property.SelectSingleNode("address");
             address.SelectSingleNode("city").InnerText = e.NewValues["city"].ToString();
@@ -41,6 +42,57 @@ namespace EDC_Trabalho2
             e.Cancel = true;
             GridView1.EditIndex = -1;      
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            GridView1.ShowFooter = true;
+ 
+        }
+        protected void lnkSave_Click(object sender, EventArgs e)
+        {
+
+            XmlDocument xdoc = XmlDataSource3.GetXmlDocument();
+            XmlElement properties = xdoc.SelectSingleNode("properties") as XmlElement;
+            XmlElement property = xdoc.CreateElement("property");
+            XmlElement land_register = xdoc.CreateElement("land_register");
+            XmlElement address = xdoc.CreateElement("address");
+            XmlElement city = xdoc.CreateElement("city");
+            XmlElement street = xdoc.CreateElement("street");
+            XmlElement port_number = xdoc.CreateElement("port_number");
+            XmlElement value = xdoc.CreateElement("value");
+            XmlElement owners = xdoc.CreateElement("owners");
+            XmlAttribute aland_register = xdoc.CreateAttribute("land_register");
+            aland_register.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtland")).Text;
+            land_register.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtland")).Text;
+            city.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtcity")).Text;
+            street.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtstreet")).Text;
+            port_number.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtport")).Text;
+            value.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtvalue")).Text;
+
+
+            property.Attributes.Append(aland_register);
+            property.AppendChild(land_register);
+            property.AppendChild(address);
+            address.AppendChild(city);
+            address.AppendChild(street);
+            address.AppendChild(port_number);
+            property.AppendChild(value);
+            property.AppendChild(owners);
+            properties.AppendChild(property);
+
+            XmlDataSource3.Save();
+            XmlDataSource1.DataBind();
+            XmlDataSource2.DataBind();
+
+            GridView1.ShowFooter = false;
+        }
+        protected void lnkCancel_Click(object sender, EventArgs e)
+        {
+            GridView1.ShowFooter = false;
+            // similarly you can find other controls and save
+
+        }
+
 
     }
 }

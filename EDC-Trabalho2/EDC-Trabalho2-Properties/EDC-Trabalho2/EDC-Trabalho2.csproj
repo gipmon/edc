@@ -215,6 +215,9 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="owners.aspx">
+      <BrowseToURL>~/owners.aspx</BrowseToURL>
+    </Content>
     <Content Include="PropertiesList.aspx" />
     <None Include="App_Data\properties.xsd">
       <SubType>Designer</SubType>
@@ -402,6 +405,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="owners.aspx.cs">
+      <DependentUpon>owners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="owners.aspx.designer.cs">
+      <DependentUpon>owners.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PropertiesList.aspx.cs">
       <DependentUpon>PropertiesList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
