@@ -14,12 +14,38 @@ namespace EDC_Trabalho2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-  
+            total_value();
+        }
+
+        private void total_value()
+        {
+            int total = 0;
+
+            XmlDocument xdoc = XmlDataSource1.GetXmlDocument();
+            XmlElement root = xdoc.DocumentElement;
+            XmlNodeList nodes = root.SelectNodes(XmlDataSource1.XPath); // You can also use XPath here
+            String sd = XmlDataSource1.XPath;
+
+            foreach (XmlNode node in nodes)
+            {
+                int value = Int32.Parse(node.Attributes[4].Value);
+                total += value;
+            }
+
+            totalLabel.Text = "Total: €" + total.ToString();
         }
 
         protected void Unnamed1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            XmlDataSource1.XPath = "properties/property[@city='" + Cidades.SelectedValue + "']";
+            if(Cidades.SelectedValue == "Todos")
+            {
+                XmlDataSource1.XPath = "/properties/property";
+            }
+            else
+            {
+                XmlDataSource1.XPath = "/properties/property[@city='" + Cidades.SelectedValue + "']";
+            }
+            total_value();
         }
 
         protected void propertyItemUpdating(object sender, GridViewUpdateEventArgs e)
@@ -50,8 +76,22 @@ namespace EDC_Trabalho2
         }
         protected void lnkSave_Click(object sender, EventArgs e)
         {
-
             XmlDocument xdoc = XmlDataSource3.GetXmlDocument();
+
+            XmlElement root = xdoc.DocumentElement;
+            XmlNodeList nodes = root.SelectNodes("/properties/property"); // You can also use XPath here
+            int land_register_number = 0;
+            foreach (XmlNode node in nodes)
+            {
+                int ld_register = Int32.Parse(node.Attributes[0].Value);
+                if (land_register_number < ld_register)
+                {
+                    land_register_number = ld_register;
+                }
+            }
+
+            land_register_number++;
+
             XmlElement properties = xdoc.SelectSingleNode("properties") as XmlElement;
             XmlElement property = xdoc.CreateElement("property");
             XmlElement land_register = xdoc.CreateElement("land_register");
@@ -62,8 +102,8 @@ namespace EDC_Trabalho2
             XmlElement value = xdoc.CreateElement("value");
             XmlElement owners = xdoc.CreateElement("owners");
             XmlAttribute aland_register = xdoc.CreateAttribute("land_register");
-            aland_register.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtland")).Text;
-            land_register.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtland")).Text;
+            aland_register.InnerText = (land_register_number).ToString();
+            land_register.InnerText = (land_register_number).ToString();
             city.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtcity")).Text;
             street.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtstreet")).Text;
             port_number.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtport")).Text;

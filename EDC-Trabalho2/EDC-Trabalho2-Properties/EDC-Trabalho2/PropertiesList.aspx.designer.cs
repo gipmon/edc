@@ -22,6 +22,15 @@ namespace EDC_Trabalho2 {
         protected global::System.Web.UI.WebControls.DropDownList Cidades;
         
         /// <summary>
+        /// totalLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalLabel;
+        
+        /// <summary>
         /// XmlDataSource2 control.
         /// </summary>
         /// <remarks>
