@@ -5,8 +5,11 @@
     <hr />
 
     <div class="row">
-      <div class="col-md-12 text-center">Cidades: <asp:DropDownList runat="server"  AutoPostBack="True" ID="Cidades" DataSourceID="XmlDataSource2" DataTextField="city" DataValueField="city" OnSelectedIndexChanged="Unnamed1_SelectedIndexChanged" ></asp:DropDownList>
-          <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/App_Data/properties.xml" TransformFile="~/App_Data/properties.xsl" XPath="properties/property[not(@city=preceding::property/@city)]"></asp:XmlDataSource>
+      <div class="col-md-12 text-center">Cidades: <asp:DropDownList runat="server" AppendDataBoundItems="true"  AutoPostBack="True" ID="Cidades" DataSourceID="XmlDataSource2" DataTextField="city" DataValueField="city" OnSelectedIndexChanged="Unnamed1_SelectedIndexChanged" >
+                                                        <asp:ListItem Value="Todos" Selected="True">Todos</asp:ListItem>
+                                                  </asp:DropDownList>
+            <asp:Label CssClass="pull-right" runat="server" ID="totalLabel" Text=""></asp:Label>
+            <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/App_Data/properties.xml" TransformFile="~/App_Data/properties.xsl" XPath="properties/property[not(@city=preceding::property/@city)]"></asp:XmlDataSource>
         </div>
     </div>
 
@@ -18,7 +21,7 @@
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("land_register", "owners.aspx?ID={0}") %>' Text='<%# Eval("land_register") %>'></asp:HyperLink>
                 </ItemTemplate>
                 <FooterTemplate> 
-                    <asp:TextBox ID="txtland" runat="server"></asp:TextBox> 
+                    
                 </FooterTemplate> 
             </asp:TemplateField>
             <asp:TemplateField HeaderText="City" SortExpression="city">
@@ -92,6 +95,6 @@
         <PagerStyle CssClass="pagination-ys" />
     </asp:GridView>
     <asp:Button ID="button1" runat="server" CssClass="btn btn-default" OnClick="Button2_Click" Text="Add new Property" />
-    <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/App_Data/properties.xml" EnableCaching="False" TransformFile="~/App_Data/properties.xsl"></asp:XmlDataSource>
+    <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/App_Data/properties.xml" EnableCaching="False" TransformFile="~/App_Data/properties.xsl" XPath="/properties/property"></asp:XmlDataSource>
     <asp:XmlDataSource ID="XmlDataSource3" runat="server" DataFile="~/App_Data/properties.xml" EnableCaching="False"></asp:XmlDataSource>
 </asp:Content>

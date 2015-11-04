@@ -56,7 +56,7 @@
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit"><i class="fa fa-pencil-square-o"></i></asp:LinkButton>
-                     &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="True" CommandName="Delete"></asp:LinkButton>
+                     &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="True" CommandName="Delete"><i class="fa fa-trash"></i></asp:LinkButton>
                 </ItemTemplate>
                 <FooterTemplate> 
                     <asp:LinkButton ID="lnkSave" runat="server" CommandName="Save" OnClick="lnkSave_Click">Save</asp:LinkButton> 

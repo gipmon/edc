@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -71,9 +72,33 @@ namespace EDC_Trabalho2
         protected void Button1_Click(object sender, EventArgs e)
         {
             GridView1.ShowFooter = true;
-            GridView1.DataSource = null;
-            GridView1.DataBind();
 
+            if (GridView1.Rows.Count == 0)
+            {
+                DataTable dt = new DataTable();
+                if (dt.Columns.Count == 0)
+                {
+                    dt.Columns.Add("name", typeof(string));
+                    dt.Columns.Add("tax_number", typeof(string));
+                    dt.Columns.Add("date_purchase", typeof(string));
+                    dt.Columns.Add("data_sale", typeof(string));
+                }
+
+                DataRow NewRow = dt.NewRow();
+                NewRow[0] = "";
+                NewRow[1] = "";
+                dt.Rows.Add(NewRow);
+                GridView1.DataSource = dt;
+                GridView1.DataSourceID = null;
+                GridView1.DataBind();
+                GridView1.Rows[0].Visible = false;
+            }
+            else
+            {
+                GridView1.DataSource = null;
+                GridView1.DataBind();
+            }
+            
         }
 
         protected void lnkSave_Click(object sender, EventArgs e)
@@ -103,11 +128,18 @@ namespace EDC_Trabalho2
             XmlDataSource1.Save();
             XmlDataSource1.DataBind();
 
+            GridView1.DataSource = null;
+            GridView1.DataSourceID = "XmlDataSource1";
             GridView1.ShowFooter = false;
+            GridView1.DataBind();
         }
         protected void lnkCancel_Click(object sender, EventArgs e)
         {
+            GridView1.DataSource = null;
+            GridView1.DataSourceID = "XmlDataSource1";
+            GridView1.DataBind();
             GridView1.ShowFooter = false;
+
             // similarly you can find other controls and save
 
         }
