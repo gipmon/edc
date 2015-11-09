@@ -22,6 +22,17 @@
           <xsl:attribute name="value">
             <xsl:value-of select="value"/>
           </xsl:attribute>
+          <xsl:for-each select="owners">
+            <owners>
+              <xsl:for-each select="owner">
+              <owner>
+                <xsl:attribute name="tax_number">
+                  <xsl:value-of select="@tax_number"/>
+                </xsl:attribute>
+              </owner>
+            </xsl:for-each>
+            </owners>
+          </xsl:for-each>
         </property>
       </xsl:for-each>
     </properties>

@@ -69,6 +69,13 @@ namespace EDC_Trabalho2
             GridView1.EditIndex = -1;      
         }
 
+        protected void Search_Owner(object sender, EventArgs e)
+        {
+
+            XmlDataSource1.XPath = "/properties/property[owners/owner[@tax_number='" + tax_number.Text + "']]";
+            total_value();
+        }
+
         protected void Button2_Click(object sender, EventArgs e)
         {
             GridView1.ShowFooter = true;

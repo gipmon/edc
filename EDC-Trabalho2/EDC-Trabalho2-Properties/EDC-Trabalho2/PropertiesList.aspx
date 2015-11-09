@@ -5,11 +5,17 @@
     <hr />
 
     <div class="row">
-      <div class="col-md-12 text-center">Cidades: <asp:DropDownList runat="server" AppendDataBoundItems="true"  AutoPostBack="True" ID="Cidades" DataSourceID="XmlDataSource2" DataTextField="city" DataValueField="city" OnSelectedIndexChanged="Unnamed1_SelectedIndexChanged" >
+        <div class="col-md-4 text-left">
+            Cidades: <asp:DropDownList runat="server" AppendDataBoundItems="true"  AutoPostBack="True" ID="Cidades" DataSourceID="XmlDataSource2" DataTextField="city" DataValueField="city" OnSelectedIndexChanged="Unnamed1_SelectedIndexChanged" >
                                                         <asp:ListItem Value="Todos" Selected="True">Todos</asp:ListItem>
                                                   </asp:DropDownList>
-            <asp:Label CssClass="pull-right" runat="server" ID="totalLabel" Text=""></asp:Label>
             <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/App_Data/properties.xml" TransformFile="~/App_Data/properties.xsl" XPath="properties/property[not(@city=preceding::property/@city)]"></asp:XmlDataSource>
+        </div>
+        <div class="col-md-4 text-center">
+            <span class="pull-left">Tax Number: <asp:TextBox runat="server" ID="tax_number"></asp:TextBox> <asp:Button runat="server" Text="Search" CssClass="btn btn-small" OnClick="Search_Owner" ID="search" /></span>
+        </div>
+        <div class="col-md-4 text-right">
+            <asp:Label CssClass="pull-right" runat="server" ID="totalLabel" Text=""></asp:Label>
         </div>
     </div>
 
