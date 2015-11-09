@@ -39,7 +39,7 @@ namespace EDC_Trabalho2
         {
             if(Cidades.SelectedValue == "Todos")
             {
-                XmlDataSource1.XPath = "/properties/property";
+                XmlDataSource1.XPath = "properties/property";
             }
             else
             {
@@ -71,8 +71,29 @@ namespace EDC_Trabalho2
 
         protected void Search_Owner(object sender, EventArgs e)
         {
-
-            XmlDataSource1.XPath = "/properties/property[owners/owner[@tax_number='" + tax_number.Text + "']]";
+            if (tax_number.Text == "" )
+            {
+                if (Cidades.SelectedValue == "Todos")
+                {
+                    XmlDataSource1.XPath = "properties/property";
+                }
+                else
+                {
+                    XmlDataSource1.XPath = "/properties/property[@city='" + Cidades.SelectedValue + "']";
+                }
+            }
+            else
+            {
+                if (Cidades.SelectedValue == "Todos")
+                {
+                    XmlDataSource1.XPath = "/properties/property[owners/owner[@tax_number='" + tax_number.Text + "']]";
+                }
+                else
+                {
+                    XmlDataSource1.XPath = "/properties/property[@city='" + Cidades.SelectedValue + "'][owners/owner[@tax_number='" + tax_number.Text + "']]";
+                }
+                
+            }
             total_value();
         }
 

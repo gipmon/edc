@@ -12,7 +12,12 @@
             <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/App_Data/properties.xml" TransformFile="~/App_Data/properties.xsl" XPath="properties/property[not(@city=preceding::property/@city)]"></asp:XmlDataSource>
         </div>
         <div class="col-md-4 text-center">
-            <span class="pull-left">Tax Number: <asp:TextBox runat="server" ID="tax_number"></asp:TextBox> <asp:Button runat="server" Text="Search" CssClass="btn btn-small" OnClick="Search_Owner" ID="search" /></span>
+            <div class="input-group">
+              <asp:TextBox runat="server" class="form-control" ID="tax_number"></asp:TextBox>
+              <span class="input-group-btn">
+                <asp:Button runat="server" Text="Procurar por TaxNumber" CssClass="btn btn-small" OnClick="Search_Owner" />
+              </span>
+            </div><!-- /input-group -->
         </div>
         <div class="col-md-4 text-right">
             <asp:Label CssClass="pull-right" runat="server" ID="totalLabel" Text=""></asp:Label>

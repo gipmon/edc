@@ -40,15 +40,6 @@ namespace EDC_Trabalho2 {
         protected global::System.Web.UI.WebControls.TextBox tax_number;
         
         /// <summary>
-        /// search control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button search;
-        
-        /// <summary>
         /// totalLabel control.
         /// </summary>
         /// <remarks>
