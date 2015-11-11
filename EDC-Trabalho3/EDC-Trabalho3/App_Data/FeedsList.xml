@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<feeds>
+  <feed name="Publico" url="http://feeds.feedburner.com/PublicoRSS?format=xml" />
+  <feed name="O Jogo - FCPorto" url="http://feeds.ojogo.pt/OJ-Porto" />
+</feeds>
