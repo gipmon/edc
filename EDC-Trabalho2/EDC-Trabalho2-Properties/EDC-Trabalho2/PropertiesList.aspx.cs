@@ -90,7 +90,7 @@ namespace EDC_Trabalho2
                 }
                 else
                 {
-                    XmlDataSource1.XPath = "/properties/property[@city='" + Cidades.SelectedValue + "'][owners/owner[@tax_number='" + tax_number.Text + "']]";
+                    XmlDataSource1.XPath = "/properties/property[@city='" + Cidades.SelectedValue + "'][owners/owner[@tax_number='" + tax_number.Text + "'][@]";
                 }
                 
             }

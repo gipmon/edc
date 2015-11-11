@@ -9,8 +9,6 @@
     </address>
     <value>1000000</value>
     <owners>
-      <owner name="Jorge Nuno" tax_number="20000" date_purchase="1999/08/09" data_sale="" />
-      <owner name="dyfs" tax_number="32" date_purchase="1999/01/01" data_sale="" />
     </owners>
   </property>
   <property land_register="20">
@@ -87,13 +85,14 @@
     <land_register>50</land_register>
     <address>
       <city>Faro</city>
-      <street>Rua do Miradouro</street>
+      <street>Rua do Miradouro </street>
       <port_number>150</port_number>
     </address>
     <value>1000000</value>
     <owners>
       <owner name="Rafael" tax_number="30000" date_purchase="2003/10/20" data_sale="2009/10/11" />
-      <owner name="Rodrigo Cunha" tax_number="2000" date_purchase="2009/10/11" data_sale="" />
+      <owner name="Rodrigo Cunha" tax_number="2000" date_purchase="2009/10/11" data_sale="2015/11/09" />
+      <owner name="Jose Vieira" tax_number="2340" date_purchase="2015/11/09" data_sale="" />
     </owners>
   </property>
 </properties>
