@@ -106,6 +106,12 @@ namespace EDC_Trabalho2
           
             XmlDocument xdoc = XmlDataSource1.GetXmlDocument();
             string land_register = Request.QueryString["ID"];
+            XmlElement owner1 = xdoc.SelectSingleNode("properties/property[@land_register='" + land_register + "']/owners/owner[@data_sale='']") as XmlElement;
+            if(owner1 != null)
+            {
+                owner1.Attributes["data_sale"].Value = ((TextBox)GridView1.FooterRow.FindControl("txtpurchase")).Text;
+            }
+
 
             XmlElement owners = xdoc.SelectSingleNode("properties/property[@land_register='" + land_register + "']/owners") as XmlElement;
             XmlElement owner = xdoc.CreateElement("owner");
@@ -117,7 +123,6 @@ namespace EDC_Trabalho2
             name.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtname")).Text;
             tax_number.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txttax")).Text;
             date_purchase.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtpurchase")).Text;
-            data_sale.InnerText = ((TextBox)GridView1.FooterRow.FindControl("txtsale")).Text;
 
             owners.AppendChild(owner);
             owner.Attributes.Append(name);

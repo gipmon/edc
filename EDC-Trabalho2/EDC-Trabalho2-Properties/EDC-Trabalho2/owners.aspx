@@ -46,7 +46,7 @@
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("data_sale") %>'></asp:Label>
                 </ItemTemplate>
                 <FooterTemplate> 
-                    <asp:TextBox ID="txtsale" runat="server"></asp:TextBox> 
+                   <!-- <asp:TextBox ID="txtsale" runat="server"></asp:TextBox> -->
                 </FooterTemplate> 
             </asp:TemplateField>
             <asp:TemplateField ShowHeader="False">

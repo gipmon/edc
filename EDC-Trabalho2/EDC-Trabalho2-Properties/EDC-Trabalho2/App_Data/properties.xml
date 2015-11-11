@@ -46,7 +46,8 @@
     </address>
     <value>450231</value>
     <owners>
-      <owner name="Rafael Ferreira" tax_number="3000" date_purchase="2008/10/12" data_sale="" />
+      <owner name="Rafael Ferreira" tax_number="3000" date_purchase="2008/10/12" data_sale="2009/10/11" />
+      <owner name="Rodrigo Cunha" tax_number="2000" date_purchase="2009/10/11" data_sale="" />
     </owners>
   </property>
   <property land_register="30">
@@ -78,6 +79,8 @@
     </address>
     <value>200000</value>
     <owners>
+      <owner name="Fábio Silva" tax_number="40022" date_purchase="2012/09/09" data_sale="2015/10/10" />
+      <owner name="Rafael" tax_number="3000" date_purchase="2015/10/10" data_sale="" />
     </owners>
   </property>
   <property land_register="50">
@@ -88,6 +91,9 @@
       <port_number>150</port_number>
     </address>
     <value>1000000</value>
-    <owners />
+    <owners>
+      <owner name="Rafael" tax_number="30000" date_purchase="2003/10/20" data_sale="2009/10/11" />
+      <owner name="Rodrigo Cunha" tax_number="2000" date_purchase="2009/10/11" data_sale="" />
+    </owners>
   </property>
 </properties>
