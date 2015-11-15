@@ -23,8 +23,36 @@ namespace EDC_Trabalho3
             reader.Close();
 
             XmlDataSource_feed.Data = doc.OuterXml;
-           // XmlDataSource_feed.XPath = "rss/channel";
+            XmlDataSource_feed.DataBind();
+            XmlDataSource_feed.XPath = "/rss/channel";
 
+
+            XmlDocument xdoc = XmlDataSource_feed.GetXmlDocument();
+            XmlElement root = xdoc.DocumentElement;
+            XmlNodeList nodes = root.SelectNodes(XmlDataSource_feed.XPath); 
+
+            foreach (XmlNode node in nodes)
+            {
+                titleLabel.Text = node.Attributes[0].Value;
+                linkLabel.Text = node.Attributes[1].Value;
+                descriptionLabel.Text = node.Attributes[3].Value;
+                languageLabel.Text = node.Attributes[2].Value;
+                ManagingEditorLabel.Text = node.Attributes[4].Value;
+                WebMasterLabel.Text = node.Attributes[5].Value;
+                LastBuildDateLabel.Text = node.Attributes[6].Value;
+                CategoryLabel.Text = node.Attributes[7].Value;
+
+                if (node.Attributes[8].Value.Length != 0)
+                {
+                    channelImage.Attributes["src"] = node.Attributes[8].Value;
+                }
+                else
+                {
+                    channelImage.Attributes["src"] = "http://placehold.it/160x160";
+                }
+                
+            }
+            
         }
     }
 }

@@ -2,39 +2,37 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template match="rss">
     <rss>
-      <xsl:for-each select="property">
-        <xsl:sort select="land_register" data-type="number"/>
-        <property>
-          <xsl:attribute name="land_register">
-            <xsl:value-of select="land_register" />
+      <xsl:for-each select="channel">
+        <channel>
+          <xsl:attribute name="title">
+            <xsl:value-of select="title" />
           </xsl:attribute>
-          <xsl:for-each select="address">
-            <xsl:attribute name="city">
-              <xsl:value-of select="city"/>
-            </xsl:attribute>
-            <xsl:attribute name="street">
-              <xsl:value-of select="street"/>
-            </xsl:attribute>
-            <xsl:attribute name="port_number">
-              <xsl:value-of select="port_number"/>
-            </xsl:attribute>
-          </xsl:for-each>
-          <xsl:attribute name="value">
-            <xsl:value-of select="value"/>
+          <xsl:attribute name="link">
+            <xsl:value-of select="link" />
           </xsl:attribute>
-          <xsl:for-each select="owners">
-            <owners>
-              <xsl:for-each select="owner">
-              <owner>
-                <xsl:attribute name="tax_number">
-                  <xsl:value-of select="@tax_number"/>
-                </xsl:attribute>
-              </owner>
-            </xsl:for-each>
-            </owners>
-          </xsl:for-each>
-        </property>
+          <xsl:attribute name="language">
+            <xsl:value-of select="language"/>
+          </xsl:attribute>
+          <xsl:attribute name="description">
+            <xsl:value-of select="description"/>
+          </xsl:attribute>
+          <xsl:attribute name="managingEditor">
+            <xsl:value-of select="managingEditor"/>
+          </xsl:attribute>
+          <xsl:attribute name="webMaster">
+            <xsl:value-of select="webMaster"/>
+          </xsl:attribute>
+          <xsl:attribute name="lastBuildDate">
+            <xsl:value-of select="lastBuildDate"/>
+          </xsl:attribute>
+          <xsl:attribute name="category">
+            <xsl:value-of select="category"/>
+          </xsl:attribute>
+          <xsl:attribute name="imageLink">
+            <xsl:value-of select="image/url"/>
+          </xsl:attribute>
+        </channel>
       </xsl:for-each>
-    </properties>
+    </rss>
   </xsl:template>
 </xsl:stylesheet>
