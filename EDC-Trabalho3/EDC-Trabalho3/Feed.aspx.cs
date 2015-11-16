@@ -53,6 +53,17 @@ namespace EDC_Trabalho3
                 
             }
             
+            XmlNodeList nodes_items = root.SelectNodes("/rss/channel/item");
+
+            String innerHtml = "";
+
+            foreach (XmlNode node in nodes_items)
+            {
+                String node_html = "<div class=\"col-md-4\"><div class=\"well\" style=\"min-height: 250px\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + node.Attributes[2].Value + "\">" + node.Attributes[0].Value + "</a></h4> <div class=\"row\"><div class=\"col-md-6\"><small><i class=\"fa fa-tag\"></i> " + node.Attributes[3].Value + "</small></div><div class=\"col-md-6\" style=\"text-align: right\"><small><i class=\"fa fa-calendar - check - o\"></i> " + node.Attributes[4].Value + "</small></div></div><p>" + node.Attributes[1].Value + "</p></div></div></div></div>";
+                innerHtml += node_html;
+            }
+
+            news.InnerHtml = innerHtml;
         }
     }
 }

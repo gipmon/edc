@@ -31,6 +31,25 @@
           <xsl:attribute name="imageLink">
             <xsl:value-of select="image/url"/>
           </xsl:attribute>
+          <xsl:for-each select="item">
+            <item>
+              <xsl:attribute name="title">
+                <xsl:value-of select="title"/>
+              </xsl:attribute>
+              <xsl:attribute name="description">
+                <xsl:value-of select="description"/>
+              </xsl:attribute>
+              <xsl:attribute name="link">
+                <xsl:value-of select="link"/>
+              </xsl:attribute>
+              <xsl:attribute name="category">
+                <xsl:value-of select="category"/>
+              </xsl:attribute>
+              <xsl:attribute name="pubDate">
+                <xsl:value-of select="pubDate"/>
+              </xsl:attribute>
+            </item>
+          </xsl:for-each>
         </channel>
       </xsl:for-each>
     </rss>
