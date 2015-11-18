@@ -1,5 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <feeds>
   <feed name="Publico" url="http://feeds.feedburner.com/PublicoRSS?format=xml" />
   <feed name="O Jogo - FCPorto" url="http://feeds.ojogo.pt/OJ-Porto" />
+  <feed name="TVI" url="http://www.tvi.iol.pt/rss.html" />
+  <feed name="Visao" url="http://rss.impresa.pt/feed/latest/visao.rss" />
+  <feed name="SIC" url="http://rss.impresa.pt/feed/latest/sic.rss" />
+  <feed name="Expresso" url="http://feeds.feedburner.com/expresso-geral" />
+  <feed name="JN" url="http://feeds.jn.pt/JN-ULTIMAS" />
+  <feed name="Record" url="http://feeds.record.xl.pt" />
+  <feed name="A Bola" url="http://a-bola.webnode.pt/rss/all.xml" />
 </feeds>

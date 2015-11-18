@@ -9,7 +9,7 @@
              <asp:XmlDataSource ID="XmlDataSourceFeedReader" runat="server" DataFile="~/App_Data/FeedsList.xml"></asp:XmlDataSource>
         </div>
         <div class="col-md-6" style="text-align: right; margin-top: 0px;">
-            <asp:LinkButton ID="ManageFeeds" runat="server" CssClass="btn btn-primary"><i class="fa fa-rss"></i>&nbsp;Manage feeds</asp:LinkButton>
+            <asp:LinkButton ID="ManageFeeds" PostBackUrl="~/manageFeeds.aspx" runat="server" CssClass="btn btn-primary"><i class="fa fa-rss"></i>&nbsp;Manage feeds</asp:LinkButton>
         </div>
     </div>
     <div class="row">
