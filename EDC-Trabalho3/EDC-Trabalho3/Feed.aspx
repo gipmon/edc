@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-xs-4"></div>
         		<div class="col-xs-4">
-        			<img runat="server" ID="channelImage" src="http://placehold.it/160x160" style="height:160px; width:160px" class="img-responsive img-radio">
+        			<img runat="server" ID="channelImage" src="http://placehold.it/160x160" style="width:160px" class="img-responsive img-radio">
         		</div>
                 <div class="col-xs-4"></div>
         	</div>

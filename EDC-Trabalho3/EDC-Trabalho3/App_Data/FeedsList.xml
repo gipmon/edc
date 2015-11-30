@@ -9,4 +9,6 @@
   <feed name="JN" url="http://feeds.jn.pt/JN-ULTIMAS" />
   <feed name="Record" url="http://feeds.record.xl.pt" />
   <feed name="A Bola" url="http://a-bola.webnode.pt/rss/all.xml" />
+  <feed name="Observador" url="http://feeds.feedburner.com/obs-ultimas" />
+  <feed name="NYT" url="http://rss.nytimes.com/services/xml/rss/nyt/InternationalHome.xml" />
 </feeds>
