@@ -36,3 +36,8 @@ input[type="select"] {
         padding: 0;
     }
 }
+.scroll-modal .modal-content
+{
+  height:700px;
+  overflow:auto;
+}
