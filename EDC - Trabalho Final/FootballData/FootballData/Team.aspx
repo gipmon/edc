@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <h2><%# team.name %></h2>
-        <div class="row text-center">    
-            <div class="col-md-6">
+        <div class="row">    
+            <div class="col-md-4">
                 <div class="card">
                     <div class="card-image" style="text-align: center">
-                        <img class="img-responsive" style="max-height: 350px" src="<%# team.crestUrl %>">
+                        <img class="img-responsive" style="max-height: 350px; max-width: 300px" src="<%# team.crestUrl %>">
                     
                     </div><!-- card image -->
                 
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                
+                <h3>News</h3>
             </div>
         </div>
     </div>
