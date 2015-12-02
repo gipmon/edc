@@ -30,6 +30,10 @@ namespace FootballData
                 syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
                 syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
                 var content = syncClient.DownloadString(url);
+
+                WebHeaderCollection headers = syncClient.ResponseHeaders;
+                String reset = syncClient.ResponseHeaders[3];
+
                 seasonsList = JsonConvert.DeserializeObject<List<SeasonClass>>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
                 foreach (SeasonClass s in seasonsList)
@@ -38,12 +42,12 @@ namespace FootballData
                     SqlCommand cmd_season = new SqlCommand(CmdString, con);
                     cmd_season.CommandType = CommandType.StoredProcedure;
                     String[] tmp = s._links.self.href.ToString().Split('/');
-                    int id;
-                    if (!Int32.TryParse(tmp[tmp.Length - 1], out id))
+                    int season_id;
+                    if (!Int32.TryParse(tmp[tmp.Length - 1], out season_id))
                     {
                         return;
                     }
-                    cmd_season.Parameters.AddWithValue("@id", id);
+                    cmd_season.Parameters.AddWithValue("@id", season_id);
                     cmd_season.Parameters.AddWithValue("@link_fixtures_href", s._links.fixtures.href);
                     cmd_season.Parameters.AddWithValue("@link_leagueTable_href", s._links.leagueTable.href);
                     cmd_season.Parameters.AddWithValue("@link_self_href", s._links.self.href);
@@ -67,14 +71,14 @@ namespace FootballData
                         con.Close();
                     }
 
-                    url = "http://api.football-data.org/v1/soccerseasons/" + id + "/teams";
+                    url = "http://api.football-data.org/v1/soccerseasons/" + season_id + "/teams";
 
                     syncClient = new WebClient();
                     syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
                     syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
                     content = syncClient.DownloadString(url);
-                    WebHeaderCollection headers = syncClient.ResponseHeaders;
-                    String reset = syncClient.ResponseHeaders[3];
+                    headers = syncClient.ResponseHeaders;
+                    reset = syncClient.ResponseHeaders[3];
 
                     TeamList teamList;
                     teamList = JsonConvert.DeserializeObject<TeamList>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
@@ -85,6 +89,8 @@ namespace FootballData
                         cmd_season = new SqlCommand(CmdString, con);
                         cmd_season.CommandType = CommandType.StoredProcedure;
                         tmp = t._links.self.href.ToString().Split('/');
+
+                        int id;
 
                         if (!Int32.TryParse(tmp[tmp.Length - 1], out id))
                         {
@@ -111,17 +117,34 @@ namespace FootballData
                         {
                             con.Close();
                         }
+
+                        // associate team to season
+                        CmdString = "football.sp_associateTeamToSeason";
+                        cmd_season = new SqlCommand(CmdString, con);
+                        cmd_season.CommandType = CommandType.StoredProcedure;
+                        cmd_season.Parameters.AddWithValue("@seasonID", season_id);
+                        cmd_season.Parameters.AddWithValue("@teamID", id);
+
+                        try
+                        {
+                            con.Open();
+                            cmd_season.ExecuteNonQuery();
+
+                            con.Close();
+                        }
+                        catch (Exception exc)
+                        {
+                            con.Close();
+                        }
                     }
-                    System.Threading.Thread.Sleep(1000);
-
-
-
+                    System.Threading.Thread.Sleep(1500);
+                    
                 }
             }
 
             //Populate Teams
-
             
+
         }
     }
 }

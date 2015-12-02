@@ -127,3 +127,55 @@ AS
   		RAISERROR ('An error occurred when creating the team!', 14, 1)
   		ROLLBACK TRANSACTION;
   	END CATCH;
+
+go
+
+  CREATE PROCEDURE football.sp_associateTeamToSeason
+    @seasonID				INT,
+    @teamID					INT
+  WITH ENCRYPTION
+  AS
+  	IF @seasonID is null OR @teamID is null
+  	BEGIN
+  		PRINT 'Any field can not be null!'
+  		RETURN
+  	END
+	
+	DECLARE @count int
+
+	SELECT @count = count(id) FROM football.team WHERE id = @teamID;
+
+	IF @count = 0
+	BEGIN
+		RETURN
+	END
+
+	SELECT @count = count(id) FROM football.season WHERE id = @seasonID;
+
+	IF @count = 0
+	BEGIN
+		RETURN
+	END
+
+	SELECT @count = count(seasonID) FROM football.teamSeason WHERE seasonID = @seasonID and teamID = @teamID;
+
+	IF @count = 0
+	BEGIN
+		RETURN
+	END
+
+  	BEGIN TRANSACTION;
+
+  	BEGIN TRY
+  		INSERT INTO football.teamSeason
+  					([seasonID],
+  					 [teamID])
+  		VALUES      ( @seasonID,
+  					  @teamID)
+
+  		COMMIT TRANSACTION;
+  	END TRY
+  	BEGIN CATCH
+  		RAISERROR ('An error occurred when creating the association!', 14, 1)
+  		ROLLBACK TRANSACTION;
+  	END CATCH;
