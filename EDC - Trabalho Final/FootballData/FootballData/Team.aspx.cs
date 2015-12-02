@@ -42,7 +42,7 @@ namespace FootballData
             syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
 
             content = syncClient.DownloadString(url);
-            players_list = JsonConvert.DeserializeObject<PlayersList>(content);
+            players_list = JsonConvert.DeserializeObject<PlayersList>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
             players_list_html += "";
 

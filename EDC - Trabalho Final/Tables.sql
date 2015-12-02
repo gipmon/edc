@@ -1,5 +1,6 @@
-Create Schema football;
+use EDCFootball;
 
+Create Schema football;
 CREATE TABLE football.season(
 	id INT PRIMARY KEY,
 	link_fixtures_href text,
@@ -45,6 +46,11 @@ CREATE TABLE football.player(
 CREATE TABLE football.teamplayer(
 	playerID int REFERENCES football.player(id),
 	seasonID int REFERENCES football.season(id)
+);
+
+CREATE TABLE football.teamSubscription(
+	userID NVARCHAR(128) REFERENCES dbo.AspNetUsers(Id),
+	teamID int REFERENCES football.team(id)
 );
 
 
