@@ -30,7 +30,7 @@ namespace FootballData
                 syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
                 syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
                 var content = syncClient.DownloadString(url);
-                seasonsList = JsonConvert.DeserializeObject<List<SeasonClass>>(content);
+                seasonsList = JsonConvert.DeserializeObject<List<SeasonClass>>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
                 foreach (SeasonClass s in seasonsList)
                 {
@@ -73,10 +73,13 @@ namespace FootballData
                     syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
                     syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
                     content = syncClient.DownloadString(url);
-                    List<TeamClass> teamList;
-                    teamList = JsonConvert.DeserializeObject<List<TeamClass>>(content);
+                    WebHeaderCollection headers = syncClient.ResponseHeaders;
+                    String reset = syncClient.ResponseHeaders[3];
 
-                    foreach (TeamClass t in teamList)
+                    TeamList teamList;
+                    teamList = JsonConvert.DeserializeObject<TeamList>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                    foreach (TeamClass t in teamList.teams)
                     {
                         CmdString = "football.sp_createTeam";
                         cmd_season = new SqlCommand(CmdString, con);
@@ -109,6 +112,9 @@ namespace FootballData
                             con.Close();
                         }
                     }
+                    System.Threading.Thread.Sleep(1000);
+
+
 
                 }
             }
