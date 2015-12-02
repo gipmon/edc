@@ -9,6 +9,8 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using System.Net;
 using Newtonsoft.Json;
+using FootballData.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FootballData
 {
@@ -99,6 +101,13 @@ namespace FootballData
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
+        protected String getUserFullName()
+        {
+            var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var currentUser = manager.FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
+            return currentUser.Name;
         }
     }
 

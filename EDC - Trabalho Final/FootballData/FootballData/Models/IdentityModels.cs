@@ -14,6 +14,11 @@ namespace FootballData.Models
     public class ApplicationUser : IdentityUser
     {
 
+        public string getName()
+        {
+            return this.Name;
+        }
+
         public string Name { get; set; }
 
         public ClaimsIdentity GenerateUserIdentity(ApplicationUserManager manager)
