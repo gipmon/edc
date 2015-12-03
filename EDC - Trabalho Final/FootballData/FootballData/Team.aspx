@@ -24,7 +24,8 @@
             </div>
             <div class="col-md-6">
                 <h3>News</h3>
-                <small>We don't have any subscription for that team, so we don't have stored feeds for that team. So, we will display to you some <strong><a href="<%# google_link %>">Google News</a></strong>.</small>
+                <small>We don't have any subscription for that team, so we don't have stored feeds for that team. </small>
+                <hr />
                 
                 <div class="row">
                     <%# news_html %>
