@@ -23,7 +23,7 @@ namespace FootballData
             con = ConnectionDB.getConnection();
             
             // Populate Seasons
-            for (int i = 2010; i < 2016; i++)
+            for (int i = 2015; i < 2016; i++)
             {
                 var url = "http://api.football-data.org/v1/soccerseasons/?season=" + i;
                 var syncClient = new WebClient();
@@ -101,8 +101,20 @@ namespace FootballData
                         cmd_season.Parameters.AddWithValue("@link_players_href", t._links.players.href);
                         cmd_season.Parameters.AddWithValue("@link_self_href", t._links.self.href);
                         cmd_season.Parameters.AddWithValue("@name", t.name);
+                        if (t.code == null)
+                        {
+                            t.code = " ";
+                        }
                         cmd_season.Parameters.AddWithValue("@code", t.code);
+                        if (t.shortName == null)
+                        {
+                            t.shortName = " ";
+                        }
                         cmd_season.Parameters.AddWithValue("@shortName", t.shortName);
+                        if (t.squadMarketValue == null)
+                        {
+                            t.squadMarketValue = " ";
+                        }
                         cmd_season.Parameters.AddWithValue("@squadMarketValue", t.squadMarketValue);
                         cmd_season.Parameters.AddWithValue("@crestURL", t.crestUrl);
 
@@ -136,9 +148,86 @@ namespace FootballData
                         {
                             con.Close();
                         }
+
+                        url = "http://api.football-data.org/v1/teams/" + id + "/players";
+
+                        syncClient = new WebClient();
+                        syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
+                        syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
+                        content = syncClient.DownloadString(url);
+
+                        PlayersList playerList;
+                        playerList = JsonConvert.DeserializeObject<PlayersList>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+
+                        foreach (Player p in playerList.players)
+                        {
+                            CmdString = "football.sp_createPlayer";
+                            cmd_season = new SqlCommand(CmdString, con);
+                            cmd_season.CommandType = CommandType.StoredProcedure;
+
+                            cmd_season.Parameters.AddWithValue("@name", p.name);
+                            if (p.position == null)
+                            {
+                                p.position = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@position", p.position);
+                            cmd_season.Parameters.AddWithValue("@jerseyNumber", p.jerseyNumber);
+                            if (p.dateOfBirth == null)
+                            {
+                                p.dateOfBirth = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@dateOfBirth", p.dateOfBirth);
+                            if (p.nationality == null)
+                            {
+                                p.nationality = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@nationality", p.nationality);
+                            if (p.contractUntil == null)
+                            {
+                                p.contractUntil = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@contractUntil", p.contractUntil);
+                            if (p.marketValue == null)
+                            {
+                                p.marketValue = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@marketValue", p.marketValue);
+
+                            try
+                            {
+                                con.Open();
+                                cmd_season.ExecuteNonQuery();
+
+                                con.Close();
+                            }
+                            catch (Exception exc)
+                            {
+                                con.Close();
+                            }
+
+                            // associate player to team
+                            CmdString = "football.sp_associatePlayerToTeam";
+                            cmd_season = new SqlCommand(CmdString, con);
+                            cmd_season.CommandType = CommandType.StoredProcedure;
+                            cmd_season.Parameters.AddWithValue("@playerName", p.name);
+                            cmd_season.Parameters.AddWithValue("@playerNationality", p.nationality);
+                            cmd_season.Parameters.AddWithValue("@playerDateOfBirth", p.dateOfBirth);
+                            cmd_season.Parameters.AddWithValue("@teamID", id);
+
+                            try
+                            {
+                                con.Open();
+                                cmd_season.ExecuteNonQuery();
+
+                                con.Close();
+                            }
+                            catch (Exception exc)
+                            {
+                                con.Close();
+                            }
+                        }
+                        System.Threading.Thread.Sleep(1500);
                     }
-                    System.Threading.Thread.Sleep(1500);
-                    
                 }
             }
 
