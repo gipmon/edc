@@ -166,3 +166,6 @@
 \\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC - Trabalho Final\FootballData\FootballData\obj\Debug\FootballData.csprojResolveAssemblyReference.cache
 \\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC - Trabalho Final\FootballData\FootballData\obj\Debug\FootballData.dll
 \\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC - Trabalho Final\FootballData\FootballData\obj\Debug\FootballData.pdb
+\\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.dll
+\\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.pdb
+\\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.xml

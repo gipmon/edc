@@ -1,12 +1,15 @@
 ﻿using FootballData.Controllers;
+using HtmlAgilityPack;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace FootballData
 {
@@ -17,6 +20,9 @@ namespace FootballData
         public PlayersList players_list;
         public String players_list_html;
         public String fixturesTable_html;
+        protected String news_html;
+        protected String google_link;
+        protected int paginationNews;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -73,6 +79,62 @@ namespace FootballData
                 }
                 fixturesTable_html += "</tr>";
             }
+
+            // XML
+
+            url = "https://news.google.pt/news/feeds?pz=1&cf=all&ned=en&hl=pt&q="+ Server.UrlEncode(team .name) + "&output=rss";
+            
+            XmlReader reader = XmlReader.Create(url);
+            XmlDocument doc = new XmlDocument();
+            doc.Load(reader);
+            reader.Close();
+            
+            XmlDataSourceGoogle_feed.Data = doc.OuterXml;
+            XmlDataSourceGoogle_feed.DataBind();
+            XmlDataSourceGoogle_feed.XPath = "/rss/channel";
+
+            XmlDocument xdoc = XmlDataSourceGoogle_feed.GetXmlDocument();
+            XmlElement root = xdoc.DocumentElement;
+            XmlNodeList nodes_items = root.SelectNodes("/rss/channel");
+
+            google_link = nodes_items[0].Attributes[0].Value;
+
+            xdoc = XmlDataSourceGoogle_feed.GetXmlDocument();
+            root = xdoc.DocumentElement;
+            nodes_items = root.SelectNodes("/rss/channel/item");
+
+            news_html = "";
+
+            int id_int = 0;
+
+            foreach (XmlNode node in nodes_items)
+            {
+                id_int++;
+                
+                String node_html = "<div id=\"new_id_" + id_int + "\"";
+                node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + node.Attributes[2].Value + "\">" + node.Attributes[0].Value + "</a></h4> <p>" + Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @"</font><br><font.*><a.*|<b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "")+ "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + node.Attributes[5].Value + "</small></span></div></div></div>";
+                
+                HtmlDocument doc_html = new HtmlDocument();
+                doc_html.LoadHtml(node.Attributes[1].Value);
+
+                var html_a = doc_html.DocumentNode.SelectNodes("//a").ToList();
+
+                if (html_a.ToArray().Length > 3)
+                {
+                    node_html += "<div class=\"btn-group dropup pull-right\" style=\"margin-top: -20px;\"><button type=\"button\" class=\"btn btn-default btn-xs\" disabled=\"disabled\">Related news</button><button type=\"button\" class=\"btn btn-default dropdown-toggle btn-xs\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span></button><ul class=\"dropdown-menu\">";
+
+                    for (var i=2; i<html_a.ToArray().Length-1; i++)
+                    {
+                        node_html += "<li><a target=\"_blank\" href=\"" + html_a[i].Attributes[0].Value + "\">" + html_a[i].InnerText + "</a></li>";
+                    }
+
+                    node_html += "<!-- Dropdown menu links --></ul></div>";
+                }
+
+                news_html += (node_html + "</div>");
+            }
+
+            paginationNews = id_int;
 
             Page.DataBind();
         }
