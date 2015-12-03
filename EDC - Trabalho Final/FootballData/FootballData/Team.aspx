@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Team.aspx.cs" Inherits="FootballData.Team" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:XmlDataSource ID="XmlDataSourceGoogle_feed" TransformFile="~/App_Data/googleNews.xsl" runat="server" EnableCaching="false"></asp:XmlDataSource>
     <div class="container">
         <h2><%# team.name %></h2>
         <div class="row">    
@@ -17,11 +18,38 @@
                     <div class="card-action">
                         <a href="#" data-toggle="modal" data-target="#fixturesModal" target="new_blank">Fixtures</a>
                         <a href="#" data-toggle="modal" data-target="#squadModal" target="new_blank">Squad</a>
+                        <a href="#" data-toggle="modal" data-target="#leaguesModal" target="new_blank">Leagues</a>
                     </div><!-- card actions -->
                 </div>
             </div>
             <div class="col-md-6">
                 <h3>News</h3>
+                <small>We don't have any subscription for that team, so we don't have stored feeds for that team. So, we will display to you some <strong><a href="<%# google_link %>">Google News</a></strong>.</small>
+                
+                <div class="row">
+                    <%# news_html %>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <nav>
+                          <ul class="pagination" data-toggle="<%# paginationNews %>">
+                            <li>
+                              <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                              </a>
+                            </li>
+                            <li id="li_page_1" class="active"><a href="#1">1</a></li>
+                            <li>
+                              <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
