@@ -1,4 +1,5 @@
 ﻿using FootballData.Controllers;
+using HtmlAgilityPack;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -111,9 +112,39 @@ namespace FootballData
                 id_int++;
 
                 String node_html = "<div id=\"new_id_" + id_int + "\"";
-                node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + node.Attributes[2].Value + "\">" + node.Attributes[0].Value + "</a></h4> <p>" + Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @" < b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "")+ "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + node.Attributes[5].Value + "</small></span></div></div></div></div>";
-                news_html += node_html;
+                node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + node.Attributes[2].Value + "\">" + node.Attributes[0].Value + "</a></h4> <p>" + Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @"</font><br><font.*><a.*|<b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "")+ "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + node.Attributes[5].Value + "</small></span></div></div></div>";
+                
+                HtmlDocument doc_html = new HtmlDocument();
+                doc_html.LoadHtml(node.Attributes[1].Value);
 
+                var html_a = doc_html.DocumentNode.SelectNodes("//a").ToList();
+
+                if (html_a.ToArray().Length > 3)
+                {
+                    node_html += "<div class=\"btn-group dropup pull-right\" style=\"margin-top: -20px;\"><button type=\"button\" class=\"btn btn-default btn-xs\" disabled=\"disabled\">Related news</button><button type=\"button\" class=\"btn btn-default dropdown-toggle btn-xs\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><span class=\"caret\"></span><span class=\"sr-only\">Toggle Dropdown</span></button><ul class=\"dropdown-menu\">";
+
+                    for (var i=2; i<html_a.ToArray().Length-1; i++)
+                    {
+                        HtmlWeb website = new HtmlWeb();
+                        var new_url = html_a[i].Attributes[0].Value.ToString().Split(new string[] { ";url=" }, StringSplitOptions.None);
+
+                        try
+                        {
+                            HtmlDocument news_html = website.Load(new_url[1]);
+                            var amazing_title = news_html.DocumentNode.SelectNodes("//title").ToList();
+
+                            node_html += "<li><a target=\"_blank\" href=\"" + html_a[i].Attributes[0].Value + "\">" + amazing_title[0].InnerText + "</a></li>";
+                        }
+                        catch (Exception)
+                        {
+                            node_html += "<li><a target=\"_blank\" href=\"" + html_a[i].Attributes[0].Value + "\">" + html_a[i].InnerText + "</a></li>";
+                        }
+                    }
+
+                    node_html += "<!-- Dropdown menu links --></ul></div>";
+                }
+
+                news_html += (node_html + "</div>");
             }
 
             paginationNews = id_int;
