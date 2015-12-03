@@ -1,6 +1,8 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -12,9 +14,13 @@ namespace FootballData
 {
     public partial class downloadNews : System.Web.UI.Page
     {
+        private SqlConnection con;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var team_id = 503;
+            con = ConnectionDB.getConnection();
+
+            Int32 team_id = 1;
             var team_name = "FC Porto";
 
             var url = "https://news.google.pt/news/feeds?pz=1&cf=all&ned=en&hl=pt&q=" + Server.UrlEncode(team_name) + "&output=rss";
@@ -57,38 +63,86 @@ namespace FootballData
                 var news_title = node.Attributes[0].Value;
                 var news_description = Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @"</font><br><font.*><a.*|<b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "");
                 var news_pubDate = node.Attributes[5].Value;
-                
-                HtmlDocument doc_html = new HtmlDocument();
-                doc_html.LoadHtml(node.Attributes[1].Value);
 
-                var html_a = doc_html.DocumentNode.SelectNodes("//a").ToList();
+                // store new
+                string CmdString = "football.sp_insertNew";
+                SqlCommand cmd_new = new SqlCommand(CmdString, con);
+                cmd_new.CommandType = CommandType.StoredProcedure;
+                cmd_new.Parameters.AddWithValue("@title", news_title);
+                cmd_new.Parameters.AddWithValue("@link", news_url);
+                cmd_new.Parameters.AddWithValue("@description", news_description);
+                cmd_new.Parameters.AddWithValue("@team_id", team_id);
+                SqlParameter returnID = new SqlParameter("@output", SqlDbType.Int);
+                returnID.Direction = ParameterDirection.ReturnValue;
+                cmd_new.Parameters.Add(returnID);
 
-                if (html_a.ToArray().Length > 3)
+                try
                 {
+                    con.Open();
+                    cmd_new.ExecuteNonQuery();
+                    var news_id = cmd_new.Parameters[4].Value;
+                    con.Close();
 
-                    for (var i = 2; i < html_a.ToArray().Length - 1; i++)
+                    // related news
+
+                    HtmlDocument doc_html = new HtmlDocument();
+                    doc_html.LoadHtml(node.Attributes[1].Value);
+
+                    var html_a = doc_html.DocumentNode.SelectNodes("//a").ToList();
+
+                    if (html_a.ToArray().Length > 3)
                     {
-                        HtmlWeb website = new HtmlWeb();
-                        var new_url = html_a[i].Attributes[0].Value.ToString().Split(new string[] { ";url=" }, StringSplitOptions.None);
 
-                        try
+                        for (var i = 2; i < html_a.ToArray().Length - 1; i++)
                         {
-                            HtmlDocument news_html = website.Load(new_url[1]);
-                            var amazing_title = news_html.DocumentNode.SelectNodes("//title").ToList();
+                            HtmlWeb website = new HtmlWeb();
+                            var new_url = html_a[i].Attributes[0].Value.ToString().Split(new string[] { ";url=" }, StringSplitOptions.None);
 
-                            var news_related_url = new_url[1];
-                            var news_related_title = amazing_title[0].InnerText;
+                            string news_related_url = null;
+                            string news_related_title = null;
+
+                            try
+                            {
+                                HtmlDocument news_html = website.Load(new_url[1]);
+                                var amazing_title = news_html.DocumentNode.SelectNodes("//title").ToList();
+
+                                news_related_url = new_url[1];
+                                news_related_title = amazing_title[0].InnerText;
+                            }
+                            catch (Exception)
+                            {
+                                news_related_url = html_a[i].Attributes[0].Value;
+                                news_related_title = html_a[i].InnerText;
+                            }
+
+                            // store related new
+                            CmdString = "football.sp_insertRelatedNew";
+                            cmd_new = new SqlCommand(CmdString, con);
+                            cmd_new.CommandType = CommandType.StoredProcedure;
+                            cmd_new.Parameters.AddWithValue("@title", news_related_title);
+                            cmd_new.Parameters.AddWithValue("@link", news_related_url);
+                            cmd_new.Parameters.AddWithValue("@related_id", news_id);
+                            cmd_new.Parameters.AddWithValue("@team_id", team_id);
+
+                            try
+                            {
+                                con.Open();
+                                cmd_new.ExecuteNonQuery();
+
+                                con.Close();
+                            }
+                            catch (Exception exc)
+                            {
+                                con.Close();
+                            }
                         }
-                        catch (Exception)
-                        {
-                            var news_related_url = html_a[i].Attributes[0].Value;
-                            var news_related_title = html_a[i].InnerText;
-                        }
-                        
                     }
                 }
-
-                Page.DataBind();
+                catch (Exception exc)
+                {
+                    con.Close();
+                }
+                
             }
         }
     }

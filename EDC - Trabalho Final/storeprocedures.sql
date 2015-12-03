@@ -292,10 +292,9 @@ go
 
 go
 
-
 CREATE PROCEDURE football.sp_insertRelatedNew
 	@title					text,
-	@link					text,
+	@link					varchar(350),
 	@related_id				int,
 	@team_id				int
 	WITH ENCRYPTION
@@ -308,9 +307,9 @@ CREATE PROCEDURE football.sp_insertRelatedNew
 	
 	DECLARE @count int
 
-	SELECT @count = count(id) FROM football.team_related_new WHERE link = @link;
+	SELECT @count = count(id) FROM football.teamRelatedNew WHERE link like @link AND team_id = @team_id;
 
-	IF @count = 0
+	IF @count = 1
 	BEGIN
 		RETURN
 	END
@@ -318,7 +317,7 @@ CREATE PROCEDURE football.sp_insertRelatedNew
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
-  		INSERT INTO football.team_related_new
+  		INSERT INTO football.teamRelatedNew
   						([title],
   						 [link],
 						 [related_id],
@@ -330,6 +329,55 @@ CREATE PROCEDURE football.sp_insertRelatedNew
 
   		COMMIT TRANSACTION;
 	END TRY
+	BEGIN CATCH
+  		RAISERROR ('An error occurred when creating the new!', 14, 1)
+  		ROLLBACK TRANSACTION;
+	END CATCH;
+
+
+go
+
+CREATE PROCEDURE football.sp_insertNew
+	@title					text,
+	@link					varchar(350),
+	@description			text,
+	@team_id				int
+	WITH ENCRYPTION
+	AS
+	IF @title is null OR @link is null OR @description is null OR @team_id is null 
+	BEGIN
+  		PRINT 'Any field can not be null!'
+  		RETURN -1
+	END
+	
+	DECLARE @count int;
+	DECLARE @returnvalue INT;
+
+	SELECT @count = count(id) FROM football.teamNew WHERE link like @link AND team_id = @team_id;
+
+	IF @count = 1
+	BEGIN
+		SET @returnvalue = (SELECT TOP 1 id FROM football.teamNew WHERE link like @link AND team_id = @team_id ORDER BY id DESC);
+		RETURN @returnvalue;
+	END
+	
+	BEGIN TRANSACTION;
+
+	BEGIN TRY
+  		INSERT INTO football.teamNew
+  						([title],
+  							[link],
+							[description],
+							[team_id])
+  		VALUES      (	@title,
+  						@link,
+						@description,
+						@team_id);
+		
+  		COMMIT TRANSACTION;
+		SET @returnvalue = (SELECT TOP 1 id FROM football.teamNew ORDER BY id DESC);
+		RETURN @returnvalue;
+  	END TRY
 	BEGIN CATCH
   		RAISERROR ('An error occurred when creating the new!', 14, 1)
   		ROLLBACK TRANSACTION;
