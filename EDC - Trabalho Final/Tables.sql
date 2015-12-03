@@ -53,8 +53,21 @@ CREATE TABLE football.teamSubscription(
 	teamID int REFERENCES football.team(id)
 );
 
+CREATE TABLE football.team_new(
+	id INT PRIMARY KEY IDENTITY,
+	title text,
+	link text,
+	description INT,
+	team_id int REFERENCES football.team(id)
+);
 
-
+CREATE TABLE football.team_related_new(
+	id INT PRIMARY KEY IDENTITY,
+	title text,
+	link text,
+	related_id int REFERENCES football.team_new(id),
+	team_id int REFERENCES football.team(id)
+);
 
 
 

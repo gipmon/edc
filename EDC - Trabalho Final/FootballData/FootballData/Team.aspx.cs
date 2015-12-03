@@ -21,7 +21,6 @@ namespace FootballData
         public String players_list_html;
         public String fixturesTable_html;
         protected String news_html;
-        protected String google_link;
         protected int paginationNews;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -92,16 +91,10 @@ namespace FootballData
             XmlDataSourceGoogle_feed.Data = doc.OuterXml;
             XmlDataSourceGoogle_feed.DataBind();
             XmlDataSourceGoogle_feed.XPath = "/rss/channel";
-
+            
             XmlDocument xdoc = XmlDataSourceGoogle_feed.GetXmlDocument();
             XmlElement root = xdoc.DocumentElement;
-            XmlNodeList nodes_items = root.SelectNodes("/rss/channel");
-
-            google_link = nodes_items[0].Attributes[0].Value;
-
-            xdoc = XmlDataSourceGoogle_feed.GetXmlDocument();
-            root = xdoc.DocumentElement;
-            nodes_items = root.SelectNodes("/rss/channel/item");
+            XmlNodeList nodes_items = root.SelectNodes("/rss/channel/item");
 
             news_html = "";
 

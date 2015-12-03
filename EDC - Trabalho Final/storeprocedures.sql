@@ -290,3 +290,47 @@ go
   		ROLLBACK TRANSACTION;
   	END CATCH;
 
+go
+
+
+CREATE PROCEDURE football.sp_insertRelatedNew
+	@title					text,
+	@link					text,
+	@related_id				int,
+	@team_id				int
+	WITH ENCRYPTION
+	AS
+	IF @title is null OR @link is null OR @related_id is null OR @team_id is null 
+	BEGIN
+  		PRINT 'Any field can not be null!'
+  		RETURN
+	END
+	
+	DECLARE @count int
+
+	SELECT @count = count(id) FROM football.team_related_new WHERE link = @link;
+
+	IF @count = 0
+	BEGIN
+		RETURN
+	END
+
+	BEGIN TRANSACTION;
+
+	BEGIN TRY
+  		INSERT INTO football.team_related_new
+  						([title],
+  						 [link],
+						 [related_id],
+						 [team_id])
+  		VALUES      (	@title,
+  						@link,
+						@related_id,
+						@team_id)
+
+  		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+  		RAISERROR ('An error occurred when creating the new!', 14, 1)
+  		ROLLBACK TRANSACTION;
+	END CATCH;
