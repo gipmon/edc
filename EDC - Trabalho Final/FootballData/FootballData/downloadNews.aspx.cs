@@ -1,4 +1,5 @@
-﻿using HtmlAgilityPack;
+﻿using FootballData.Controllers;
+using HtmlAgilityPack;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,12 +27,7 @@ namespace FootballData
             var feed_language = "en";
 
             // google find
-            Hashtable domains = new Hashtable();
-            domains.Add("en", "co.uk");
-            domains.Add("pt", "pt");
-            domains.Add("de", "de");
-            
-            var url = "https://news.google." + domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team_name) + "&output=rss";
+            var url = "https://news.google." + Languages.domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team_name) + "&output=rss";
 
             XmlReader reader = XmlReader.Create(url);
             XmlDocument doc = new XmlDocument();

@@ -1,5 +1,6 @@
 ﻿using FootballData.Controllers;
 using HtmlAgilityPack;
+using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -31,6 +32,8 @@ namespace FootballData
         protected String news_html;
         protected int paginationNews;
 
+        protected string subscribe_html;
+
         private SqlConnection con;
 
         protected int db_news = 0;
@@ -39,7 +42,7 @@ namespace FootballData
         {
             con = ConnectionDB.getConnection();
 
-            var feed_language = "en";
+            var feed_language = Languages.userLanguage(Request);
 
             id = 1;
             try
@@ -47,6 +50,7 @@ namespace FootballData
                 id = int.Parse(Request["ID"]);
             }
             catch (Exception) { }
+
             // Get Team
             String CmdString4 = "SELECT * FROM football.udf_get_team(@teamID)";
             SqlCommand cmd4 = new SqlCommand(CmdString4, con);
@@ -58,6 +62,46 @@ namespace FootballData
             teamName = dt4.Rows[0].ItemArray[1].ToString();
             teamCrestURL = dt4.Rows[0].ItemArray[3].ToString();
             teamSquadValue = dt4.Rows[0].ItemArray[2].ToString();
+
+
+            // subscribe btns
+            if((System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                // see if user is subscribing the team or not
+                string cmd_str = "SELECT football.udf_user_subscribed_team(@user_id, @team_id)";
+                SqlCommand cmd_subscribe = new SqlCommand(cmd_str, con);
+                cmd_subscribe.Parameters.AddWithValue("@user_id", System.Web.HttpContext.Current.User.Identity.GetUserId());
+                cmd_subscribe.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
+                cmd_subscribe.CommandType = CommandType.Text;
+
+                int subscribing = 0;
+
+                try
+                {
+                    con.Open();
+                    subscribing = (int)cmd_subscribe.ExecuteScalar();
+                    con.Close();
+                }
+                catch (Exception exc)
+                {
+                    con.Close();
+                }
+
+                if (subscribing == 0)
+                {
+                    subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"UserArea/SubscribeTeam.aspx?TeamID=" + id + "\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
+                }
+                else
+                {
+                    subscribe_html = "<a class=\"btn icon-btn btn-warning\" href=\"UserArea/SubscribeTeam.aspx?TeamID=" + id + "\"><span class=\"glyphicon btn-glyphicon glyphicon-minus img-circle text-warning\"></span> Unsubscribe</a>";
+                }
+            }
+            else
+            {
+                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"Account/Login\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
+            }
+
+
             // get team data
             /*
             var url = "http://api.football-data.org/v1/teams/" + id + "/";
@@ -126,9 +170,10 @@ namespace FootballData
 
             // NEWWWWS
             // see if team has news stored or not
-            string CmdString = "SELECT football.udf_team_has_news(@team_id)";
+            string CmdString = "SELECT football.udf_team_has_news(@team_id, @language)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
+            cmd.Parameters.AddWithValue("@language", feed_language);
             cmd.CommandType = CommandType.Text;
             
             try
@@ -145,12 +190,13 @@ namespace FootballData
             if (db_news == 0)
             {
                 // google find
+
                 Hashtable domains = new Hashtable();
                 domains.Add("en", "co.uk");
                 domains.Add("pt", "pt");
                 domains.Add("de", "de");
 
-                url = "https://news.google."+ domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(teamName) + "&output=rss";
+                url = "https://news.google."+ Languages.domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team.name) + "&output=rss";
 
                 XmlReader reader = XmlReader.Create(url);
                 XmlDocument doc = new XmlDocument();

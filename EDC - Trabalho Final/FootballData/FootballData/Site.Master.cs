@@ -13,6 +13,8 @@ using FootballData.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.SqlClient;
 using System.Data;
+using FootballData.Controllers;
+
 
 namespace FootballData
 {
@@ -25,6 +27,8 @@ namespace FootballData
         private string _antiXsrfTokenValue;
 
         public static List<SeasonClass> seasonsList;
+        public static string currentUserLanguage;
+        public static string menuLanguages;
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -54,6 +58,18 @@ namespace FootballData
 
             seasons.InnerHtml = html;
 
+            currentUserLanguage = Languages.userLanguage(Request);
+
+            menuLanguages = "";
+
+            foreach (string key in Languages.languages_name.Keys)
+            {
+                if (key != currentUserLanguage)
+                {
+                    menuLanguages += "<li><a href=\"ChangeLanguage.aspx?Language=" + key + "\">" + Languages.languages_name[key] + "</a></li>";
+                }
+            }
+            
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;

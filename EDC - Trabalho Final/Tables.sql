@@ -49,11 +49,6 @@ CREATE TABLE football.teamplayer(
 	marketValue text
 );
 
-CREATE TABLE football.teamSubscription(
-	userID NVARCHAR(128) REFERENCES dbo.AspNetUsers(Id),
-	teamID int REFERENCES football.team(id)
-);
-
 -- DROP TABLE football.teamNew
 -- DROP TABLE football.teamRelatedNew
 
@@ -77,5 +72,13 @@ CREATE TABLE football.teamRelatedNew(
 	PRIMARY KEY(link, team_id)
 );
 
+go;
+
+CREATE TABLE football.teamSubscribe(
+	id INT UNIQUE IDENTITY,
+	user_id nvarchar(128) REFERENCES dbo.AspNetUsers(id) ,
+	team_id int REFERENCES football.team(id),
+	PRIMARY KEY(user_id, team_id)
+);
 
 

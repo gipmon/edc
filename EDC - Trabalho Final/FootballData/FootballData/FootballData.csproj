@@ -211,6 +211,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="ChangeLanguage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.cerulean.css" />
     <Content Include="Content\bootstrap.cerulean.min.css" />
@@ -279,6 +280,7 @@
     <Content Include="Season.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Team.aspx" />
+    <Content Include="UserArea\SubscribeTeam.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -287,6 +289,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Views\web.config" />
+    <Content Include="UserArea\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -412,6 +415,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="ChangeLanguage.aspx.cs">
+      <DependentUpon>ChangeLanguage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeLanguage.aspx.designer.cs">
+      <DependentUpon>ChangeLanguage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -423,6 +433,7 @@
     <Compile Include="Controllers\Fixtures.cs" />
     <Compile Include="Controllers\FixtureTeam.cs" />
     <Compile Include="Controllers\GetAccessToken.cs" />
+    <Compile Include="Controllers\Languages.cs" />
     <Compile Include="Controllers\LeagueTable.cs" />
     <Compile Include="Controllers\PlayersList.cs" />
     <Compile Include="Controllers\SeasonClass.cs" />
@@ -481,6 +492,13 @@
     </Compile>
     <Compile Include="Team.aspx.designer.cs">
       <DependentUpon>Team.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserArea\SubscribeTeam.aspx.cs">
+      <DependentUpon>SubscribeTeam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserArea\SubscribeTeam.aspx.designer.cs">
+      <DependentUpon>SubscribeTeam.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
