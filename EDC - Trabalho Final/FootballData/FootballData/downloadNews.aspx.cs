@@ -26,6 +26,9 @@ namespace FootballData
             var team_name = "FC Porto";
             var feed_language = "en";
 
+            // get teams that were subscribed
+
+
             // google find
             var url = "https://news.google." + Languages.domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team_name) + "&output=rss";
 
@@ -122,7 +125,7 @@ namespace FootballData
                                 var amazing_title = news_html.DocumentNode.SelectNodes("//title").ToList();
 
                                 news_related_url = new_url[1];
-                                news_related_title = amazing_title[0].InnerText;
+                                news_related_title = StringExt.Truncate(amazing_title[0].InnerText, 30);
                             }
                             catch (Exception)
                             {
@@ -159,6 +162,16 @@ namespace FootballData
                 }
                 
             }
+            
+        }
+        
+    }
+    public static class StringExt
+    {
+        public static string Truncate(this string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) return value;
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
     }
 }

@@ -458,4 +458,4 @@ CREATE PROCEDURE football.sp_toggleSubscription
 
 go
 USE EDCFootball;
-EXEC football.sp_toggleSubscription 'bf4e4333-bef2-4727-9d9f-c2342b46dd54', 501
+EXEC football.sp_toggleSubscription 'bf4e4333-bef2-4727-9d9f-c2342b46d656', 

@@ -22,6 +22,8 @@ CREATE TABLE football.team(
 	link_players_href text,
 	link_self_href text,
 	name text,
+	namePT text,
+	nameEN text,
 	code text,
 	shortName text,
 	squadMarketValue text,
@@ -51,7 +53,7 @@ CREATE TABLE football.teamplayer(
 
 -- DROP TABLE football.teamNew
 -- DROP TABLE football.teamRelatedNew
-
+go;
 CREATE TABLE football.teamNew(
 	id INT UNIQUE IDENTITY,
 	title text,
@@ -63,6 +65,7 @@ CREATE TABLE football.teamNew(
 	PRIMARY KEY(link, team_id)
 );
 
+go;
 CREATE TABLE football.teamRelatedNew(
 	id INT UNIQUE IDENTITY,
 	title text,
@@ -74,11 +77,8 @@ CREATE TABLE football.teamRelatedNew(
 
 go;
 
-CREATE TABLE football.teamSubscribe(
-	id INT UNIQUE IDENTITY,
+CREATE TABLE football.teamSubscription(
 	user_id nvarchar(128) REFERENCES dbo.AspNetUsers(id) ,
 	team_id int REFERENCES football.team(id),
 	PRIMARY KEY(user_id, team_id)
 );
-
-

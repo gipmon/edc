@@ -32,8 +32,7 @@ BEGIN
 	RETURN;
 END;
 
-go;
-SELECT * FROM football.udf_get_team_news(1) ORDER BY pubDate DESC;
+-- SELECT * FROM football.udf_get_team_news(1) ORDER BY pubDate DESC;
 
 go;
 
@@ -66,8 +65,9 @@ BEGIN
 					WHERE	seasonYear LIKE '2015';
 	RETURN;
 END;
-GO
-SELECT * FROM football.udf_get_season2015_names();
+
+go;
+--SELECT * FROM football.udf_get_season2015_names();
 
 -- DROP FUNCTION football.udf_get_season
 
@@ -105,7 +105,7 @@ BEGIN
 	RETURN;
 END;
 GO
-SELECT * FROM football.udf_get_players(503);
+-- SELECT * FROM football.udf_get_players(503);
 
 -- DROP FUNCTION football.udf_get_team
 
@@ -122,7 +122,7 @@ BEGIN
 	RETURN;
 END;
 GO
-SELECT * FROM football.udf_get_team(503);
+--SELECT * FROM football.udf_get_team(503);
 
 -- DROP FUNCTION football.udf_get_leagues
 
@@ -139,7 +139,7 @@ BEGIN
 	RETURN;
 END;
 GO
-SELECT * FROM football.udf_get_team(503);
+--SELECT * FROM football.udf_get_team(503);
 
 -- DROP FUNCTION football.udf_get_team_news_related
 
@@ -148,6 +148,19 @@ RETURNS INT
 WITH SCHEMABINDING, ENCRYPTION
 AS
 BEGIN
-	RETURN (SELECT COUNT(id) FROM football.teamSubscribe WHERE user_id LIKE @user_id AND team_id = @team_id);
+	RETURN (SELECT COUNT(id) FROM football.teamSubscription WHERE userID LIKE @user_id AND teamID = @team_id);
 END;
 
+
+-- DROP FUNCTION football.udf_teams_subscribed
+go;
+
+CREATE FUNCTION football.udf_teams_subscribed()
+RETURNS @table TABLE ("id" int, "name" text)
+WITH SCHEMABINDING, ENCRYPTION
+AS
+BEGIN
+	INSERT @table SELECT team.id, team.name FROM (football.team JOIN football.teamSubscription ON team.id = teamSubscription.teamID);
+
+	RETURN;
+END;
