@@ -1,5 +1,6 @@
 ﻿using FootballData.Controllers;
 using HtmlAgilityPack;
+using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -48,12 +49,38 @@ namespace FootballData
             // subscribe btns
             if((System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
-                //subscribe_html = "<a class=\"btn icon-btn btn-warning\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-minus img-circle text-warning\"></span> Unsubscribe</a>";
+                // see if user is subscribing the team or not
+                string cmd_str = "SELECT football.udf_team_has_news(@team_id, @language)";
+                SqlCommand cmd_subscribe = new SqlCommand(cmd_str, con);
+                cmd_subscribe.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
+                cmd_subscribe.Parameters.AddWithValue("@user_id", System.Web.HttpContext.Current.User.Identity.GetUserId());
+                cmd_subscribe.CommandType = CommandType.Text;
+
+                int subscribing = 0;
+
+                try
+                {
+                    con.Open();
+                    subscribing = (int)cmd_subscribe.ExecuteScalar();
+                    con.Close();
+                }
+                catch (Exception exc)
+                {
+                    con.Close();
+                }
+
+                if (subscribing == 0)
+                {
+                    subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"UserArea/SubscribeTeam.aspx?TeamID=" + id + "\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
+                }
+                else
+                {
+                    subscribe_html = "<a class=\"btn icon-btn btn-warning\" href=\"UserArea/SubscribeTeam.aspx?TeamID=" + id + "\"><span class=\"glyphicon btn-glyphicon glyphicon-minus img-circle text-warning\"></span> Unsubscribe</a>";
+                }
             }
             else
             {
-                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"~/Account/Login\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
+                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"Account/Login\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
             }
 
             // get team data
