@@ -148,7 +148,7 @@ RETURNS INT
 WITH SCHEMABINDING, ENCRYPTION
 AS
 BEGIN
-	RETURN (SELECT COUNT(id) FROM football.teamSubscription WHERE userID LIKE @user_id AND teamID = @team_id);
+	RETURN (SELECT COUNT(userID) FROM football.teamSubscription WHERE userID LIKE @user_id AND teamID = @team_id);
 END;
 
 

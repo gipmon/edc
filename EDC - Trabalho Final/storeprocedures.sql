@@ -423,14 +423,14 @@ CREATE PROCEDURE football.sp_toggleSubscription
 		RETURN
 	END
 
-	SELECT @count = count(id) FROM football.teamSubscribe WHERE user_id LIKE @user_id AND team_id = @team_id;
+	SELECT @count = count(userID) FROM football.teamSubscription WHERE userID LIKE @user_id AND teamID = @team_id;
 
 	IF @count = 1
 	BEGIN
 		BEGIN TRANSACTION;
 
 		BEGIN TRY
-			DELETE FROM football.teamSubscribe WHERE user_id LIKE @user_id AND team_id = @team_id;
+			DELETE FROM football.teamSubscription WHERE userID LIKE @user_id AND teamID = @team_id;
   			COMMIT TRANSACTION;
 		END TRY
 		BEGIN CATCH
@@ -443,9 +443,9 @@ CREATE PROCEDURE football.sp_toggleSubscription
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
-  		INSERT INTO football.teamSubscribe
-  						([user_id],
-  						 [team_id])
+  		INSERT INTO football.teamSubscription
+  						([userId],
+  						 [teamId])
   		VALUES      (	@user_id,
 						@team_id)
 
@@ -456,6 +456,6 @@ CREATE PROCEDURE football.sp_toggleSubscription
   		ROLLBACK TRANSACTION;
 	END CATCH;
 
-go
-USE EDCFootball;
-EXEC football.sp_toggleSubscription 'bf4e4333-bef2-4727-9d9f-c2342b46d656', 
+-- go
+-- USE EDCFootball;
+-- EXEC football.sp_toggleSubscription 'bf4e4333-bef2-4727-9d9f-c2342b46d656', 
