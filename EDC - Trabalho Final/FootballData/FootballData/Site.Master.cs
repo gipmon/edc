@@ -11,12 +11,15 @@ using System.Net;
 using Newtonsoft.Json;
 using FootballData.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace FootballData
 {
 
     public partial class SiteMaster : MasterPage
     {
+        private SqlConnection con;
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
@@ -25,8 +28,15 @@ namespace FootballData
 
         protected void Page_Init(object sender, EventArgs e)
         {
+            con = ConnectionDB.getConnection();
             // Get Seasons
-            var url = "http://api.football-data.org/v1/soccerseasons";
+            String CmdString1 = "SELECT * FROM football.udf_get_season2015_names()";
+            SqlCommand cmd1 = new SqlCommand(CmdString1, con);
+            SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
+            DataTable dt1 = new DataTable("teams");
+            sda1.Fill(dt1);
+
+            /*var url = "http://api.football-data.org/v1/soccerseasons";
             var syncClient = new WebClient();
             syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
             var content = syncClient.DownloadString(url);
@@ -34,12 +44,12 @@ namespace FootballData
 
             //http://dotnetbyexample.blogspot.pt/2012/01/json-deserialization-with-jsonnet.html
             //http://json2csharp.com/
-
+            */
             String html = "";
             int i = 0;
-            foreach (SeasonClass s in seasonsList)
+            for (i = 0; i < dt1.Rows.Count; i++)
             {
-                html += "<li><a href=\"Season.aspx?ID="+(i++)+"\">"+s.caption+"</a></li>";
+                html += "<li><a href=\"Season.aspx?ID=" + (dt1.Rows[i].ItemArray[1])+"\">"+ dt1.Rows[i].ItemArray[0] + "</a></li>";
             }
 
             seasons.InnerHtml = html;

@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -13,12 +15,14 @@ namespace FootballData
 {
     public partial class Season : System.Web.UI.Page
     {
+        private SqlConnection con;
         public string seasonCaption;
         public string numberOfTeams;
         public string numberOfGames;
         public string year;
         public string lastUpdated;
         public string matchday;
+        public int id;
 
         public string leagueTable_html;
         public string matchdayTable_html;
@@ -29,41 +33,56 @@ namespace FootballData
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            int id = 0;
+            con = ConnectionDB.getConnection();
+            
             try
             {
                 id = int.Parse(Request["ID"]);
             }
-            catch (Exception) {}
+            catch (Exception) { }
 
-            id_str = id.ToString();
+            // Get Season
+            String CmdString1 = "SELECT * FROM football.udf_get_season(@seasonID)";
+            SqlCommand cmd1 = new SqlCommand(CmdString1, con);
+            cmd1.Parameters.AddWithValue("@seasonID", id);
+            SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
+            DataTable dt1 = new DataTable("season");
+            sda1.Fill(dt1);
             
-            SeasonClass selectedSeason = SiteMaster.seasonsList[id];
+            seasonCaption = dt1.Rows[0].ItemArray[3].ToString();
+            numberOfGames = dt1.Rows[0].ItemArray[5].ToString();
+            numberOfTeams = dt1.Rows[0].ItemArray[6].ToString();
+            year = dt1.Rows[0].ItemArray[7].ToString();
+            lastUpdated = dt1.Rows[0].ItemArray[4].ToString().Replace("T", " ").Replace("Z", " ");
 
-            seasonCaption = selectedSeason.caption.ToString();
-            numberOfGames = selectedSeason.numberOfGames.ToString();
-            numberOfTeams = selectedSeason.numberOfTeams.ToString();
-            year = selectedSeason.year.ToString();
-            lastUpdated = selectedSeason.lastUpdated.ToString().Replace("T", " ").Replace("Z", " ");
-
-            var url = selectedSeason._links.leagueTable.href.ToString();
+            var url = dt1.Rows[0].ItemArray[2].ToString();
             var syncClient = new WebClient();
             syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
             syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
-            
-            var content = syncClient.DownloadString(url);
-            var leagueTable = JsonConvert.DeserializeObject<LeagueTable>(content);
-            // http://json2csharp.com/
-            
-            leagueTable_html = "";
-
-            foreach(Standing s in leagueTable.standing)
+            var content = "";
+            var leagueTable = new LeagueTable();
+            try
             {
-                leagueTable_html += "<tr><td>"+s.position+ "</td><td><a href=\"Team.aspx?ID="+s._links.team.href.ToString().Replace("http://api.football-data.org/v1/teams/", "")+"\">" + s.teamName + "</a></td><td>" + s.points + "</td><td>" + s.playedGames + "</td><td>" + s.wins + "</td><td>" + s.draws + "</td><td>" + s.losses + "</td><td>" + s.goals + "</td><td>" + s.goalsAgainst + "</td><td>" + s.goalDifference + "</td></tr>";
+                content = syncClient.DownloadString(url);
+                leagueTable = JsonConvert.DeserializeObject<LeagueTable>(content);
+                // http://json2csharp.com/
+
+                leagueTable_html = "";
+
+                foreach (Standing s in leagueTable.standing)
+                {
+                    leagueTable_html += "<tr><td>" + s.position + "</td><td><a href=\"Team.aspx?ID=" + s._links.team.href.ToString().Replace("http://api.football-data.org/v1/teams/", "") + "\">" + s.teamName + "</a></td><td>" + s.points + "</td><td>" + s.playedGames + "</td><td>" + s.wins + "</td><td>" + s.draws + "</td><td>" + s.losses + "</td><td>" + s.goals + "</td><td>" + s.goalsAgainst + "</td><td>" + s.goalDifference + "</td></tr>";
+                }
             }
+            catch (WebException)
+            {
+
+            }
+           
+           
 
             // get fixtures
-            url = selectedSeason._links.fixtures.href.ToString();
+            url = dt1.Rows[0].ItemArray[1].ToString();
             syncClient = new WebClient();
             syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
             syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
@@ -86,7 +105,15 @@ namespace FootballData
             }
             catch (Exception)
             {
-                matchday = leagueTable.matchday.ToString();
+                if(leagueTable.matchday == 0)
+                {
+                    matchday = max_MatchDay.ToString();
+                }
+                else
+                {
+                    matchday = leagueTable.matchday.ToString();
+                }
+                
             }
             
             foreach (Fixture fix in fixtures.fixtures)

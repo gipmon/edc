@@ -19,10 +19,15 @@ namespace FootballData
     public partial class Team : System.Web.UI.Page
     {
 
+        public string teamName;
         public TeamClass team;
+        public string teamSquadValue;
+        public string teamCrestURL;
         public PlayersList players_list;
         public String players_list_html;
         public String fixturesTable_html;
+        public String leaguesHistory_html;
+        public int id;
         protected String news_html;
         protected int paginationNews;
 
@@ -36,15 +41,25 @@ namespace FootballData
 
             var feed_language = "en";
 
-            int id = 1;
+            id = 1;
             try
             {
                 id = int.Parse(Request["ID"]);
             }
             catch (Exception) { }
+            // Get Team
+            String CmdString4 = "SELECT * FROM football.udf_get_team(@teamID)";
+            SqlCommand cmd4 = new SqlCommand(CmdString4, con);
+            cmd4.Parameters.AddWithValue("@teamID", id);
+            SqlDataAdapter sda4 = new SqlDataAdapter(cmd4);
+            DataTable dt4 = new DataTable("season");
+            sda4.Fill(dt4);
 
+            teamName = dt4.Rows[0].ItemArray[1].ToString();
+            teamCrestURL = dt4.Rows[0].ItemArray[3].ToString();
+            teamSquadValue = dt4.Rows[0].ItemArray[2].ToString();
             // get team data
-
+            /*
             var url = "http://api.football-data.org/v1/teams/" + id + "/";
             var syncClient = new WebClient();
             syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
@@ -60,20 +75,26 @@ namespace FootballData
 
             content = syncClient.DownloadString(url);
             players_list = JsonConvert.DeserializeObject<PlayersList>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-
+            */
+            String CmdString3 = "SELECT * FROM football.udf_get_players(@teamID)";
+            SqlCommand cmd3 = new SqlCommand(CmdString3, con);
+            cmd3.Parameters.AddWithValue("@teamID", id);
+            SqlDataAdapter sda3 = new SqlDataAdapter(cmd3);
+            DataTable dt3 = new DataTable("players");
+            sda3.Fill(dt3);
             players_list_html += "";
 
-            foreach (Player p in players_list.players)
+            for(var i = 0; i<dt3.Rows.Count; i++)
             {
-                players_list_html += "<tr><td>" + p.name + "</td><td>" + p.jerseyNumber + "</td><td>" + p.position + "</td><td>" + p.nationality + "</td><td>" + p.dateOfBirth + "</td><td>" + p.marketValue + "</td><td>" + p.contractUntil + "</td></tr>";
+                players_list_html += "<tr><td>" + dt3.Rows[i].ItemArray[1] + "</td><td>" + dt3.Rows[i].ItemArray[6] + "</td><td>" + dt3.Rows[i].ItemArray[5] + "</td><td>" + dt3.Rows[i].ItemArray[3] + "</td><td>" + dt3.Rows[i].ItemArray[2] + "</td><td>" + dt3.Rows[i].ItemArray[8] + "</td><td>" + dt3.Rows[i].ItemArray[7] + "</td></tr>";
             }
             
-            url = team._links.fixtures.href;
-            syncClient = new WebClient();
+            string url = dt4.Rows[0].ItemArray[4].ToString();
+            WebClient syncClient = new WebClient();
             syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
             syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
 
-            content = syncClient.DownloadString(url);
+            var content = syncClient.DownloadString(url);
             var team_fixtures_list = JsonConvert.DeserializeObject<FixtureTeam>(content);
 
             foreach (FixtureGame fix in team_fixtures_list.fixtures)
@@ -88,6 +109,19 @@ namespace FootballData
                     fixturesTable_html += "<td>--</td>";
                 }
                 fixturesTable_html += "</tr>";
+            }
+
+            String CmdString5 = "SELECT * FROM football.udf_get_leagues(@teamID)";
+            SqlCommand cmd5 = new SqlCommand(CmdString5, con);
+            cmd5.Parameters.AddWithValue("@teamID", id);
+            SqlDataAdapter sda5 = new SqlDataAdapter(cmd5);
+            DataTable dt5 = new DataTable("leagues");
+            sda5.Fill(dt5);
+            leaguesHistory_html += "";
+
+            for (var i = 0; i < dt5.Rows.Count; i++)
+            {
+                leaguesHistory_html += "<tr><td><a href=\"Season.aspx?ID=" + (dt5.Rows[i].ItemArray[0]) + "\">" + dt5.Rows[i].ItemArray[1] + "</a></td><td>" + dt5.Rows[i].ItemArray[1] + "</td><td>" + dt5.Rows[i].ItemArray[2] + "</td></tr>";
             }
 
             // NEWWWWS
@@ -116,7 +150,7 @@ namespace FootballData
                 domains.Add("pt", "pt");
                 domains.Add("de", "de");
 
-                url = "https://news.google."+ domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team.name) + "&output=rss";
+                url = "https://news.google."+ domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(teamName) + "&output=rss";
 
                 XmlReader reader = XmlReader.Create(url);
                 XmlDocument doc = new XmlDocument();

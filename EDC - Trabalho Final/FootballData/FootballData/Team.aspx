@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:XmlDataSource ID="XmlDataSourceGoogle_feed" TransformFile="~/App_Data/googleNews.xsl" runat="server" EnableCaching="false"></asp:XmlDataSource>
     <div class="container">
-        <h2><%# team.name %></h2>
+        <h2><%# teamName %></h2>
         <div class="pull-right">
             <a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> Subscribe</a>
             <a class="btn icon-btn btn-warning" href="#"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span> Unsubscribe</a>
@@ -12,12 +12,12 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-image" style="text-align: center">
-                        <img class="img-responsive" style="max-height: 350px; max-width: 300px" src="<%# team.crestUrl %>">
+                        <img class="img-responsive" style="max-height: 350px; max-width: 300px" src="<%# teamCrestURL %>">
                     
                     </div><!-- card image -->
                 
                     <div class="card-content">
-                        <span class="card-title">Squad value: <%# team.squadMarketValue %></span>   
+                        <span class="card-title">Squad value: <%# teamSquadValue %></span>   
                     </div>
                     <!-- card content -->
                     <div class="card-action">
@@ -114,6 +114,33 @@
                 </thead>
                 <tbody>
                     <%# players_list_html %>
+                </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- Modal -->
+    <div class="modal fade scroll-modal" id="leaguesModal" tabindex="-1" role="dialog" aria-labelledby="leaguesLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="leaguesLabel">Leagues History</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <td><strong>Name</strong></td>
+                        <td><strong>Year</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%# leaguesHistory_html %>
                 </tbody>
             </table>
           </div>
