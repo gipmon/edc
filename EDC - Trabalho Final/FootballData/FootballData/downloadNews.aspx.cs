@@ -1,5 +1,6 @@
 ﻿using HtmlAgilityPack;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -22,8 +23,15 @@ namespace FootballData
 
             Int32 team_id = 1;
             var team_name = "FC Porto";
+            var feed_language = "en";
 
-            var url = "https://news.google.pt/news/feeds?pz=1&cf=all&ned=en&hl=pt&q=" + Server.UrlEncode(team_name) + "&output=rss";
+            // google find
+            Hashtable domains = new Hashtable();
+            domains.Add("en", "co.uk");
+            domains.Add("pt", "pt");
+            domains.Add("de", "de");
+            
+            var url = "https://news.google." + domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team_name) + "&output=rss";
 
             XmlReader reader = XmlReader.Create(url);
             XmlDocument doc = new XmlDocument();
@@ -72,6 +80,7 @@ namespace FootballData
                 cmd_new.Parameters.AddWithValue("@link", news_url);
                 cmd_new.Parameters.AddWithValue("@description", news_description);
                 cmd_new.Parameters.AddWithValue("@team_id", team_id);
+                cmd_new.Parameters.AddWithValue("@language", feed_language);
 
                 DateTime date;
                 if (!DateTime.TryParse(news_pubDate, out date))
@@ -90,7 +99,7 @@ namespace FootballData
                 {
                     con.Open();
                     cmd_new.ExecuteNonQuery();
-                    var news_id = cmd_new.Parameters[5].Value;
+                    var news_id = cmd_new.Parameters[6].Value;
                     con.Close();
 
                     // related news

@@ -53,11 +53,15 @@ CREATE TABLE football.teamSubscription(
 	teamID int REFERENCES football.team(id)
 );
 
+-- DROP TABLE football.teamNew
+-- DROP TABLE football.teamRelatedNew
+
 CREATE TABLE football.teamNew(
 	id INT UNIQUE IDENTITY,
 	title text,
 	link varchar(350),
 	description text,
+	language varchar(2),
 	team_id int REFERENCES football.team(id),
 	pubDate datetime,
 	PRIMARY KEY(link, team_id)

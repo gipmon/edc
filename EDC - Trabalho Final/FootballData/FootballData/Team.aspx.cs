@@ -2,6 +2,7 @@
 using HtmlAgilityPack;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -32,6 +33,8 @@ namespace FootballData
         protected void Page_Load(object sender, EventArgs e)
         {
             con = ConnectionDB.getConnection();
+
+            var feed_language = "en";
 
             int id = 1;
             try
@@ -107,7 +110,13 @@ namespace FootballData
 
             if (db_news == 0)
             {
-                url = "https://news.google.pt/news/feeds?pz=1&cf=all&ned=en&hl=pt&q=" + Server.UrlEncode(team.name) + "&output=rss";
+                // google find
+                Hashtable domains = new Hashtable();
+                domains.Add("en", "co.uk");
+                domains.Add("pt", "pt");
+                domains.Add("de", "de");
+
+                url = "https://news.google."+ domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team.name) + "&output=rss";
 
                 XmlReader reader = XmlReader.Create(url);
                 XmlDocument doc = new XmlDocument();
@@ -157,9 +166,10 @@ namespace FootballData
             }
             else
             {
-                String CmdString1 = "SELECT * FROM football.udf_get_team_news(@team_id)";
+                String CmdString1 = "SELECT * FROM football.udf_get_team_news(@team_id, @language)";
                 SqlCommand cmd1 = new SqlCommand(CmdString1, con);
                 cmd1.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
+                cmd1.Parameters.AddWithValue("@language", feed_language);
                 SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
                 DataTable dt1 = new DataTable("teams");
                 sda1.Fill(dt1);

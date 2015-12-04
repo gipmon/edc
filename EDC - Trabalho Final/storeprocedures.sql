@@ -292,6 +292,8 @@ go
 
 go
 
+-- DROP PROCEDURE football.sp_insertRelatedNew
+
 CREATE PROCEDURE football.sp_insertRelatedNew
 	@title					text,
 	@link					varchar(350),
@@ -344,6 +346,7 @@ CREATE PROCEDURE football.sp_insertNew
 	@link					varchar(350),
 	@description			text,
 	@team_id				int,
+	@language				varchar(2),
 	@pubDate				datetime
 	WITH ENCRYPTION
 	AS
@@ -372,11 +375,13 @@ CREATE PROCEDURE football.sp_insertNew
   						[link],
 						[description],
 						[team_id],
+						[language],
 						[pubDate])
   		VALUES      (	@title,
   						@link,
 						@description,
 						@team_id,
+						@language,
 						@pubDate);
 		
   		COMMIT TRANSACTION;
