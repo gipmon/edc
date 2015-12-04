@@ -303,7 +303,7 @@ go
 go
 
 --EXEC football.sp_associatePlayerToTeam @playerName = 'Manuel Neuer', @playerNationality = 'Germany', @playerDateOfBirth = '1986-03-27',
-			--							@playerJerseyNumber = 1, @playerContractUntil = '2019-06-30', @playerMarketValue = '45,000,000 €', @teamID = 5;
+			--							@playerJerseyNumber = 1, @playerContractUntil = '2019-06-30', @playerMarketValue = '45,000,000 ï¿½', @teamID = 5;
 
 CREATE PROCEDURE football.sp_insertRelatedNew
 	@title					text,
@@ -374,18 +374,23 @@ CREATE PROCEDURE football.sp_insertNew
 		RETURN @returnvalue;
 	END
 	
+
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
   		INSERT INTO football.teamNew
   						([title],
-  							[link],
-							[description],
-							[team_id])
+  						[link],
+						[description],
+						[team_id],
+						[language],
+						[pubDate])
   		VALUES      (	@title,
   						@link,
 						@description,
-						@team_id);
+						@team_id,
+						@language,
+						@pubDate);
 		
   		COMMIT TRANSACTION;
 		SET @returnvalue = (SELECT TOP 1 id FROM football.teamNew ORDER BY id DESC);
