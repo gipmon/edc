@@ -4,8 +4,7 @@
     <div class="container">
         <h2><%# team.name %></h2>
         <div class="pull-right">
-            <a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> Subscribe</a>
-            <a class="btn icon-btn btn-warning" href="#"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span> Unsubscribe</a>
+            <%# subscribe_html %>
         </div>
 
         <div class="row">    

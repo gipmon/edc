@@ -26,6 +26,8 @@ namespace FootballData
         protected String news_html;
         protected int paginationNews;
 
+        protected string subscribe_html;
+
         private SqlConnection con;
 
         protected int db_news = 0;
@@ -34,7 +36,7 @@ namespace FootballData
         {
             con = ConnectionDB.getConnection();
 
-            var feed_language = "en";
+            var feed_language = Languages.userLanguage(Request);
 
             int id = 1;
             try
@@ -42,6 +44,17 @@ namespace FootballData
                 id = int.Parse(Request["ID"]);
             }
             catch (Exception) { }
+
+            // subscribe btns
+            if((System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
+            }
+            else
+            {
+                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
+                //subscribe_html = "<a class=\"btn icon-btn btn - warning\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-minus img-circle text-warning\"></span> Unsubscribe</a>";
+            }
 
             // get team data
 
@@ -92,9 +105,10 @@ namespace FootballData
 
             // NEWWWWS
             // see if team has news stored or not
-            string CmdString = "SELECT football.udf_team_has_news(@team_id)";
+            string CmdString = "SELECT football.udf_team_has_news(@team_id, @language)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
+            cmd.Parameters.AddWithValue("@language", feed_language);
             cmd.CommandType = CommandType.Text;
             
             try
@@ -111,12 +125,7 @@ namespace FootballData
             if (db_news == 0)
             {
                 // google find
-                Hashtable domains = new Hashtable();
-                domains.Add("en", "co.uk");
-                domains.Add("pt", "pt");
-                domains.Add("de", "de");
-
-                url = "https://news.google."+ domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team.name) + "&output=rss";
+                url = "https://news.google."+ Languages.domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team.name) + "&output=rss";
 
                 XmlReader reader = XmlReader.Create(url);
                 XmlDocument doc = new XmlDocument();

@@ -5,12 +5,12 @@ go
 
 -- DROP FUNCTION football.udf_team_has_news
 
-CREATE FUNCTION football.udf_team_has_news(@team_id int)
+CREATE FUNCTION football.udf_team_has_news(@team_id int, @language varchar(2))
 RETURNS int
 WITH SCHEMABINDING, ENCRYPTION
 AS
 BEGIN
-	RETURN (SELECT COUNT(id) FROM football.teamNew WHERE team_id=@team_id);
+	RETURN (SELECT COUNT(id) FROM football.teamNew WHERE team_id=@team_id and language=@language);
 END;
 
 go;
@@ -50,4 +50,14 @@ BEGIN
 					FROM	football.teamRelatedNew
 					WHERE	related_id = @related_id;
 	RETURN;
+END;
+
+-- DROP FUNCTION football.udf_get_team_news_related
+
+CREATE FUNCTION football.udf_user_subscribed_team(@user_id nvarchar(128), @team_id int)
+RETURNS INT
+WITH SCHEMABINDING, ENCRYPTION
+AS
+BEGIN
+	RETURN (SELECT COUNT(id) FROM football.teamSubscribe WHERE user_id LIKE @user_id AND team_id = @team_id);
 END;

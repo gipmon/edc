@@ -59,6 +59,11 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><i class="fa fa-language fa-2"></i> <%# currentUserLanguage %> <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <%# menuLanguages %>
+                                    </ul>
+                                </li>
                                 <li><a runat="server" href="~/Account/Register">Register</a></li>
                                 <li><a runat="server" href="~/Account/Login">Log in</a></li>
                             </ul>

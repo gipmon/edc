@@ -400,3 +400,53 @@ CREATE PROCEDURE football.sp_insertNew
   		RAISERROR ('An error occurred when creating the new!', 14, 1)
   		ROLLBACK TRANSACTION;
 	END CATCH;
+
+-- DROP PROCEDURE football.sp_toggleSubscription
+
+CREATE PROCEDURE football.sp_toggleSubscription
+	@user_id				nvarchar(128),
+	@team_id				int
+	WITH ENCRYPTION
+	AS
+	IF @user_id is null OR @team_id is null
+	BEGIN
+  		PRINT 'Any field can not be null!'
+  		RETURN
+	END
+	
+	DECLARE @count int
+
+	SELECT @count = count(id) FROM football.teamSubscribe WHERE user_id LIKE @user_id AND team_id = @team_id;
+
+	IF @count = 1
+	BEGIN
+		BEGIN TRANSACTION;
+
+		BEGIN TRY
+			DELETE FROM football.teamSubscribe WHERE user_id LIKE @user_id AND team_id = @team_id;
+  			COMMIT TRANSACTION;
+		END TRY
+		BEGIN CATCH
+  			RAISERROR ('An error occurred when creating the new!', 14, 1)
+  			ROLLBACK TRANSACTION;
+		END CATCH;
+		RETURN
+	END
+
+	BEGIN TRANSACTION;
+
+	BEGIN TRY
+  		INSERT INTO football.teamSubscribe
+  						([user_id],
+  						 [team_id])
+  		VALUES      (	@user_id,
+						@team_id)
+
+  		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+  		RAISERROR ('An error occurred when creating the new!', 14, 1)
+  		ROLLBACK TRANSACTION;
+	END CATCH;
+
+	
