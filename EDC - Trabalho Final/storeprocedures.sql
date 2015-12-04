@@ -416,6 +416,13 @@ CREATE PROCEDURE football.sp_toggleSubscription
 	
 	DECLARE @count int
 
+	SELECT @count = count(id) FROM football.team WHERE id = @team_id;
+	
+	IF @count = 0
+	BEGIN
+		RETURN
+	END
+
 	SELECT @count = count(id) FROM football.teamSubscribe WHERE user_id LIKE @user_id AND team_id = @team_id;
 
 	IF @count = 1
@@ -432,7 +439,7 @@ CREATE PROCEDURE football.sp_toggleSubscription
 		END CATCH;
 		RETURN
 	END
-
+	-- else
 	BEGIN TRANSACTION;
 
 	BEGIN TRY
@@ -449,4 +456,6 @@ CREATE PROCEDURE football.sp_toggleSubscription
   		ROLLBACK TRANSACTION;
 	END CATCH;
 
-	
+go
+USE EDCFootball;
+EXEC football.sp_toggleSubscription 'bf4e4333-bef2-4727-9d9f-c2342b46dd54', 501

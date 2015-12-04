@@ -50,10 +50,10 @@ namespace FootballData
             if((System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 // see if user is subscribing the team or not
-                string cmd_str = "SELECT football.udf_team_has_news(@team_id, @language)";
+                string cmd_str = "SELECT football.udf_user_subscribed_team(@user_id, @team_id)";
                 SqlCommand cmd_subscribe = new SqlCommand(cmd_str, con);
-                cmd_subscribe.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
                 cmd_subscribe.Parameters.AddWithValue("@user_id", System.Web.HttpContext.Current.User.Identity.GetUserId());
+                cmd_subscribe.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
                 cmd_subscribe.CommandType = CommandType.Text;
 
                 int subscribing = 0;
