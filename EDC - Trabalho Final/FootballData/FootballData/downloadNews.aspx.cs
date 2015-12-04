@@ -72,6 +72,16 @@ namespace FootballData
                 cmd_new.Parameters.AddWithValue("@link", news_url);
                 cmd_new.Parameters.AddWithValue("@description", news_description);
                 cmd_new.Parameters.AddWithValue("@team_id", team_id);
+
+                DateTime date;
+                if (!DateTime.TryParse(news_pubDate, out date))
+                {
+                    // error
+                    return;
+                }
+
+                cmd_new.Parameters.AddWithValue("@pubDate", date);
+
                 SqlParameter returnID = new SqlParameter("@output", SqlDbType.Int);
                 returnID.Direction = ParameterDirection.ReturnValue;
                 cmd_new.Parameters.Add(returnID);

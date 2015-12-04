@@ -3,6 +3,11 @@
     <asp:XmlDataSource ID="XmlDataSourceGoogle_feed" TransformFile="~/App_Data/googleNews.xsl" runat="server" EnableCaching="false"></asp:XmlDataSource>
     <div class="container">
         <h2><%# team.name %></h2>
+        <div class="pull-right">
+            <a class="btn icon-btn btn-success" href="#"><span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> Subscribe</a>
+            <a class="btn icon-btn btn-warning" href="#"><span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span> Unsubscribe</a>
+        </div>
+
         <div class="row">    
             <div class="col-md-4">
                 <div class="card">
@@ -18,14 +23,17 @@
                     <div class="card-action">
                         <a href="#" data-toggle="modal" data-target="#fixturesModal" target="new_blank">Fixtures</a>
                         <a href="#" data-toggle="modal" data-target="#squadModal" target="new_blank">Squad</a>
-                        <a href="#" data-toggle="modal" data-target="#leaguesModal" target="new_blank">Leagues</a>
+                        <a href="#" data-toggle="modal" data-target="#leaguesModal" target="new_blank">Leagues History</a>
                     </div><!-- card actions -->
                 </div>
             </div>
             <div class="col-md-6">
                 <h3>News</h3>
-                <small>We don't have any subscription for that team, so we don't have stored feeds for that team. </small>
-                <hr />
+
+                <% if (db_news == 0){ %>
+                    <small>We don't have any subscription for that team, so we don't have stored feeds for that team. </small>
+                    <hr />
+                <% } %>
                 
                 <div class="row">
                     <%# news_html %>

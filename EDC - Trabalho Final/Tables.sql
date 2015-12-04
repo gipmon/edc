@@ -59,6 +59,7 @@ CREATE TABLE football.teamNew(
 	link varchar(350),
 	description text,
 	team_id int REFERENCES football.team(id),
+	pubDate datetime,
 	PRIMARY KEY(link, team_id)
 );
 

@@ -337,11 +337,14 @@ CREATE PROCEDURE football.sp_insertRelatedNew
 
 go
 
+-- DROP PROCEDURE football.sp_insertNew
+
 CREATE PROCEDURE football.sp_insertNew
 	@title					text,
 	@link					varchar(350),
 	@description			text,
-	@team_id				int
+	@team_id				int,
+	@pubDate				datetime
 	WITH ENCRYPTION
 	AS
 	IF @title is null OR @link is null OR @description is null OR @team_id is null 
@@ -366,13 +369,15 @@ CREATE PROCEDURE football.sp_insertNew
 	BEGIN TRY
   		INSERT INTO football.teamNew
   						([title],
-  							[link],
-							[description],
-							[team_id])
+  						[link],
+						[description],
+						[team_id],
+						[pubDate])
   		VALUES      (	@title,
   						@link,
 						@description,
-						@team_id);
+						@team_id,
+						@pubDate);
 		
   		COMMIT TRANSACTION;
 		SET @returnvalue = (SELECT TOP 1 id FROM football.teamNew ORDER BY id DESC);
