@@ -1,4 +1,5 @@
-use EDCFootball;
+--Create Database EDCFootball;
+
 
 Create Schema football;
 CREATE TABLE football.season(
@@ -35,17 +36,17 @@ CREATE TABLE football.teamSeason(
 CREATE TABLE football.player(
 	id INT PRIMARY KEY IDENTITY,
 	name text,
-	position text,
-	jerseyNumber INT,
 	dateOfBirth text,
-	nationality text,
-	contractUntil text,
-	marketValue text
+	nationality text
 );
 
 CREATE TABLE football.teamplayer(
 	playerID int REFERENCES football.player(id),
-	seasonID int REFERENCES football.season(id)
+	teamID int REFERENCES football.team(id),
+	position text,
+	jerseyNumber INT,
+	contractUntil text,
+	marketValue text
 );
 
 CREATE TABLE football.teamSubscription(

@@ -75,6 +75,8 @@ AS
     @link_players_href text,
     @link_self_href text,
     @name			text,
+	@namePT			text,
+	@nameEN			text,
     @code		text,
     @shortName				text,
     @squadMarketValue	text,
@@ -105,6 +107,8 @@ AS
   					 [link_players_href],
   					 [link_self_href],
   					 [name],
+					 [namePT],
+					 [nameEN],
   					 [code],
   					 [shortName],
   					 [squadMarketValue],
@@ -114,6 +118,8 @@ AS
   					  @link_players_href,
   					  @link_self_href,
   					  @name,
+					  @namePT,
+					  @nameEN,
   					  @code,
   					  @shortName,
   					  @squadMarketValue,
@@ -182,12 +188,8 @@ go
  
   CREATE PROCEDURE football.sp_createPlayer
     @name text,
-    @position text,
-    @jerseyNumber int,
     @dateOfBirth			text,
-    @nationality		text,
-    @contractUntil				text,
-    @marketValue	text
+    @nationality		text
    
   WITH ENCRYPTION
   AS
@@ -212,19 +214,11 @@ go
   	BEGIN TRY
   		INSERT INTO football.player
   					([name],
-  					 [position],
-  					 [jerseyNumber],
   					 [dateOfBirth],
-  					 [nationality],
-  					 [contractUntil],
-  					 [marketValue])
+  					 [nationality])
   		VALUES      ( @name,
-  					  @position,
-  					  @jerseyNumber,
   					  @dateOfBirth,
-  					  @nationality,
-  					  @contractUntil,
-  					  @marketValue)
+  					  @nationality)
 
   		COMMIT TRANSACTION;
   	END TRY
@@ -236,13 +230,18 @@ go
 	go
 
   CREATE PROCEDURE football.sp_associatePlayerToTeam
-    @playerName				text,
-	@playerNationality		text,
-	@playerDateOfBirth		text,
+    @name					text,
+	@nationality			text,
+	@dateOfBirth			text,
+	@jerseyNumber			int,
+	@position				text,
+	@contractUntil			text,
+	@marketValue			text,
     @teamID					INT
   WITH ENCRYPTION
   AS
-  	IF @teamID is null OR @playerName is null OR @playerNationality is null OR @playerDateOfBirth is null
+  	IF @teamID is null OR @name is null OR @nationality is null OR @dateOfBirth is null OR @contractUntil is null
+	OR @jerseyNumber is null OR @marketValue is null
   	BEGIN
   		PRINT 'Any field can not be null!'
   		RETURN
@@ -250,38 +249,49 @@ go
 	
 	DECLARE @id int
 
-	SELECT @id = player.id FROM football.player WHERE name LIKE @playerName AND nationality LIKE @playerNationality AND dateOfBirth LIKE @playerDateOfBirth;
-
+	SELECT @id = player.id FROM football.player WHERE name LIKE @name AND nationality LIKE @nationality AND dateOfBirth LIKE @dateOfBirth
+															
+	PRINT @id;
 	DECLARE @count int
 	
 	SELECT @count = count(id) FROM football.player WHERE id = @id
+	PRINT @count;
 	IF @count = 0
 	BEGIN
 		RETURN
 	END
 
 	SELECT @count = count(id) FROM football.team WHERE id = @teamID;
-
+	PRINT @count;
 	IF @count = 0
 	BEGIN
 		RETURN
 	END
 
 	SELECT @count = count(playerID) FROM football.teamPlayer WHERE teamID = @teamID and playerID = @id;
-
+	PRINT @count;
 	IF @count != 0
 	BEGIN
 		RETURN
 	END
+	PRINT @teamID;
 
   	BEGIN TRANSACTION;
 
   	BEGIN TRY
   		INSERT INTO football.teamPlayer
   					([playerID],
-  					 [teamID])
+  					 [teamID],
+					 [position],
+					 [jerseyNumber],
+					 [contractUntil],
+					 [marketValue])
   		VALUES      ( @id,
-  					  @teamID)
+  					  @teamID,
+					  @position,
+					  @jerseyNumber,
+					  @contractUntil,
+					  @marketValue)
 
   		COMMIT TRANSACTION;
   	END TRY
@@ -291,6 +301,9 @@ go
   	END CATCH;
 
 go
+
+--EXEC football.sp_associatePlayerToTeam @playerName = 'Manuel Neuer', @playerNationality = 'Germany', @playerDateOfBirth = '1986-03-27',
+			--							@playerJerseyNumber = 1, @playerContractUntil = '2019-06-30', @playerMarketValue = '45,000,000 €', @teamID = 5;
 
 CREATE PROCEDURE football.sp_insertRelatedNew
 	@title					text,

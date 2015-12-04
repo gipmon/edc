@@ -169,3 +169,6 @@
 \\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.dll
 \\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.pdb
 \\Mac\Home\Documents\Visual Studio 2015\Projects\EDC - GitHub\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.xml
+\\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.dll
+\\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.pdb
+\\psf\Home\Desktop\StudyWorkTeam\4ano\EDC\edc-git\EDC - Trabalho Final\FootballData\FootballData\bin\HtmlAgilityPack.xml

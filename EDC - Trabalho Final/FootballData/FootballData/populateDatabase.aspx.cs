@@ -9,6 +9,8 @@ using System.Net;
 using System.Data.SqlClient;
 using System.Data;
 using FootballData.Controllers;
+using MicrosoftTranslatorSdk.HttpSamples;
+using System.IO;
 
 namespace FootballData
 {
@@ -101,6 +103,10 @@ namespace FootballData
                         cmd_season.Parameters.AddWithValue("@link_players_href", t._links.players.href);
                         cmd_season.Parameters.AddWithValue("@link_self_href", t._links.self.href);
                         cmd_season.Parameters.AddWithValue("@name", t.name);
+                        string translationDEPT = translate(t.name, "de", "pt");
+                        cmd_season.Parameters.AddWithValue("@namePT", translationDEPT);
+                        string translationDEEN = translate(t.name, "de", "en");
+                        cmd_season.Parameters.AddWithValue("@nameEN", translationDEEN);
                         if (t.code == null)
                         {
                             t.code = " ";
@@ -166,12 +172,7 @@ namespace FootballData
                             cmd_season.CommandType = CommandType.StoredProcedure;
 
                             cmd_season.Parameters.AddWithValue("@name", p.name);
-                            if (p.position == null)
-                            {
-                                p.position = " ";
-                            }
-                            cmd_season.Parameters.AddWithValue("@position", p.position);
-                            cmd_season.Parameters.AddWithValue("@jerseyNumber", p.jerseyNumber);
+                           
                             if (p.dateOfBirth == null)
                             {
                                 p.dateOfBirth = " ";
@@ -182,17 +183,7 @@ namespace FootballData
                                 p.nationality = " ";
                             }
                             cmd_season.Parameters.AddWithValue("@nationality", p.nationality);
-                            if (p.contractUntil == null)
-                            {
-                                p.contractUntil = " ";
-                            }
-                            cmd_season.Parameters.AddWithValue("@contractUntil", p.contractUntil);
-                            if (p.marketValue == null)
-                            {
-                                p.marketValue = " ";
-                            }
-                            cmd_season.Parameters.AddWithValue("@marketValue", p.marketValue);
-
+                           
                             try
                             {
                                 con.Open();
@@ -209,9 +200,33 @@ namespace FootballData
                             CmdString = "football.sp_associatePlayerToTeam";
                             cmd_season = new SqlCommand(CmdString, con);
                             cmd_season.CommandType = CommandType.StoredProcedure;
-                            cmd_season.Parameters.AddWithValue("@playerName", p.name);
-                            cmd_season.Parameters.AddWithValue("@playerNationality", p.nationality);
-                            cmd_season.Parameters.AddWithValue("@playerDateOfBirth", p.dateOfBirth);
+                            cmd_season.Parameters.AddWithValue("@name", p.name);
+                            if (p.nationality == null)
+                            {
+                                p.nationality = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@nationality", p.nationality);
+                            if (p.dateOfBirth == null)
+                            {
+                                p.dateOfBirth = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@dateOfBirth", p.dateOfBirth);
+                            cmd_season.Parameters.AddWithValue("@jerseyNumber", p.jerseyNumber);
+                            if (p.contractUntil == null)
+                            {
+                                p.contractUntil = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@contractUntil", p.contractUntil);
+                            if (p.marketValue == null)
+                            {
+                                p.marketValue = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@marketValue", p.marketValue);
+                            if (p.position == null)
+                            {
+                                p.position = " ";
+                            }
+                            cmd_season.Parameters.AddWithValue("@position", p.position);
                             cmd_season.Parameters.AddWithValue("@teamID", id);
 
                             try
@@ -234,6 +249,29 @@ namespace FootballData
             //Populate Teams
             
 
+        }
+
+        protected string translate(string teamName, string f, string t)
+        {
+            string text = teamName;
+            string from = f;
+            string to = t;
+            GetAccessToken admToken = new GetAccessToken();
+            string uri = "http://api.microsofttranslator.com/v2/Http.svc/Translate?text=" + System.Web.HttpUtility.UrlEncode(text) + "&from=" + from + "&to=" + to;
+            string authToken = admToken.getHeader();
+
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(uri);
+            httpWebRequest.Headers.Add("Authorization", authToken);
+
+            WebResponse response = null;
+            string translation;
+            response = httpWebRequest.GetResponse();
+            using (Stream stream = response.GetResponseStream())
+            {
+                System.Runtime.Serialization.DataContractSerializer dcs = new System.Runtime.Serialization.DataContractSerializer(Type.GetType("System.String"));
+                translation = (string)dcs.ReadObject(stream);
+            }
+            return translation;
         }
     }
 }
