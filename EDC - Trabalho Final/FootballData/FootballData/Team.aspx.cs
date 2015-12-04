@@ -196,7 +196,7 @@ namespace FootballData
                 domains.Add("pt", "pt");
                 domains.Add("de", "de");
 
-                url = "https://news.google."+ Languages.domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team.name) + "&output=rss";
+                url = "https://news.google."+ Languages.domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(teamName) + "&output=rss";
 
                 XmlReader reader = XmlReader.Create(url);
                 XmlDocument doc = new XmlDocument();
