@@ -165,7 +165,7 @@ namespace FootballData
 
             for (var i = 0; i < dt5.Rows.Count; i++)
             {
-                leaguesHistory_html += "<tr><td><a href=\"Season.aspx?ID=" + (dt5.Rows[i].ItemArray[0]) + "\">" + dt5.Rows[i].ItemArray[1] + "</a></td><td>" + dt5.Rows[i].ItemArray[1] + "</td><td>" + dt5.Rows[i].ItemArray[2] + "</td></tr>";
+                leaguesHistory_html += "<tr><td><a href=\"Season.aspx?ID=" + (dt5.Rows[i].ItemArray[0]) + "\">" + dt5.Rows[i].ItemArray[1] + "</a></td><td>" + dt5.Rows[i].ItemArray[2] + "</td></tr>";
             }
 
             // NEWWWWS
