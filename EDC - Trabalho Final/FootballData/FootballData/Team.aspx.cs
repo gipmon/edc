@@ -49,11 +49,11 @@ namespace FootballData
             if((System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
+                //subscribe_html = "<a class=\"btn icon-btn btn-warning\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-minus img-circle text-warning\"></span> Unsubscribe</a>";
             }
             else
             {
-                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
-                //subscribe_html = "<a class=\"btn icon-btn btn - warning\" href=\"#\"><span class=\"glyphicon btn-glyphicon glyphicon-minus img-circle text-warning\"></span> Unsubscribe</a>";
+                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"~/Account/Login\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
             }
 
             // get team data

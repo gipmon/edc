@@ -423,6 +423,7 @@
     <Compile Include="Controllers\Fixtures.cs" />
     <Compile Include="Controllers\FixtureTeam.cs" />
     <Compile Include="Controllers\GetAccessToken.cs" />
+    <Compile Include="Controllers\Languages.cs" />
     <Compile Include="Controllers\LeagueTable.cs" />
     <Compile Include="Controllers\PlayersList.cs" />
     <Compile Include="Controllers\SeasonClass.cs" />
