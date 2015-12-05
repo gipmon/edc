@@ -160,7 +160,6 @@ RETURNS @table TABLE ("id" int, "name" text)
 WITH SCHEMABINDING, ENCRYPTION
 AS
 BEGIN
-	INSERT @table SELECT team.id, team.name FROM (football.team JOIN football.teamSubscription ON team.id = teamSubscription.teamID);
-
+	INSERT @table SELECT team.id, team.name FROM (football.team INNER JOIN (SElECT DISTINCT teamSubscription.teamID FROM football.teamSubscription) AS tmp1 ON team.id = tmp1.teamID);
 	RETURN;
 END;

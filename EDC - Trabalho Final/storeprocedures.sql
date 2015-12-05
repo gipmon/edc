@@ -354,6 +354,8 @@ CREATE PROCEDURE football.sp_insertNew
 	@title					text,
 	@link					varchar(350),
 	@description			text,
+	@language				varchar(2),
+	@pubDate				datetime,
 	@team_id				int
 	WITH ENCRYPTION
 	AS

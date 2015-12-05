@@ -78,7 +78,7 @@ CREATE TABLE football.teamRelatedNew(
 go;
 
 CREATE TABLE football.teamSubscription(
-	user_id nvarchar(128) REFERENCES dbo.AspNetUsers(id) ,
-	team_id int REFERENCES football.team(id),
-	PRIMARY KEY(user_id, team_id)
+	userID nvarchar(128) REFERENCES dbo.AspNetUsers(id) ,
+	teamID int REFERENCES football.team(id),
+	PRIMARY KEY(userID, teamID)
 );
