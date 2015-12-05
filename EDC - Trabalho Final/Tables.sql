@@ -1,6 +1,6 @@
 --Create Database EDCFootball;
 
-
+USE EDCFootball
 Create Schema football;
 CREATE TABLE football.season(
 	id INT PRIMARY KEY,
@@ -24,6 +24,10 @@ CREATE TABLE football.team(
 	name text,
 	namePT text,
 	nameEN text,
+	nameIT text,
+	nameES text,
+	nameRU text,
+	nameFR text,
 	code text,
 	shortName text,
 	squadMarketValue text,
@@ -58,7 +62,7 @@ CREATE TABLE football.teamplayer(
 -- DROP FUNCTION football.udf_team_has_news
 -- DROP FUNCTION football.udf_get_team_news
 
-go;
+go
 CREATE TABLE football.teamNew(
 	id INT UNIQUE IDENTITY,
 	title text,
@@ -70,7 +74,7 @@ CREATE TABLE football.teamNew(
 	PRIMARY KEY(link, team_id, language)
 );
 
-go;
+go
 CREATE TABLE football.teamRelatedNew(
 	id INT UNIQUE IDENTITY,
 	title text,
@@ -80,7 +84,7 @@ CREATE TABLE football.teamRelatedNew(
 	PRIMARY KEY(link, team_id)
 );
 
-go;
+go
 
 CREATE TABLE football.teamSubscription(
 	userID nvarchar(128) REFERENCES dbo.AspNetUsers(id) ,

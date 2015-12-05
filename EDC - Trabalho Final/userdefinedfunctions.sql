@@ -13,7 +13,7 @@ BEGIN
 	RETURN (SELECT COUNT(id) FROM football.teamNew WHERE team_id=@team_id and language=@language);
 END;
 
-go;
+go
 
 -- DROP FUNCTION football.udf_get_team_news
 
@@ -34,7 +34,7 @@ END;
 
 -- SELECT * FROM football.udf_get_team_news(1) ORDER BY pubDate DESC;
 
-go;
+go
 
 -- DROP FUNCTION football.udf_get_team_news_related
 
@@ -51,22 +51,25 @@ BEGIN
 	RETURN;
 END;
 
-go;
+go
 
 -- DROP FUNCTION football.udf_get_season2015_names
 
-CREATE FUNCTION football.udf_get_season2015_names()
+CREATE FUNCTION football.udf_get_seasonlast_names()
 RETURNS @table TABLE ("caption" text, "id" int)
 WITH SCHEMABINDING, ENCRYPTION
 AS
 BEGIN
+	DECLARE @season int;
+	SELECT @season = max(convert(int, convert(varchar(5), seasonYear))) from football.season;
 	INSERT @table SELECT	caption, id
 					FROM	football.season
-					WHERE	seasonYear LIKE '2015';
+					WHERE	convert(int, convert(varchar(5), seasonYear)) = @season;
 	RETURN;
 END;
 
-go;
+
+go
 --SELECT * FROM football.udf_get_season2015_names();
 
 -- DROP FUNCTION football.udf_get_season
@@ -153,7 +156,7 @@ END;
 
 
 -- DROP FUNCTION football.udf_teams_subscribed
-go;
+go
 
 CREATE FUNCTION football.udf_teams_subscribed()
 RETURNS @table TABLE ("id" int, "name" text)
@@ -164,7 +167,7 @@ BEGIN
 	RETURN;
 END;
 
-go;
+go
 -- DROP FUNCTION football.udf_get_team_news_related
 
 CREATE FUNCTION football.udf_number_of_subscribers(@team_id int)

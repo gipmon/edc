@@ -107,6 +107,14 @@ namespace FootballData
                         cmd_season.Parameters.AddWithValue("@namePT", translationDEPT);
                         string translationDEEN = translate(t.name, "de", "en");
                         cmd_season.Parameters.AddWithValue("@nameEN", translationDEEN);
+                        string translationDEIT = translate(t.name, "de", "it");
+                        cmd_season.Parameters.AddWithValue("@nameIT", translationDEIT);
+                        string translationDEES = translate(t.name, "de", "es");
+                        cmd_season.Parameters.AddWithValue("@nameES", translationDEES);
+                        string translationDERU = translate(t.name, "de", "ru");
+                        cmd_season.Parameters.AddWithValue("@nameRU", translationDERU);
+                        string translationDEFR = translate(t.name, "de", "fr");
+                        cmd_season.Parameters.AddWithValue("@nameFR", translationDEFR);
                         if (t.code == null)
                         {
                             t.code = " ";
