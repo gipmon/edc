@@ -11,6 +11,7 @@ namespace FootballData.Controllers
     {
         public static Hashtable domains;
         public static Hashtable languages_name;
+        public static Hashtable table_name;
 
         static Languages()
         {
@@ -18,11 +19,25 @@ namespace FootballData.Controllers
             domains.Add("en", "co.uk");
             domains.Add("de", "de");
             domains.Add("pt", "pt");
+            domains.Add("it", "it");
+            domains.Add("es", "es");
+            domains.Add("fr", "fr");
 
+            table_name = new Hashtable();
+            table_name.Add("de", "name");
+            table_name.Add("pt", "namePT");
+            table_name.Add("en", "nameEN");
+            table_name.Add("it", "nameIT");
+            table_name.Add("es", "nameES");
+            table_name.Add("fr", "nameFR");
+            
             languages_name = new Hashtable();
             languages_name.Add("en", "United Kingdom");
             languages_name.Add("de", "Deutschland");
             languages_name.Add("pt", "Portugal");
+            languages_name.Add("it", "Italy");
+            languages_name.Add("es", "Spain");
+            languages_name.Add("fr", "France");
         }
         
         public static string userLanguage(HttpRequest Request)

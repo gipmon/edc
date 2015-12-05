@@ -31,13 +31,21 @@ namespace FootballData
             
             foreach (DataRow teamSubscribed in dt3.Rows)
             {
-                var team_name = (string)teamSubscribed.ItemArray[1];
+
+                Hashtable names = new Hashtable();
+                names.Add("name", (string)teamSubscribed.ItemArray[1]);
+                names.Add("namePT", (string)teamSubscribed.ItemArray[2]);
+                names.Add("nameEN", (string)teamSubscribed.ItemArray[3]);
+                names.Add("nameIT", (string)teamSubscribed.ItemArray[4]);
+                names.Add("nameES", (string)teamSubscribed.ItemArray[5]);
+                names.Add("nameFR", (string)teamSubscribed.ItemArray[6]);
+                
                 Int32 team_id = (Int32)teamSubscribed.ItemArray[0];
 
                 foreach(string feed_language in Languages.languages_name.Keys)
                 {
                     // google find
-                    var url = "https://news.google." + Languages.domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(team_name) + "&output=rss";
+                    var url = "https://news.google." + Languages.domains[feed_language] + "/news/feeds?pz=1&cf=all&q=" + Server.UrlEncode(names[Languages.table_name[feed_language].ToString()].ToString()) + "&output=rss";
 
                     XmlReader reader = XmlReader.Create(url);
                     XmlDocument doc = new XmlDocument();
