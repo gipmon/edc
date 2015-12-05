@@ -55,7 +55,9 @@
                           <ul class="dropdown-menu" runat="server" ID="seasons">
                           </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-newspaper-o"></i> My feed</a></li>
+                        <% if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated) { %>
+                            <li><a href="#"><i class="fa fa-newspaper-o"></i> My feed</a></li>
+                        <% } %>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
