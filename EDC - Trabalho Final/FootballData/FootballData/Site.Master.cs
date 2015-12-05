@@ -44,7 +44,7 @@ namespace FootballData
             int i = 0;
             for (i = 0; i < dt1.Rows.Count; i++)
             {
-                html += "<li><a href=\"Season.aspx?ID=" + (dt1.Rows[i].ItemArray[1])+"\">"+ dt1.Rows[i].ItemArray[0] + "</a></li>";
+                html += "<li><a href=\"/Season.aspx?ID=" + (dt1.Rows[i].ItemArray[1])+"\">"+ dt1.Rows[i].ItemArray[0] + "</a></li>";
             }
 
             seasons.InnerHtml = html;
@@ -57,7 +57,7 @@ namespace FootballData
             {
                 if (key != currentUserLanguage)
                 {
-                    menuLanguages += "<li><a href=\"ChangeLanguage.aspx?Language=" + key + "\">" + Languages.languages_name[key] + "</a></li>";
+                    menuLanguages += "<li><a href=\"/ChangeLanguage.aspx?Language=" + key + "\">" + Languages.languages_name[key] + "</a></li>";
                 }
             }
             

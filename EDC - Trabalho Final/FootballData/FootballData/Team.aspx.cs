@@ -206,12 +206,44 @@ namespace FootballData
                 {
                     id_int++;
 
-                    String node_html = "<div id=\"new_id_" + id_int + "\"";
-                    node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + node.Attributes[2].Value + "\">" + node.Attributes[0].Value + "</a></h4> <p>" + Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @"</font><br><font.*><a.*|<b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "") + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + node.Attributes[5].Value + "</small></span></div></div></div>";
-
                     HtmlDocument doc_html = new HtmlDocument();
                     doc_html.LoadHtml(node.Attributes[1].Value);
 
+                    var html_img = doc_html.DocumentNode.SelectNodes("//img").ToList();
+
+                    string url_img = null;
+
+                    for(var i_img=0; i_img < html_img.ToArray().Length; i_img++)
+                    {
+                        for(var j_img=0; j_img< html_img[i_img].Attributes.ToArray().Length; j_img++)
+                        {
+                            if (html_img[i_img].Attributes[j_img].Name == "src")
+                            {
+                                url_img = html_img[i_img].Attributes[j_img].Value;
+                                break;
+                            }
+                        }
+
+                        if(url_img != null)
+                        {
+                            break;
+                        }
+                        
+                    }
+
+                    String node_html = "<div id=\"new_id_" + id_int + "\" class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\">";
+
+                    if (url_img == null)
+                    {
+                        node_html += "<a target=\"_blank\" href=\"" + node.Attributes[2].Value + "\">";
+                    }
+                    else
+                    {
+                        node_html += "<a target=\"_blank\" id=\"img"+ id_int + "\" data-toggle=\"preview-image\" url-img=\""+url_img+"\" rel=\"popover\" data-content=\"\" title=\"Preview image\" href=\"" + node.Attributes[2].Value + "\">";
+                    }
+
+                    node_html += node.Attributes[0].Value + "</a></h4> <p>" + Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @"</font><br><font.*><a.*|<b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "") + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + node.Attributes[5].Value + "</small></span></div></div></div>";
+                    
                     var html_a = doc_html.DocumentNode.SelectNodes("//a").ToList();
 
                     if (html_a.ToArray().Length > 3)

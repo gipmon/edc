@@ -33,6 +33,15 @@ $(function () {
                 $(".pagination > li.active").after("<li id=\"li_page_" + i + "\"><a data-toggle=\"pagination\" href=\"#" + i + "\">" + i + "</a></li>");
             }
 
+            // preview images
+            for (var i = 1; i <= news_length; i++) {
+                if ($("#img" + i).length != 0) {
+                    var img = '<img src="' + $("#img" + i).attr("url-img") + '">';
+                    console.log(img);
+                    $("#img" + i).popover({ trigger: "hover", placement: 'top', html: true, content: img });
+                }
+            }
+
         }
     }
 
@@ -100,5 +109,5 @@ $(function () {
         }
         return false;
     });
-    
+
 });

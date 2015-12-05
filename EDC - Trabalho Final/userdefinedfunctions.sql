@@ -178,3 +178,22 @@ BEGIN
 	RETURN (SELECT COUNT(userID) FROM football.teamSubscription WHERE teamID = @team_id);
 END;
 
+
+go;
+-- DROP FUNCTION football.udf_get_teams_subscribed
+
+CREATE FUNCTION football.udf_get_teams_subscribed(@userId nvarchar(128))
+RETURNS @table TABLE ("id" int, "name" text, "news" int)
+WITH SCHEMABINDING, ENCRYPTION
+AS
+BEGIN
+	INSERT @table SElECT team.id, CONVERT(varchar, team.name) as name, COUNT(teamNew.id) as news FROM 
+				 (football.teamNew JOIN ( 
+				 (SELECT teamID FROM football.teamSubscription WHERE userID = @userId) as tmp1 
+				  JOIN football.team ON tmp1.teamID = team.id) ON teamNew.team_id = team.id) GROUP BY team.id, CONVERT(varchar, team.name);
+	RETURN;
+END;
+
+go;
+USE EDCFootball;
+SELECT * FROM football.udf_get_teams_subscribed('d527cc0d-f8d0-4401-ad56-60ece415300b');
