@@ -280,6 +280,7 @@
     <Content Include="Season.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Team.aspx" />
+    <Content Include="UserArea\MyFeed.aspx" />
     <Content Include="UserArea\SubscribeTeam.aspx" />
     <Content Include="UserArea\TeamSubscribed.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -493,6 +494,13 @@
     </Compile>
     <Compile Include="Team.aspx.designer.cs">
       <DependentUpon>Team.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserArea\MyFeed.aspx.cs">
+      <DependentUpon>MyFeed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserArea\MyFeed.aspx.designer.cs">
+      <DependentUpon>MyFeed.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserArea\SubscribeTeam.aspx.cs">
       <DependentUpon>SubscribeTeam.aspx</DependentUpon>
