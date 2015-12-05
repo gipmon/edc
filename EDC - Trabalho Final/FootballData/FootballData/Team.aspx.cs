@@ -150,20 +150,26 @@ namespace FootballData
             }
 
             // NEWWWWS
-            // see if team has news stored or not
+            // see if team has news stored and subscribers
             string CmdString = "SELECT football.udf_team_has_news(@team_id, @language)";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
             cmd.Parameters.AddWithValue("@language", feed_language);
             cmd.CommandType = CommandType.Text;
-            
+
+            string CmdString6 = "SELECT football.udf_team_has_news(@team_id, @language)";
+            SqlCommand cmd6 = new SqlCommand(CmdString6, con);
+            cmd6.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
+            cmd6.CommandType = CommandType.Text;
+
             try
             {
                 con.Open();
                 db_news = (int)cmd.ExecuteScalar();
+                db_news += (int)cmd6.ExecuteScalar();
                 con.Close();
             }
-            catch (Exception exc)
+            catch (Exception)
             {
                 con.Close();
             }

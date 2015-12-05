@@ -16,13 +16,13 @@ namespace FootballData.Controllers
         {
             domains = new Hashtable();
             domains.Add("en", "co.uk");
-            domains.Add("pt", "pt");
             domains.Add("de", "de");
+            domains.Add("pt", "pt");
 
             languages_name = new Hashtable();
             languages_name.Add("en", "United Kingdom");
-            languages_name.Add("pt", "Portugal");
             languages_name.Add("de", "Deutschland");
+            languages_name.Add("pt", "Portugal");
         }
         
         public static string userLanguage(HttpRequest Request)

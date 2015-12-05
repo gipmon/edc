@@ -22,6 +22,8 @@ CREATE TABLE football.team(
 	link_players_href text,
 	link_self_href text,
 	name text,
+	namePT text,
+	nameEN text,
 	code text,
 	shortName text,
 	squadMarketValue text,
@@ -49,9 +51,14 @@ CREATE TABLE football.teamplayer(
 	marketValue text
 );
 
+-- USE EDCFootball
 -- DROP TABLE football.teamNew
 -- DROP TABLE football.teamRelatedNew
+-- DROP FUNCTION football.udf_get_team_news_related
+-- DROP FUNCTION football.udf_team_has_news
+-- DROP FUNCTION football.udf_get_team_news
 
+go;
 CREATE TABLE football.teamNew(
 	id INT UNIQUE IDENTITY,
 	title text,
@@ -60,9 +67,10 @@ CREATE TABLE football.teamNew(
 	language varchar(2),
 	team_id int REFERENCES football.team(id),
 	pubDate datetime,
-	PRIMARY KEY(link, team_id)
+	PRIMARY KEY(link, team_id, language)
 );
 
+go;
 CREATE TABLE football.teamRelatedNew(
 	id INT UNIQUE IDENTITY,
 	title text,
@@ -74,11 +82,8 @@ CREATE TABLE football.teamRelatedNew(
 
 go;
 
-CREATE TABLE football.teamSubscribe(
-	id INT UNIQUE IDENTITY,
-	user_id nvarchar(128) REFERENCES dbo.AspNetUsers(id) ,
-	team_id int REFERENCES football.team(id),
-	PRIMARY KEY(user_id, team_id)
+CREATE TABLE football.teamSubscription(
+	userID nvarchar(128) REFERENCES dbo.AspNetUsers(id) ,
+	teamID int REFERENCES football.team(id),
+	PRIMARY KEY(userID, teamID)
 );
-
-

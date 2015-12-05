@@ -26,7 +26,7 @@ $(function () {
                 $("#new_id_" + i).hide();
             }
 
-            var number_of_pages = news_length / 2;
+            var number_of_pages = Math.ceil(news_length / 2);
             number_of_pages_global = number_of_pages;
 
             for (var i = number_of_pages; i > 1; i--) {
