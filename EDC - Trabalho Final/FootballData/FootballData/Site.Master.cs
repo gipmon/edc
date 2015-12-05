@@ -34,7 +34,7 @@ namespace FootballData
         {
             con = ConnectionDB.getConnection();
             // Get Seasons
-            String CmdString1 = "SELECT * FROM football.udf_get_season2015_names()";
+            String CmdString1 = "SELECT * FROM football.udf_get_seasonlast_names()";
             SqlCommand cmd1 = new SqlCommand(CmdString1, con);
             SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
             DataTable dt1 = new DataTable("teams");
@@ -48,6 +48,22 @@ namespace FootballData
             }
 
             seasons.InnerHtml = html;
+
+            // Get Seasons
+            String CmdString2 = "SELECT * FROM football.udf_get_seasonpast_names()";
+            SqlCommand cmd2 = new SqlCommand(CmdString2, con);
+            SqlDataAdapter sda2 = new SqlDataAdapter(cmd2);
+            DataTable dt2 = new DataTable("seasons");
+            sda2.Fill(dt2);
+
+            html = "";
+            i = 0;
+            for (i = 0; i < dt2.Rows.Count; i++)
+            {
+                html += "<li><a href=\"/Season.aspx?ID=" + (dt2.Rows[i].ItemArray[1]) + "\">" + dt2.Rows[i].ItemArray[0] + "</a></li>";
+            }
+
+            pastSeasons.InnerHtml = html;
 
             currentUserLanguage = Languages.userLanguage(Request);
 

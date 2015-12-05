@@ -99,6 +99,8 @@
             <h4 class="modal-title" id="squadLabel">Squad</h4>
           </div>
           <div class="modal-body">
+              <% if (players_list_html != "")
+                  { %>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -115,6 +117,18 @@
                     <%# players_list_html %>
                 </tbody>
             </table>
+              <% }
+    else
+    {
+                      %>
+        <div class="alert alert-warning" role="alert">
+                <strong>Sorry :(</strong>
+                <br />
+                We don't have any information about the players of this team.
+            </div>
+              <br />
+
+              <%} %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

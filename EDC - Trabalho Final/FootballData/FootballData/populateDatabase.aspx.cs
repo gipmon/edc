@@ -25,7 +25,7 @@ namespace FootballData
             con = ConnectionDB.getConnection();
             
             // Populate Seasons
-            for (int i = 2015; i < 2016; i++)
+            for (int i = 2014; i < 2015; i++)
             {
                 var url = "http://api.football-data.org/v1/soccerseasons/?season=" + i;
                 var syncClient = new WebClient();
@@ -111,8 +111,6 @@ namespace FootballData
                         cmd_season.Parameters.AddWithValue("@nameIT", translationDEIT);
                         string translationDEES = translate(t.name, "de", "es");
                         cmd_season.Parameters.AddWithValue("@nameES", translationDEES);
-                        string translationDERU = translate(t.name, "de", "ru");
-                        cmd_season.Parameters.AddWithValue("@nameRU", translationDERU);
                         string translationDEFR = translate(t.name, "de", "fr");
                         cmd_season.Parameters.AddWithValue("@nameFR", translationDEFR);
                         if (t.code == null)
