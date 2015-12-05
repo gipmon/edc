@@ -350,6 +350,8 @@ CREATE PROCEDURE football.sp_insertRelatedNew
 
 go
 
+-- DROP PROCEDURE football.sp_insertNew
+
 CREATE PROCEDURE football.sp_insertNew
 	@title					text,
 	@link					varchar(350),
@@ -368,11 +370,11 @@ CREATE PROCEDURE football.sp_insertNew
 	DECLARE @count int;
 	DECLARE @returnvalue INT;
 
-	SELECT @count = count(id) FROM football.teamNew WHERE link like @link AND team_id = @team_id;
+	SELECT @count = count(id) FROM football.teamNew WHERE link like @link AND team_id = @team_id AND language = @language;
 
 	IF @count = 1
 	BEGIN
-		SET @returnvalue = (SELECT TOP 1 id FROM football.teamNew WHERE link like @link AND team_id = @team_id ORDER BY id DESC);
+		SET @returnvalue = (SELECT TOP 1 id FROM football.teamNew WHERE link like @link AND team_id = @team_id AND language = @language ORDER BY id DESC);
 		RETURN @returnvalue;
 	END
 	

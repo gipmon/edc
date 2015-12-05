@@ -163,3 +163,15 @@ BEGIN
 	INSERT @table SELECT team.id, team.name FROM (football.team INNER JOIN (SElECT DISTINCT teamSubscription.teamID FROM football.teamSubscription) AS tmp1 ON team.id = tmp1.teamID);
 	RETURN;
 END;
+
+go;
+-- DROP FUNCTION football.udf_get_team_news_related
+
+CREATE FUNCTION football.udf_number_of_subscribers(@team_id int)
+RETURNS INT
+WITH SCHEMABINDING, ENCRYPTION
+AS
+BEGIN
+	RETURN (SELECT COUNT(userID) FROM football.teamSubscription WHERE teamID = @team_id);
+END;
+

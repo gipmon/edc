@@ -51,8 +51,13 @@ CREATE TABLE football.teamplayer(
 	marketValue text
 );
 
+-- USE EDCFootball
 -- DROP TABLE football.teamNew
 -- DROP TABLE football.teamRelatedNew
+-- DROP FUNCTION football.udf_get_team_news_related
+-- DROP FUNCTION football.udf_team_has_news
+-- DROP FUNCTION football.udf_get_team_news
+
 go;
 CREATE TABLE football.teamNew(
 	id INT UNIQUE IDENTITY,
@@ -62,7 +67,7 @@ CREATE TABLE football.teamNew(
 	language varchar(2),
 	team_id int REFERENCES football.team(id),
 	pubDate datetime,
-	PRIMARY KEY(link, team_id)
+	PRIMARY KEY(link, team_id, language)
 );
 
 go;
