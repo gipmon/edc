@@ -231,8 +231,18 @@ namespace FootballData
                         
                     }
 
-                    String node_html = "<div id=\"new_id_" + id_int + "\"";
-                    node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + node.Attributes[2].Value + "\">" + node.Attributes[0].Value + "</a></h4> <p>" + Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @"</font><br><font.*><a.*|<b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "") + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + node.Attributes[5].Value + "</small></span></div></div></div>";
+                    String node_html = "<div id=\"new_id_" + id_int + "\" class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\">";
+
+                    if (url_img == null)
+                    {
+                        node_html += "<a target=\"_blank\" href=\"" + node.Attributes[2].Value + "\">";
+                    }
+                    else
+                    {
+                        node_html += "<a target=\"_blank\" id=\"img"+ id_int + "\" data-toggle=\"preview-image\" url-img=\""+url_img+"\" rel=\"popover\" data-content=\"\" title=\"Preview image\" href=\"" + node.Attributes[2].Value + "\">";
+                    }
+
+                    node_html += node.Attributes[0].Value + "</a></h4> <p>" + Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @"</font><br><font.*><a.*|<b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "") + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + node.Attributes[5].Value + "</small></span></div></div></div>";
                     
                     var html_a = doc_html.DocumentNode.SelectNodes("//a").ToList();
 
