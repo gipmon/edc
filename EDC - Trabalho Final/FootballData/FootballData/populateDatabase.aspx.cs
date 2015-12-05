@@ -245,8 +245,6 @@ namespace FootballData
                     }
                 }
             }
-
-            //Populate Teams
             
 
         }

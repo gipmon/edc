@@ -47,7 +47,7 @@
                                 <span aria-hidden="true">&laquo;</span>
                               </a>
                             </li>
-                            <li id="li_page_1" class="active"><a href="#1">1</a></li>
+                            <li id="li_page_1" class="active"><a data-toggle="pagination" href="#1">1</a></li>
                             <li>
                               <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>

@@ -40,15 +40,6 @@ namespace FootballData
             DataTable dt1 = new DataTable("teams");
             sda1.Fill(dt1);
 
-            /*var url = "http://api.football-data.org/v1/soccerseasons";
-            var syncClient = new WebClient();
-            syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
-            var content = syncClient.DownloadString(url);
-            seasonsList = JsonConvert.DeserializeObject<List<SeasonClass>>(content);
-
-            //http://dotnetbyexample.blogspot.pt/2012/01/json-deserialization-with-jsonnet.html
-            //http://json2csharp.com/
-            */
             String html = "";
             int i = 0;
             for (i = 0; i < dt1.Rows.Count; i++)

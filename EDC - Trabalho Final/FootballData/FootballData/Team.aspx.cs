@@ -101,25 +101,6 @@ namespace FootballData
                 subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"Account/Login\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
             }
 
-
-            // get team data
-            /*
-            var url = "http://api.football-data.org/v1/teams/" + id + "/";
-            var syncClient = new WebClient();
-            syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
-            syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
-
-            var content = syncClient.DownloadString(url);
-            team = JsonConvert.DeserializeObject<TeamClass>(content);
-
-            url = team._links.players.href;
-            syncClient = new WebClient();
-            syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
-            syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
-
-            content = syncClient.DownloadString(url);
-            players_list = JsonConvert.DeserializeObject<PlayersList>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-            */
             String CmdString3 = "SELECT * FROM football.udf_get_players(@teamID)";
             SqlCommand cmd3 = new SqlCommand(CmdString3, con);
             cmd3.Parameters.AddWithValue("@teamID", id);
