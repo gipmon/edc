@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NettutsTutorial2 {
-    
-    
-    public partial class rss {
-        
+
+
+namespace FootballData
+{
+    public partial class rss
+    {
+
         /// <summary>
         /// RepeaterRSS control.
         /// </summary>
