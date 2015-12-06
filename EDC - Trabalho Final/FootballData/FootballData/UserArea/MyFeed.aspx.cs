@@ -12,12 +12,13 @@ using System.Xml;
 
 namespace FootballData.UserArea
 {
+    
     public partial class MyFeed : System.Web.UI.Page
     {
         protected string newsFeed_html;
         private SqlConnection con;
         protected LinkedList<TeamSql> teamsList;
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -46,6 +47,13 @@ namespace FootballData.UserArea
                 teams.DataTextField = "name";
 
                 Page.DataBind();
+
+                foreach (ListItem itm in teams.Items)
+                {
+                    itm.Selected = true;
+                }
+
+                setNews();
             }
         }
         
@@ -124,6 +132,7 @@ namespace FootballData.UserArea
             public string title { get; set; }
             public string link { get; set; }
             public string team { get; set; }
+            public string teamId { get; set; }
             public int id { get; set; }
 
             public TeamNewRss(XmlNode xn)
@@ -131,7 +140,14 @@ namespace FootballData.UserArea
                 this.title = xn.Attributes[0].Value;
                 this.link = xn.Attributes[1].Value;
                 this.team = xn.Attributes[2].Value;
+                this.teamId = xn.Attributes[3].Value;
                 this.id = idCount++;
+            }
+            
+            public static string truncate(string value, int maxLength)
+            {
+                if (string.IsNullOrEmpty(value)) return value;
+                return value.Length <= maxLength ? value : value.Substring(0, maxLength);
             }
         }
         
@@ -146,5 +162,6 @@ namespace FootballData.UserArea
                 this.name = (string)dt.ItemArray[1];
             }
         }
+
     }
 }

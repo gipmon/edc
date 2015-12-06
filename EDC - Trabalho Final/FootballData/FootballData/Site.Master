@@ -63,7 +63,7 @@
                         </li>
 
                         <% if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated) { %>
-                            <li><a href="#"><i class="fa fa-newspaper-o"></i> My feed</a></li>
+                            <li><a href="/UserArea/MyFeed"><i class="fa fa-newspaper-o"></i> My feed</a></li>
                         <% } %>
 
                     </ul>

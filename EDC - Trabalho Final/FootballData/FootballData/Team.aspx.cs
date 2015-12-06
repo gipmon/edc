@@ -307,7 +307,7 @@ namespace FootballData
                             var title = (string)teamRelatedNews.ItemArray[1];
                             var link = (string)teamRelatedNews.ItemArray[2];
 
-                            node_html += "<li><a target=\"_blank\" href=\"" + link + "\">" + title + "</a></li>";
+                            node_html += "<li><a target=\"_blank\" href=\"" + link + "\">" + StringExt.Truncate(title, 30) + "</a></li>";
                         }
 
                         node_html += "<!-- Dropdown menu links --></ul></div>";
@@ -320,6 +320,14 @@ namespace FootballData
             }
             
             Page.DataBind();
+        }
+    }
+    public static class StringExt
+    {
+        public static string Truncate(this string value, int maxLength)
+        {
+            if (string.IsNullOrEmpty(value)) return value;
+            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
         }
     }
 }

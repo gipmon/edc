@@ -12,15 +12,16 @@
                           <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="#collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" aria-expanded="false" aria-controls="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>">
-                                  <%# DataBinder.Eval(Container.DataItem, "title") %>
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" aria-expanded="false" aria-controls="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>">
+                                  <%# TeamNewRss.truncate(DataBinder.Eval(Container.DataItem, "title").ToString(), 26) %>...
                                 </a>
                               </h4>
                             </div>
                             <div id="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <div class="panel-body">
-                                  Link: <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "link") %></a>
-                                  Team: <%# DataBinder.Eval(Container.DataItem, "team") %>
+                                  <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "title") %></a>
+                                  <br />
+                                  <i class="fa fa-futbol-o"></i> <a href="/Team.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "teamId") %>"><%# DataBinder.Eval(Container.DataItem, "team") %></a>
                               </div>
                             </div>
                           </div>
@@ -35,15 +36,16 @@
                           <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <h4 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" aria-expanded="false" aria-controls="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>">
-                                  <%# DataBinder.Eval(Container.DataItem, "title") %>
+                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" aria-expanded="false" aria-controls="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>">
+                                  <%# TeamNewRss.truncate(DataBinder.Eval(Container.DataItem, "title").ToString(), 26) %>...
                                 </a>
                               </h4>
                             </div>
                             <div id="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <div class="panel-body">
-                                  Link: <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "link") %></a>
-                                  Team: <%# DataBinder.Eval(Container.DataItem, "team") %>
+                                  <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "title") %></a>
+                                  <br />
+                                  <i class="fa fa-futbol-o"></i> <a href="/Team.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "teamId") %>"><%# DataBinder.Eval(Container.DataItem, "team") %></a>
                               </div>
                             </div>
                           </div>
@@ -59,14 +61,15 @@
                             <div class="panel-heading" role="tab" id="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" aria-expanded="false" aria-controls="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>">
-                                  <%# DataBinder.Eval(Container.DataItem, "title") %>
+                                  <%# TeamNewRss.truncate(DataBinder.Eval(Container.DataItem, "title").ToString(), 26) %>...
                                 </a>
                               </h4>
                             </div>
                             <div id="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <div class="panel-body">
-                                  Link: <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "link") %></a>
-                                  Team: <%# DataBinder.Eval(Container.DataItem, "team") %>
+                                  <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "title") %></a>
+                                  <br />
+                                  <i class="fa fa-futbol-o"></i> <a href="/Team.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "teamId") %>"><%# DataBinder.Eval(Container.DataItem, "team") %></a>
                               </div>
                             </div>
                           </div>
@@ -76,7 +79,6 @@
             </div>
             <div class="col-md-3">
                 <h4>Filter by team</h4>
-
                 <div class="checkbox">
                     <label>
                         <asp:CheckBoxList ID="teams" runat="server" OnSelectedIndexChanged="teams_SelectedIndexChanged" AutoPostBack="True"></asp:CheckBoxList>

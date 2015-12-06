@@ -15,6 +15,7 @@
                 <pubDate><%# RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "pubDate")) %></pubDate>
                 <description><%# RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "description")) %></description>
                 <team><%# RemoveIllegalCharacters((object)teamsNames[(int)DataBinder.Eval(Container.DataItem, "team_id")]) %></team>
+                <teamId><%# RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "team_id")) %></teamId>
                 <asp:Repeater ID="related" datasource='<%# ((TeamNew)Container.DataItem).related %>' runat="server">
                 <ItemTemplate>
                 <related>
@@ -29,6 +30,7 @@
                 <title><%#  RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "title")) %></title>
                 <link><%#  RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "link")) %></link>
                 <team><%# RemoveIllegalCharacters((object)teamsNames[(int)DataBinder.Eval(Container.DataItem, "team_id")]) %></team>
+                <teamId><%# RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "team_id")) %></teamId>
             </item>
             <asp:Repeater ID="Repeater1" datasource='<%# ((TeamNew)Container.DataItem).related %>' runat="server">
             <ItemTemplate>
@@ -36,6 +38,7 @@
                 <title><%#  RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "title")) %></title>
                 <link><%#  RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "link")) %></link>
                 <team><%# RemoveIllegalCharacters((object)teamsNames[(int)DataBinder.Eval(Container.DataItem, "team_id")]) %></team>
+                <teamId><%# RemoveIllegalCharacters(DataBinder.Eval(Container.DataItem, "team_id")) %></teamId>
             </item>
             </ItemTemplate>
             </asp:Repeater>
