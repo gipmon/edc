@@ -211,6 +211,10 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="App_Data\footballData.xsl">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\rss.xml" />
     <Content Include="ChangeLanguage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.cerulean.css" />
@@ -243,6 +247,9 @@
     <Content Include="App_Data\googleNews.xsl">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="App_Data\rss.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="populateDatabase.aspx" />
     <Content Include="Scripts\bootstrap.js" />

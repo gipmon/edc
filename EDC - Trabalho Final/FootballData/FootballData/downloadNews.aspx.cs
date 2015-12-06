@@ -133,14 +133,32 @@ namespace FootballData
 
                                     string news_related_url = null;
                                     string news_related_title = null;
+                                    string news_related_description = "";
 
                                     try
                                     {
                                         HtmlDocument news_html = website.Load(new_url[1]);
                                         var amazing_title = news_html.DocumentNode.SelectNodes("//title").ToList();
 
+                                        var meta_tags = news_html.DocumentNode.SelectNodes("//meta").ToList();
+
+                                        /*
+                                        TO BE IMPROVED
+
+                                        foreach(HtmlNode n in meta_tags)
+                                        {
+                                            foreach(HtmlAttribute attr in n.Attributes)
+                                            {
+                                                if (attr.Name.Equals("description", StringComparison.OrdinalIgnoreCase))
+                                                {
+                                                    news_related_description = attr.Value;
+                                                }
+                                            }
+                                        }
+                                        */
+
                                         news_related_url = new_url[1];
-                                        news_related_title = StringExt.Truncate(amazing_title[0].InnerText, 30);
+                                        news_related_title = amazing_title[0].InnerText;
                                     }
                                     catch (Exception)
                                     {
@@ -183,12 +201,5 @@ namespace FootballData
         }
         
     }
-    public static class StringExt
-    {
-        public static string Truncate(this string value, int maxLength)
-        {
-            if (string.IsNullOrEmpty(value)) return value;
-            return value.Length <= maxLength ? value : value.Substring(0, maxLength);
-        }
-    }
+    
 }
