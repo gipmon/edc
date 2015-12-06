@@ -211,6 +211,9 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="App_Data\footballData.xsl">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="ChangeLanguage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.cerulean.css" />
