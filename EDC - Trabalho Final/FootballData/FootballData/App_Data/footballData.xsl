@@ -11,6 +11,7 @@
             <xsl:value-of select="link"/>
           </xsl:attribute>
           <xsl:for-each select="item">
+            <xsl:sort data-type="text" order="descending" select="pubDate"/>
             <item>
               <xsl:attribute name="title">
                 <xsl:value-of select="title"/>
