@@ -19,6 +19,8 @@ namespace FootballData
         public RssChannel rssChannel;
         public Hashtable teamsNames;
 
+        protected string url;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             con = ConnectionDB.getConnection();
@@ -155,6 +157,8 @@ namespace FootballData
             RepeaterRSS.DataSource = teamNews;
 
             RepeaterRSS.DataBind();
+
+            url = "http://" + HttpContext.Current.Request.Url.Authority + "/";
             Page.DataBind();
         }
 

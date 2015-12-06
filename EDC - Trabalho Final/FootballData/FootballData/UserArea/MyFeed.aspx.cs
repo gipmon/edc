@@ -97,6 +97,7 @@ namespace FootballData.UserArea
 
             XmlDocument xdoc = XmlDataSource_feed.GetXmlDocument();
             XmlElement root = xdoc.DocumentElement;
+
             XmlNodeList nodes_items = root.SelectNodes("/rss/channel/item");
 
             LinkedList<TeamNewRss> tn = new LinkedList<TeamNewRss>();

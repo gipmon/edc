@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.w3schools.com/schema">
+  <xs:include schemaLocation="http://www.w3schools.com/xml/company.xsd"/>
+  <rss version="2.0">
+            <channel>
+                <title>FC Porto Chelsea FC AS Monaco FC RSS Feed</title>
+                <link>http://localhost:50750/rss?language=de&amp;format=simple&amp;teamList=61,503,548&amp;userId=96084709-fffc-4a15-8ecb-9cd7e6995837</link>
+                <language>de</language>
+    
+        
+            <item>
+                <title>Chelsea FC vs. Norwich City 1:0 - sport.ch Live.News.Entertainment</title>
+                <link>http://sport.ch.sportalsports.com/sportch/generated/article/fussball/2015/11/21/chelsea-fc-vs-norwich-city-1-0-chelsea-kann-doch-gewinnen-diego-costa-erloest-die-blues-id46282500000.html</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sat, 21 Nov 2015 17:18:52 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Chelsea FC team news: Line up for Premier League clash – Predicted Blues XI v ... - talkSPORT.com</title>
+                <link>http://talksport.com/football/chelsea-fc-team-news-line-premier-league-clash-predicted-blues-xi-v-bournemouth</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Fri, 04 Dec 2015 15:55:34 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Chelsea: Wohlhabend, erfolgreich, unbeliebt - GrenzEcho.net</title>
+                <link>http://www.grenzecho.net/SportsLoad.aspx?aid%3DEBD779BC-9EB4-4663-8403-4A209F4C4574</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Thu, 19 Nov 2015 00:01:34 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Champions League: Maccabi Tel Aviv FC gegen Chelsea FC im Live-Stream - netzwelt.de</title>
+                <link>http://www.netzwelt.de/live-stream/sport/uebertragung/3470-champions-league-gruppe-g-maccabi-tel-aviv-fc-chelsea-fc.html</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Tue, 24 Nov 2015 09:46:02 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Chelsea FC: Liebesbekundungen an der Stamford Bridge - Neue Zürcher Zeitung</title>
+                <link>http://www.nzz.ch/sport/fussball/liebesbekundungen-an-der-stamford-bridge-1.18651416</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Mon, 23 Nov 2015 13:50:51 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>John Terry: Seine Top-Elf des FC Chelsea - RAN</title>
+                <link>http://www.ran.de/fussball/england/bildergalerien/john-terry-seine-top-elf-des-fc-chelsea</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:32:50 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>
+	Mit Arjen Robben: Das ist Terrys Chelsea-Traumelf  -
+	FUSSBALL INTERNATIONAL -
+	SPORT BILD</title>
+                <link>http://sportbild.bild.de/fussball/international/international/john-terrys-chelsea-traumelf-43681830.sport.html</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:32:50 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Pleite gegen Aufsteiger: FC Chelsea am Boden - RAN</title>
+                <link>http://www.ran.de/fussball/england/news/pleite-gegen-aufsteiger-fc-chelsea-am-boden-106167</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:03:19 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Chelsea vs Bournemouth, Premier League: Jose Mourinho - there&apos;s no way ... - Telegraph.co.uk (blog)</title>
+                <link>http://www.telegraph.co.uk/sport/football/football-live-blogs/12033264/Chelsea-vs-Bournemouth-Premier-League-live.html</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:06:14 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Chelsea: Mourinho kann nur noch eine Liebeserklärung retten - DIE WELT</title>
+                <link>http://www.welt.de/sport/fussball/internationale-ligen/article148572317/Nur-eine-Liebeserklaerung-kann-Mourinho-noch-retten.html</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sun, 08 Nov 2015 14:17:44 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Stoke besiegt Chelsea: Arnauto</title>
+                <link>http://sportnet.at/home/fussball/international/england/chelseafc/4861582/Stoke-besiegt-Chelsea_Arnautovic-schiesst-Mourinho-per</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sun, 08 Nov 2015 14:17:44 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Absurde Verschwörungstheorien:</title>
+                <link>http://www.nzz.ch/sport/fussball/chelsea-weiterhin-in-der-negativspirale-1.18643691</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sun, 08 Nov 2015 14:17:44 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Error</title>
+                <link>http://www.sportschau.de/fussball/international/chelsea-mourinho-stoke-nachfolger-simeone-100.html</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Sun, 08 Nov 2015 14:17:44 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Chelsea zeigt erste Bilder vom neuen, teuren Stadion - DIE WELT</title>
+                <link>http://www.welt.de/sport/fussball/internationale-ligen/article149513448/So-teuer-wird-das-neue-Stadion-des-FC-Chelsea.html</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Tue, 01 Dec 2015 17:09:10 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>60.000 Plätze: Chelsea stellt </title>
+                <link>http://sportnet.at/home/fussball/international/england/chelseafc/4878379/60000-Plaetze_Chelsea-stellt-Plaene-fur-neue-Stamford-Bridge-vor</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Tue, 01 Dec 2015 17:09:10 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Herzog &amp;amp; de Meuron planen </title>
+                <link>http://www.baunetz.de/meldungen/Meldungen-Herzog_-_de_Meuron_planen_fuer_FC_Chelsea_4634689.html</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Tue, 01 Dec 2015 17:09:10 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>FC Chelsea: Gary Cahill verlän</title>
+                <link>http://www.goal.com/de/news/835/premier-league/2015/12/02/17944482/chelsea-cahill-bleibt-bis-2019-an-der-stamford-bridge</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Tue, 01 Dec 2015 17:09:10 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>L&apos;essentiel Online - «Eierschn</title>
+                <link>http://www.lessentiel.lu/de/sport/story/Eierschneider-kostet-Chelsea-825-Millionen-11107857</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Tue, 01 Dec 2015 17:09:10 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Stadionwelt INSIDE</title>
+                <link>http://www.stadionwelt.de/sw_stadien/index.php?head%3DVersprechen-fuer-Chelsea-Fans-im-neuen-Stadion%26folder%3Dsites%26site%3Dnews_detail%26news_id%3D13154%26gal_id%3D191%26bild_nr%3D9</link>
+                <team>Chelsea FC</team>
+                <teamId>61</teamId>
+                <pubDate>Tue, 01 Dec 2015 17:09:10 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Mourinho perde em casa com Bournemouth antes de receber FC Porto - Sapo Desporto</title>
+                <link>http://desporto.sapo.pt/futebol/liga_inglesa/artigo/2015/12/05/mourinho-perde-em-casa-com-bournemouth-antes-de-receber-fc-porto</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 19:32:16 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Noticias ao Minuto - Mourinho </title>
+                <link>http://www.noticiasaominuto.com/desporto/499020/mourinho-volta-a-perder-em-vesperas-de-rececao-ao-fc-porto</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 19:32:16 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>O Jogo Online</title>
+                <link>http://www.ojogo.pt/jogosemdirecto/jogo.aspx?content_id%3D4917198</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 19:32:16 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Mourinho quer ver Chelsea volt</title>
+                <link>http://www.rtp.pt/noticias/futebol-internacional/mourinho-quer-ver-chelsea-voltar-as-vitorias-contra-o-fc-porto_d879333</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 19:32:16 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Porto - P. Ferreira (em directo) - Renascença (liberação de imprensa)</title>
+                <link>http://rr.sapo.pt/noticia/41320/fc_porto_p_ferreira_em_directo</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:29:50 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Champions League Liveticker – FC Porto vs. Dynamo Kiew - Web.de</title>
+                <link>http://web.de/magazine/sport/fussball/champions-league/liveticker/cl/konferenz/2479990/</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Tue, 24 Nov 2015 19:22:05 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Siebter Sieg in Folge: Die Skyliners schlagen auch den FC Porto - Frankfurter Neue Presse</title>
+                <link>http://www.fnp.de/bilderstrecken/Siebter-Sieg-in-Folge-Die-Skyliners-schlagen-auch-den-FC-Porto;cme60258,1232829</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Wed, 11 Nov 2015 21:18:09 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Skyliners siegen auch internat</title>
+                <link>http://hessenschau.de/sport/basketball/skyliners-frankfurt/skyliners-siegen-auch-international,europe_porot-100.html</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Wed, 11 Nov 2015 21:18:09 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Fraport Skyliners aus Frankfur</title>
+                <link>http://www.extratipp.com/sport/rhein-main-sport/fraport-skyliners-frankfurt-siegen-gegen-porto-5853573.html</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Wed, 11 Nov 2015 21:18:09 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Europe Cup: Sieg für die Skyli</title>
+                <link>http://www.op-online.de/sport/lokalsport/europe-cup-sieg-skyliners-frankfurt-gegen-porto-5853428.html</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Wed, 11 Nov 2015 21:18:09 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>F. C. Porto falha &quot;play-off&quot; dos oitavos da Liga dos Campeões de andebol - Jornal de Notícias</title>
+                <link>http://www.jn.pt/PaginaInicial/Desporto/Interior.aspx?content_id%3D4917417</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:30:45 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>&quot;Tecatito&quot; y Layún colocan al FC Porto como líder en Portugal - La Opinión</title>
+                <link>http://www.laopinion.com/2015/12/05/tecatito-y-layun-colocan-al-porto-fc-como-lider-en-portugal/</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sun, 06 Dec 2015 00:16:39 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Portugal 12e j. Portugal : Le FC Porto toujours invaincu - L&apos;Équipe.fr</title>
+                <link>http://www.lequipe.fr/Football/Actualites/Portugal-le-fc-porto-toujours-invaincu/613944</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:34:00 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Porto: Maccabi Tel Aviv perde liderança isolada antes de Kiev - Mais Futebol</title>
+                <link>http://www.maisfutebol.iol.pt/internacional/israel/fc-porto-maccabi-tel-aviv-perde-lideranca-isolada-antes-de-kiev</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:07:50 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>À atenção do FC Porto: Maccabi</title>
+                <link>http://www.futebol365.pt/artigo/143718-a-atencao-do-fc-porto-maccabi-telavive-perde-lideranca-isolada-da-liga/</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:07:50 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Jorge Simão: «Obrigámos o FC Porto a ouvir alguns assobios» - Mais Futebol</title>
+                <link>http://www.maisfutebol.iol.pt/pacos-ferreira/liga/jorge-simao-obrigamos-o-fc-porto-a-ouvir-alguns-assobios</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 21:08:12 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>18:30 FC PORTO / PAÇOS DE FERREIRA - O Jogo</title>
+                <link>http://www.ojogo.pt/jogosemdirecto/jogo.aspx?content_id%3D4916969</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 21:45:00 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Jorge Simão: «Qualquer equipa pode colocar o FC Porto em sentido» | Maisfutebol.iol.pt | Paixão Pura</title>
+                <link>http://www.maisfutebol.iol.pt/liga/pacos-ferreira/jorge-simao-qualquer-equipa-pode-colocar-o-fc-porto-em-sentido</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 21:45:00 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Noticias ao Minuto - &amp;quot;Arbitragem? O FC Porto não precisa destes lances para ganhar&amp;quot;</title>
+                <link>http://www.noticiasaominuto.com/desporto/499048/arbitragem-o-fc-porto-nao-precisa-deste-lances-para-ganhar</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 21:45:00 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Porto vence por 2-1 o Pa?os de Ferreira  - Desporto - RTP Not?cias</title>
+                <link>http://www.rtp.pt/noticias/desporto/fc-porto-0-0-pacos-de-ferreira_e879280</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 21:45:00 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Porto esmagou o Vojvodina - O Jogo</title>
+                <link>http://www.ojogo.pt/jogosemdirecto/jogo.aspx?content_id%3D4917110</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:02:15 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>FC Porto vence Vojvodina e agu</title>
+                <link>http://desporto.sapo.pt/andebol/artigo/2015/12/05/champions-de-andebol-fc-porto-vence-vojvodina-e-aguarda-deslize-do-la-rioja</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:02:15 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>
+	FC Porto - Dragão cumpre a </title>
+                <link>http://www.fcporto.pt/pt/noticias/Pages/Andebol-FC-Porto-Vojvodina-10a-EHF-Champions-League.aspx</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:02:15 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Andebol: FC Porto arrasa Vojvo</title>
+                <link>http://www.maisfutebol.iol.pt/modalidades/liga-campeoes/andebol-fc-porto-vence-vojvodina-e-ainda-sonha-com-o-play-off</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:02:15 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>FC Porto vence Vojvodina mas f</title>
+                <link>http://www.publico.pt/desporto/noticia/fc-porto-conquista-pleno-de-vitorias-em-casa-ao-vencer-o-vojvodina-1716601</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:02:15 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>FC Porto falha playoff dos &quot;oi</title>
+                <link>http://www.record.xl.pt/modalidades/andebol/detalhe/fc-porto-falha-playoff-dos-oitavos-da-champions.html</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:02:15 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>FC Porto vence Vojvodina na Li</title>
+                <link>http://www.rtp.pt/noticias/andebol/fc-porto-vence-vojvodina-na-liga-dos-campeoes-de-andebol-e-aguarda-deslize-do-la-rioja_d879300</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:02:15 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Relacja z Chelsea - FC Porto. - Przeglad Sportowy</title>
+                <link>http://www.przegladsportowy.pl/chelsea---fc-porto,relacje,773633,1.html</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 17:34:03 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Porto vence na visita a Valongo - Record</title>
+                <link>http://www.record.xl.pt/modalidades/hoquei-patins/detalhe/fc-porto-vence-na-visita-a-valongo.html</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:39:11 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>FC Porto e Sporting vencem no h&amp;oacute;quei em patins - Hoquei - SAPO Desporto</title>
+                <link>http://desporto.sapo.pt/hoquei/artigo/2015/12/06/fc-porto-e-sporting-vencem-no-hoquei-em-patins</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:39:11 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>O Jogo Online</title>
+                <link>http://www.ojogo.pt/Modalidades/hoqueiempatins/interior.aspx?content_id%3D4917407</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sat, 05 Dec 2015 20:39:11 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Porto discute apuramento com Mourinho, Benfica procura vencer grupo - RTP</title>
+                <link>http://www.rtp.pt/noticias/futebol-internacional/fc-porto-discute-apuramento-com-mourinho-benfica-procura-vencer-grupo_d879379</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sun, 06 Dec 2015 12:16:00 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Mourinho perde em casa com Bournemouth antes de receber FC Porto - Liga inglesa - Futebol - SAPO Desporto</title>
+                <link>http://desporto.sapo.pt/futebol/liga_inglesa/artigo/2015/12/05/mourinho-perde-em-casa-com-bournemouth-antes-de-receber-fc-porto</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sun, 06 Dec 2015 12:16:00 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>
+	Desporto - Jornal de Not?cias
+</title>
+                <link>http://www.jn.pt/PaginaInicial/Desporto/Interior.aspx?content_id%3D4917480</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sun, 06 Dec 2015 12:16:00 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Antes do FC Porto, Chelsea volta a perder agora com o Bournemouth | Maisfutebol.iol.pt | Paixão Pura</title>
+                <link>http://www.maisfutebol.iol.pt/internacional/05-12-2015/inglaterra-chelsea-volta-a-perder-agora-com-o-bournemouth</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sun, 06 Dec 2015 12:16:00 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>O Jogo Online</title>
+                <link>http://www.ojogo.pt/Internacional/jose_mourinho/interior.aspx?content_id%3D4915455</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sun, 06 Dec 2015 12:16:00 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Chelsea perde e Mourinho j&amp;#225; s&amp;#243; pensa em ganhar ao FC Porto - Desporto - TSF Rádio Notícias</title>
+                <link>http://www.tsf.pt/desporto/interior/chelsea-perde-e-mourinho-ja-so-pensa-em-ganhar-ao-fc-porto-4917470.html</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sun, 06 Dec 2015 12:16:00 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Porto gewinnt 1500. Ligaspiel - transfermarkt</title>
+                <link>http://www.transfermarkt.de/fc-porto-gewinnt-1500-ligaspiel/view/news/218799</link>
+                <team>FC Porto</team>
+                <teamId>503</teamId>
+                <pubDate>Sun, 29 Nov 2015 10:57:40 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>FC Nantes : l&apos;AS Monaco, bête noire des Canaris - Francetv info</title>
+                <link>http://france3-regions.francetvinfo.fr/pays-de-la-loire/loire-atlantique/nantes/fc-nantes-l-monaco-bete-noire-des-canaris-861553.html</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Tue, 24 Nov 2015 08:40:41 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>AS Monaco &amp;#8211; FC Nantes : </title>
+                <link>http://www.foot-sur7.fr/279296-monaco-fc-nantes-pourquoi-wilfried-moimb-souffert</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Tue, 24 Nov 2015 08:40:41 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>AS Monaco - FC Nantes Canli Skor, Maç Sonucu - Fransa Ligi Futbol - 21 Kasim ... - Eurosport.com.tr</title>
+                <link>http://tr.eurosport.com/futbol/fransa-ligi/2015-2016/as-monaco--fc-nantes_mtc782243/live.shtml</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Sat, 21 Nov 2015 07:05:19 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Liveticker: AS Monaco - FC Nantes - BLICK.CH</title>
+                <link>http://www.blick.ch/sport/fussball/international/ligue1/as-monaco-fc-nantes-id3882762.html</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Sat, 21 Nov 2015 07:08:37 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>AS Monaco v Anderlecht: Preview - ESPN FC</title>
+                <link>http://www.espnfc.com/uefa-europa-league/match/434314/as-monaco-anderlecht/preview</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Wed, 25 Nov 2015 18:52:53 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Monaco vs RSC Anderlecht - Mat</title>
+                <link>http://www.sofascore.com/news/monaco-vs-rsc-anderlecht-match-preview-live-stream-information/</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Wed, 25 Nov 2015 18:52:53 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Rozhodcí: Antony Gautier - EuroFotbal.cz</title>
+                <link>http://www.eurofotbal.cz/ligue-1/2015-2016/reportaz/as-monaco-fc-nantes-417491/</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Sat, 21 Nov 2015 20:58:00 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>EN DIRECT / LIVE. AS Monaco - FC Nantes - Ligue 1 Football - 21 novembre 2015 - Eurosport.fr</title>
+                <link>http://www.eurosport.fr/football/ligue-1/2015-2016/monaco--nantes_mtc782243/live.shtml</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Sat, 21 Nov 2015 20:53:51 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>FC Nantes : l’AS Monaco a un a</title>
+                <link>http://www.butfootballclub.fr/ligue-1/fc-nantes-las-monaco-possede-un-atout-de-taille-sur-les-canaris/</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Sat, 21 Nov 2015 20:53:51 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>Football. AS Monaco - FC Nante</title>
+                <link>http://www.presseocean.fr/sondage/football-as-monaco-fc-nantes-quel-est-votre-pronostic-pour-le-match-de-samedi-19-11-2015-176423</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Sat, 21 Nov 2015 20:53:51 GMT</pubDate>
+            </item>
+            
+            <item>
+                <title>L&apos;AS Monaco veut engranger con</title>
+                <link>http://www.radio-monaco.com/news/sport/item/8442-l-as-monaco-veut-engranger-contre-le-fc-nantes</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Sat, 21 Nov 2015 20:53:51 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>AS Monaco - FC Nantes : Bonne nouvelle pour les Monégasques - FOOT-SUR7.fr</title>
+                <link>http://www.foot-sur7.fr/278114-as-monaco-fc-nantes-bonne-nouvelle-pour-les-monegasques</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Fri, 20 Nov 2015 13:08:00 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>REVIEW Ligue 1 Prancis: AS Monaco Tembus Empat Besar - Goal.com Indonesia</title>
+                <link>http://www.goal.com/id-ID/match/gaz%25C3%25A9lec-ajaccio-vs-fc-nantes/2046072/report</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Sat, 05 Dec 2015 22:38:59 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>AS Monaco - FC Nantes, 14. Spieltag Saison 2015/2016 - spox.com</title>
+                <link>http://www.spox.com/de/liveticker/fussball/ligue-1/as-monaco/fc-nantes/2015-11-21.html</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Fri, 06 Nov 2015 19:56:22 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Fußball: Auslands-Ergebnisse 2 - GER/Schalke gewann 3:1 - Tiroler Tageszeitung Online</title>
+                <link>http://www.tt.com/home/10852253-91/fu%25C3%259Fball-auslands-ergebnisse-2---gerschalke-gewann-31.csp</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Fri, 04 Dec 2015 23:09:28 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Das wurde aus den teuersten Transfers des Sommers - DIE WELT</title>
+                <link>http://www.welt.de/sport/fussball/internationale-ligen/article149540599/Das-wurde-aus-den-teuersten-Transfers-des-Sommers.html</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Fri, 04 Dec 2015 11:22:45 GMT</pubDate>
+            </item>
+            
+        
+        
+            <item>
+                <title>Sport in Zahlen - Oberbayerisches Volksblatt</title>
+                <link>https://www.ovb-online.de/sport/sport-zahlen-5927735.html</link>
+                <team>AS Monaco FC</team>
+                <teamId>548</teamId>
+                <pubDate>Thu, 03 Dec 2015 23:30:39 GMT</pubDate>
+            </item>
+            
+        
+            </channel>
+        </rss>
+</xs:schema>
