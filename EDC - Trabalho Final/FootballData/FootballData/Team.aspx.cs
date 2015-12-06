@@ -60,9 +60,11 @@ namespace FootballData
             DataTable dt4 = new DataTable("season");
             sda4.Fill(dt4);
 
-            teamName = dt4.Rows[0].ItemArray[1].ToString();
-            teamCrestURL = dt4.Rows[0].ItemArray[3].ToString();
-            teamSquadValue = dt4.Rows[0].ItemArray[2].ToString();
+            var columnName = "name" + feed_language.ToUpper();
+            var index = dt4.Columns.IndexOf(columnName);
+            teamName = dt4.Rows[0].ItemArray[index].ToString();
+            teamCrestURL = dt4.Rows[0].ItemArray[8].ToString();
+            teamSquadValue = dt4.Rows[0].ItemArray[7].ToString();
 
 
             // subscribe btns
@@ -115,7 +117,7 @@ namespace FootballData
                 players_list_html += "<tr><td>" + dt3.Rows[i].ItemArray[1] + "</td><td>" + dt3.Rows[i].ItemArray[6] + "</td><td>" + dt3.Rows[i].ItemArray[5] + "</td><td>" + dt3.Rows[i].ItemArray[3] + "</td><td>" + dt3.Rows[i].ItemArray[2] + "</td><td>" + dt3.Rows[i].ItemArray[8] + "</td><td>" + dt3.Rows[i].ItemArray[7] + "</td></tr>";
             }
             
-            string url = dt4.Rows[0].ItemArray[4].ToString();
+            string url = dt4.Rows[0].ItemArray[9].ToString();
             WebClient syncClient = new WebClient();
             syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
             syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
