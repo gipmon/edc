@@ -37,6 +37,7 @@ namespace FootballData
         private SqlConnection con;
 
         protected int db_news = 0;
+        protected int subscribers = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -157,7 +158,7 @@ namespace FootballData
             cmd.Parameters.AddWithValue("@language", feed_language);
             cmd.CommandType = CommandType.Text;
 
-            string CmdString6 = "SELECT football.udf_team_has_news(@team_id, @language)";
+            string CmdString6 = "SELECT football.udf_number_of_subscribers(@team_id)";
             SqlCommand cmd6 = new SqlCommand(CmdString6, con);
             cmd6.Parameters.AddWithValue("@team_id", Convert.ToInt32(id));
             cmd6.CommandType = CommandType.Text;
@@ -166,7 +167,7 @@ namespace FootballData
             {
                 con.Open();
                 db_news = (int)cmd.ExecuteScalar();
-                db_news += (int)cmd6.ExecuteScalar();
+                subscribers = (int)cmd6.ExecuteScalar();
                 con.Close();
             }
             catch (Exception)
@@ -174,7 +175,7 @@ namespace FootballData
                 con.Close();
             }
 
-            if (db_news == 0)
+            if (db_news == 0 || subscribers == 0)
             {
                 // google find
 
@@ -285,10 +286,24 @@ namespace FootballData
                     var news_link = (string)teamNew.ItemArray[2];
                     var news_description = (string)teamNew[3];
                     var news_date = (DateTime)teamNew[4];
+                    //PARTILHA
 
                     var node_html = (string)"<div id=\"new_id_" + id_int + "\"";
-                    node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + news_link + "\">" + news_title + "</a></h4> <p>" + news_description + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + news_date.ToString() + "</small></span></div></div></div>";
 
+                    string facebooklink = "http://www.facebook.com/sharer.php?s=100&amp;p%5Btitle%5D="+news_title;
+                    facebooklink += "&amp; p[summary] ="+news_description;
+                    facebooklink += "&amp; p[url] =" +news_link;
+
+                    //<a id=\"lnkFacebook" + id_int + "\" href=\"#\" runat=\"server\"><i class=\"fa fa-facebook\"></i>  Share</a>
+                    if (Context.User.Identity.IsAuthenticated)
+                    {
+                        node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + news_link + "\">" + news_title + "</a></h4> <p>" + news_description + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + news_date.ToString() + "</small></span><span class=\"pull-right\"><a target=\"_blank\" onclick=\"javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600')\" href=\"https://www.facebook.com/sharer/sharer.php?u=" + news_link + "&t=" + news_title + "\"><i class=\"fa fa-facebook\"></i>  Share</a></span></div></div></div>";
+                    }
+                    else
+                    {
+                        node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + news_link + "\">" + news_title + "</a></h4> <p>" + news_description + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + news_date.ToString() + "</small></span></div></div></div>";
+
+                    }
                     // related news
                     String CmdString2 = "SELECT * FROM football.udf_get_team_news_related(@related_id)";
                     SqlCommand cmd2 = new SqlCommand(CmdString2, con);
@@ -312,7 +327,6 @@ namespace FootballData
 
                         node_html += "<!-- Dropdown menu links --></ul></div>";
                     }
-                    
                     news_html += (node_html + "</div>");
                 }
                 

@@ -2,6 +2,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:XmlDataSource ID="XmlDataSourceGoogle_feed" TransformFile="~/App_Data/googleNews.xsl" runat="server" EnableCaching="false"></asp:XmlDataSource>
     <div class="container">
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_EN/all.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1121300931213333',
+                    status: true,
+                    xfbml: true,
+                    cookie: true
+                });
+            };
+        </script>
         <h2><%# teamName %></h2>
         <div class="pull-right">
             <%# subscribe_html %>
@@ -25,10 +45,10 @@
                         <a href="#" data-toggle="modal" data-target="#leaguesModal" target="new_blank">Leagues History</a>
                     </div><!-- card actions -->
                 </div>
+                
             </div>
             <div class="col-md-6">
                 <h3>News</h3>
-
                 <% if (db_news == 0){ %>
                     <small>We don't have any subscription for that team, so we don't have stored feeds for that team. </small>
                     <hr />

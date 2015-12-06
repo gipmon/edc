@@ -25,7 +25,7 @@ namespace FootballData
             con = ConnectionDB.getConnection();
             
             // Populate Seasons
-            for (int i = 2014; i < 2015; i++)
+            for (int i = 2012; i < 2013; i++)
             {
                 var url = "http://api.football-data.org/v1/soccerseasons/?season=" + i;
                 var syncClient = new WebClient();
