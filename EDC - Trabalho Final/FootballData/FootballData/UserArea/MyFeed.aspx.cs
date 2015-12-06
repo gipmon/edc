@@ -83,6 +83,9 @@ namespace FootballData.UserArea
 
             url = url + "/rss.aspx?language=" + language + "&format=" + format + "&teamList=" + teamListStr + "&userId=" + userId;
 
+            rssFeedLink.Text = url;
+            urlBtn.PostBackUrl = url;
+
             XmlReader reader = XmlReader.Create(url);
             XmlDocument doc = new XmlDocument();
             doc.Load(reader);

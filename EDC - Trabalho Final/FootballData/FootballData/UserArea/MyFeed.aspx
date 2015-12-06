@@ -84,6 +84,15 @@
                         <asp:CheckBoxList ID="teams" runat="server" OnSelectedIndexChanged="teams_SelectedIndexChanged" AutoPostBack="True"></asp:CheckBoxList>
                     </label>
                 </div>
+                <div class="form-group">
+                    <label for="rssFeedLink">Your RSS feed URL:</label>
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <asp:LinkButton runat="server" ID="urlBtn" CssClass="btn btn-info">  <i class="fa fa-hand-o-right"></i></asp:LinkButton>
+                        </div>
+                        <asp:TextBox runat="server" class="form-control"  onClick="this.setSelectionRange(0, this.value.length)" ID="rssFeedLink"></asp:TextBox>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
