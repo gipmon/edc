@@ -135,7 +135,7 @@ namespace FootballData
 
                     foreach(DataRow relatedNew in dt1.Rows)
                     {
-                        TeamRelatedNew tmp1 = new TeamRelatedNew(relatedNew, Convert.ToInt32(teamId));
+                        TeamRelatedNew tmp1 = new TeamRelatedNew(relatedNew, Convert.ToInt32(teamId), tmp.pubDate);
                         tmp.related.AddLast(tmp1);
                     }
 
@@ -219,13 +219,15 @@ namespace FootballData
             public string title { get; set; }
             public string link { get; set; }
             public int team_id { get; set; }
+            public DateTime pubDate { get; set; }
 
-            public TeamRelatedNew(DataRow dt, int teamId)
+            public TeamRelatedNew(DataRow dt, int teamId, DateTime pubDate)
             {
                 this.id = (int)dt.ItemArray[0];
                 this.title = (string)dt.ItemArray[1];
                 this.link = (string)dt.ItemArray[2];
                 this.team_id = teamId;
+                this.pubDate = pubDate;
             }
         }
     }
