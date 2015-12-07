@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using FootballData.Controllers;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,6 +19,7 @@ namespace FootballData.UserArea
         protected void Page_Load(object sender, EventArgs e)
         {
             con = ConnectionDB.getConnection();
+            var feed_language = Languages.userLanguage(Request);
 
             teamsSubscribed = "";
 
@@ -31,8 +33,18 @@ namespace FootballData.UserArea
             foreach (DataRow team in dt.Rows)
             {
                 var teamId = team.ItemArray[0];
-                var teamName = team.ItemArray[1];
                 var teamNews = team.ItemArray[2];
+
+                String CmdString4 = "SELECT * FROM football.udf_get_team(@teamID)";
+                SqlCommand cmd4 = new SqlCommand(CmdString4, con);
+                cmd4.Parameters.AddWithValue("@teamID", teamId);
+                SqlDataAdapter sda4 = new SqlDataAdapter(cmd4);
+                DataTable dt4 = new DataTable("team");
+                sda4.Fill(dt4);
+
+                var columnName = "name" + feed_language.ToUpper();
+                var index = dt4.Columns.IndexOf(columnName);
+                var teamName = dt4.Rows[0].ItemArray[index].ToString();
 
                 teamsSubscribed += "<tr><td>"+ teamId + "</td>";
                 teamsSubscribed += "<td><a href=\"/Team?ID="+ teamId + "\">" + teamName + "</a></td>";
