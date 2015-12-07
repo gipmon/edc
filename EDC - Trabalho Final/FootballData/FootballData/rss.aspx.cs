@@ -24,7 +24,7 @@ namespace FootballData
         protected void Page_Load(object sender, EventArgs e)
         {
             con = ConnectionDB.getConnection();
-
+            var feed_language = Languages.userLanguage(Request);
             // get user ID
             string userId = null;
             if (Request.QueryString["userId"] != null)
@@ -50,11 +50,11 @@ namespace FootballData
             teamsNames = new Hashtable();
 
             // get teams name and verify if exists
-            foreach(string team in teamList)
+            foreach (string team in teamList)
             {
                 if (team.Length != 0)
                 {
-                    String CmdString = "SELECT * FROM football.udf_get_team_name(@teamId)";
+                    String CmdString = "SELECT * FROM football.udf_get_teamNames(@teamId)";
                     SqlCommand cmd = new SqlCommand(CmdString, con);
                     cmd.Parameters.AddWithValue("@teamId", Convert.ToInt32(team));
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
@@ -66,7 +66,10 @@ namespace FootballData
                         throw new HttpException(404, "Team doesn't exists!");
                     }
 
-                    teamsNames[Convert.ToInt32(team)] = (string)dt.Rows[0].ItemArray[1];
+                    var columnName = "name" + feed_language.ToUpper();
+                    var index = dt.Columns.IndexOf(columnName);
+
+                    teamsNames[Convert.ToInt32(team)] = dt.Rows[0].ItemArray[index].ToString();
                 }
             }
 

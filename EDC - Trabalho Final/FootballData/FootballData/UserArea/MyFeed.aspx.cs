@@ -35,10 +35,13 @@ namespace FootballData.UserArea
                 sda.Fill(dt);
 
                 teamsList = new LinkedList<TeamSql>();
+                var feed_language = Languages.userLanguage(Request);
 
+                var columnName = "name" + feed_language.ToUpper();
+                var index = dt.Columns.IndexOf(columnName);
                 foreach (DataRow row in dt.Rows)
                 {
-                    TeamSql tmp = new TeamSql(row);
+                    TeamSql tmp = new TeamSql(row, index);
                     teamsList.AddLast(tmp);
                 }
 
@@ -167,10 +170,10 @@ namespace FootballData.UserArea
             public string name { get; set; }
             public int id { get; set; }
 
-            public TeamSql(DataRow dt)
+            public TeamSql(DataRow dt, int index)
             {
                 this.id = (int)dt.ItemArray[0];
-                this.name = (string)dt.ItemArray[1];
+                this.name = (string)dt.ItemArray[index];
             }
         }
 
