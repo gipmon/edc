@@ -35,7 +35,7 @@ namespace FootballData.UserArea
                 var teamId = team.ItemArray[0];
                 var teamNews = team.ItemArray[2];
 
-                String CmdString4 = "SELECT * FROM football.udf_get_team(@teamID)";
+                String CmdString4 = "SELECT * FROM football.udf_get_teamNames(@teamID)";
                 SqlCommand cmd4 = new SqlCommand(CmdString4, con);
                 cmd4.Parameters.AddWithValue("@teamID", teamId);
                 SqlDataAdapter sda4 = new SqlDataAdapter(cmd4);
