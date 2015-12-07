@@ -77,8 +77,15 @@ namespace FootballData.UserArea
                 }
             }
 
-            teamListStr = teamListStr.Remove(teamListStr.Length - 1, 1);
-
+            if (teamListStr.Length == 0)
+            {
+                teamListStr = "";
+            }
+            else
+            {
+                teamListStr = teamListStr.Remove(teamListStr.Length - 1, 1);
+            }
+            
             var language = Languages.userLanguage(Request);
 
             url = url + "/rss.aspx?language=" + language + "&format=" + format + "&teamList=" + teamListStr + "&userId=" + userId;
