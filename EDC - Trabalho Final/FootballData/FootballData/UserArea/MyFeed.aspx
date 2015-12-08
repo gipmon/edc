@@ -93,6 +93,13 @@
                         <asp:TextBox runat="server" class="form-control"  onClick="this.setSelectionRange(0, this.value.length)" ID="rssFeedLink"></asp:TextBox>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="typeOfRss">Choose the format of agreggation:</label>
+                    <asp:DropDownList ID="typeOfRss" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="typeOfRss_SelectedIndexChanged" runat="server">
+                        <asp:ListItem Value="simple" Selected="True" Text="simple"></asp:ListItem>
+                        <asp:ListItem Value="full" Text="full"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
             </div>
         </div>
     </div>

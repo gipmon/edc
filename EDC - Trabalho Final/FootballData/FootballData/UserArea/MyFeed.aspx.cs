@@ -65,14 +65,29 @@ namespace FootballData.UserArea
             setNews();
         }
 
+        protected void typeOfRss_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setNews();
+        }
+
         protected void setNews()
         {
             var url = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.AbsolutePath, "");
-            var format = "simple";
             var userId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             var teamListStr = "";
-            
-            foreach(ListItem itm in teams.Items)
+
+            var format = "simple";
+
+            foreach (ListItem itm in typeOfRss.Items)
+            {
+                if (itm.Selected)
+                {
+                    format = itm.Value;
+                }
+            }
+
+
+            foreach (ListItem itm in teams.Items)
             {
                 if (itm.Selected)
                 {

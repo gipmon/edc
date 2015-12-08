@@ -2,9 +2,6 @@
 <%@ Page Language="C#" ContentType="text/xml" AutoEventWireup="true" CodeBehind="rss.aspx.cs" Inherits="FootballData.rss" %>
 <asp:Repeater ID="RepeaterRSS" runat="server">
     <HeaderTemplate>
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://www.w3schools.com/schema">
-      <xs:include schemaLocation="<%# url %>App_Data/rss.xsd"/>
         <rss version="2.0">
             <channel>
                 <title><%# RemoveIllegalCharacters(rssChannel.title) %></title>
@@ -53,6 +50,5 @@
     <FooterTemplate>
             </channel>
         </rss>
-</xs:schema>
     </FooterTemplate>
 </asp:Repeater>
