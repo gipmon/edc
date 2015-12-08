@@ -53,29 +53,29 @@
                             </th>
                             <th>
                             </th>
-                            <th data-toggle="tooltip" data-placement="top" title="Points">
-                                PTS
+                            <th>
+                                <span data-toggle="tooltip" data-placement="top" title="Points">PTS</span>
                             </th>
-                            <th data-toggle="tooltip" data-placement="top" title="Played">
-                                P
+                            <th>
+                                <span data-toggle="tooltip" data-placement="top" title="Played">P</span>
                             </th>
-                            <th data-toggle="tooltip" data-placement="top" title="Won">
-                                W
+                            <th>
+                                <span data-toggle="tooltip" data-placement="top" title="Won">W</span>
                             </th>
-                            <th data-toggle="tooltip" data-placement="top" title="Drawn">
-                                D
+                            <th>
+                                <span data-toggle="tooltip" data-placement="top" title="Drawn">D</span>
                             </th>
-                            <th data-toggle="tooltip" data-placement="top" title="Lost">
-                                L
+                            <th>
+                                <span data-toggle="tooltip" data-placement="top" title="Lost">L</span>
                             </th>
-                            <th data-toggle="tooltip" data-placement="top" title="Goals For">
-                                GF
+                            <th>
+                                <span data-toggle="tooltip" data-placement="top" title="Goals For">GF</span>
                             </th>
-                            <th data-toggle="tooltip" data-placement="top" title="Goals Against">
-                                GA
+                            <th>
+                                <span data-toggle="tooltip" data-placement="top" title="Goals Against">GA</span>
                             </th>
-                            <th data-toggle="tooltip" data-placement="top" title="Goals Difference">
-                                GD
+                            <th>
+                                <span data-toggle="tooltip" data-placement="top" title="Goals Difference">GD</span>
                             </th>
                         </tr>
                     </thead>
