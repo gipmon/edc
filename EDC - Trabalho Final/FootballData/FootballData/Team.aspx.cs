@@ -101,7 +101,7 @@ namespace FootballData
             }
             else
             {
-                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"Account/Login\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
+                subscribe_html = "<a class=\"btn icon-btn btn-success\" href=\"/Account/Login?ReturnUrl=%2FTeam.aspx%3FTeamID%3D"+id+"\"><span class=\"glyphicon btn-glyphicon glyphicon-plus img-circle text-success\"></span> Subscribe</a>";
             }
 
             String CmdString3 = "SELECT * FROM football.udf_get_players(@teamID)";
