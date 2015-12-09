@@ -128,7 +128,7 @@ namespace FootballData
             {
                 if (teamId.Length != 0)
                 {
-                    teamsList = teamId + ",";
+                    teamsList += teamId + ",";
                 }
             }
 
@@ -138,10 +138,10 @@ namespace FootballData
             }
             else
             {
-                teamsList = "," + teamsList;
+                teamsList = ',' + teamsList;
             }
 
-            String CmdString = "SELECT * FROM football.udf_get_team_news(@teamsList, @language) ORDER BY pubDate DESC";
+            String CmdString = "SELECT * FROM football.udf_get_rss_news(@teamsList, @language) ORDER BY pubDate DESC";
             SqlCommand cmd = new SqlCommand(CmdString, con);
             cmd.Parameters.AddWithValue("@teamsList", teamsList);
             cmd.Parameters.AddWithValue("@language", language);
