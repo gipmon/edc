@@ -54,22 +54,22 @@ namespace FootballData
             {
                 if (team.Length != 0)
                 {
-                    String CmdString = "SELECT * FROM football.udf_get_teamNames(@teamId)";
-                    SqlCommand cmd = new SqlCommand(CmdString, con);
-                    cmd.Parameters.AddWithValue("@teamId", Convert.ToInt32(team));
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable("team");
-                    sda.Fill(dt);
+                    String CmdString1 = "SELECT * FROM football.udf_get_teamNames(@teamId)";
+                    SqlCommand cmd1 = new SqlCommand(CmdString1, con);
+                    cmd1.Parameters.AddWithValue("@teamId", Convert.ToInt32(team));
+                    SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
+                    DataTable dt1 = new DataTable("team");
+                    sda1.Fill(dt1);
 
-                    if (dt.Rows.Count == 0)
+                    if (dt1.Rows.Count == 0)
                     {
                         throw new HttpException(404, "Team doesn't exists!");
                     }
 
                     var columnName = "name" + feed_language.ToUpper();
-                    var index = dt.Columns.IndexOf(columnName);
+                    var index = dt1.Columns.IndexOf(columnName);
 
-                    teamsNames[Convert.ToInt32(team)] = dt.Rows[0].ItemArray[index].ToString();
+                    teamsNames[Convert.ToInt32(team)] = dt1.Rows[0].ItemArray[index].ToString();
                 }
             }
 
@@ -141,9 +141,9 @@ namespace FootballData
                 teamsList = "," + teamsList;
             }
 
-            String CmdString = "SELECT * FROM football.udf_get_team_news(@teamList, @language)";
+            String CmdString = "SELECT * FROM football.udf_get_team_news(@teamsList, @language) ORDER BY pubDate DESC";
             SqlCommand cmd = new SqlCommand(CmdString, con);
-            cmd.Parameters.AddWithValue("@team_id", teamList);
+            cmd.Parameters.AddWithValue("@teamsList", teamsList);
             cmd.Parameters.AddWithValue("@language", language);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable("teamNews");
