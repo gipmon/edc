@@ -153,11 +153,11 @@ namespace FootballData
 
             foreach (DataRow teamNew in dt.Rows)
             {
-                Page.DataBind();
-                /*
-                TeamNew tmp = new TeamNew(teamNew, Convert.ToInt32(teamId));
+                TeamNew tmp = new TeamNew(teamNew, Convert.ToInt32(teamNew.ItemArray[6]));
 
-                if(count_news++==30){
+                if((++count_news) >= 30)
+                {
+                    teamNews.AddLast(tmp);
                     break;
                 }
 
@@ -171,15 +171,19 @@ namespace FootballData
 
                 foreach (DataRow relatedNew in dt1.Rows)
                 {
-                    TeamRelatedNew tmp1 = new TeamRelatedNew(relatedNew, Convert.ToInt32(teamId), tmp.pubDate);
+                    TeamRelatedNew tmp1 = new TeamRelatedNew(relatedNew, Convert.ToInt32(teamNew.ItemArray[6]), tmp.pubDate);
                     tmp.related.AddLast(tmp1);
-                    if(count_news++==30){
-                        break; break;
+                    if((++count_news) >= 30){
+                        break;
                     }
                 }
-
+                
                 teamNews.AddLast(tmp);
-                */
+                
+                if (count_news >= 30)
+                {
+                    break;
+                }
             }
 
             string title = "";
@@ -255,7 +259,7 @@ namespace FootballData
                     this.description = (string)dt.ItemArray[3];
                 }
                 this.pubDate = (DateTime)dt.ItemArray[4];
-                this.team_id = teamId;
+                this.team_id = (int)dt.ItemArray[6];
                 this.related = new LinkedList<TeamRelatedNew>();
             }
             
