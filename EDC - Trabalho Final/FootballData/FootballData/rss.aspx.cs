@@ -173,7 +173,7 @@ namespace FootballData
                 {
                     TeamRelatedNew tmp1 = new TeamRelatedNew(relatedNew, Convert.ToInt32(teamNew.ItemArray[6]), tmp.pubDate);
                     tmp.related.AddLast(tmp1);
-                    if((++count_news) >= 30){
+                    if(format == "simple" && (++count_news) >= 30){
                         break;
                     }
                 }
