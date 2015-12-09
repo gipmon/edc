@@ -82,6 +82,30 @@ namespace FootballData
                             news_url = node.Attributes[2].Value;
                         }
 
+
+                        HtmlDocument doc_html = new HtmlDocument();
+                        doc_html.LoadHtml(node.Attributes[1].Value);
+
+                        var html_img = doc_html.DocumentNode.SelectNodes("//img").ToList();
+
+                        string url_img = "";
+
+                        for (var i_img = 0; i_img < html_img.ToArray().Length; i_img++)
+                        {
+                            for (var j_img = 0; j_img < html_img[i_img].Attributes.ToArray().Length; j_img++)
+                            {
+                                if (html_img[i_img].Attributes[j_img].Name == "src")
+                                {
+                                    url_img = html_img[i_img].Attributes[j_img].Value;
+                                    break;
+                                }
+                            }
+                            if (url_img.Length != 0)
+                            {
+                                break;
+                            }
+                        }
+
                         var news_title = node.Attributes[0].Value;
                         var news_description = Regex.Replace(Regex.Replace(node.Attributes[1].Value, @"<b><font.*>.*<\/font><\/b><\/font><br>", " "), @"</font><br><font.*><a.*|<b><font.*>.*<\/font><\/b><\/font><br>|<br><font.*>.*</font></a>|​|<nobr>.*<\/nobr>|<.*?>", "");
                         var news_pubDate = node.Attributes[5].Value;
@@ -95,6 +119,7 @@ namespace FootballData
                         cmd_new.Parameters.AddWithValue("@description", news_description);
                         cmd_new.Parameters.AddWithValue("@team_id", team_id);
                         cmd_new.Parameters.AddWithValue("@language", feed_language);
+                        cmd_new.Parameters.AddWithValue("@imageUrl", url_img);
 
                         DateTime date;
                         if (!DateTime.TryParse(news_pubDate, out date))
@@ -117,8 +142,6 @@ namespace FootballData
                             con.Close();
 
                             // related news
-
-                            HtmlDocument doc_html = new HtmlDocument();
                             doc_html.LoadHtml(node.Attributes[1].Value);
 
                             var html_a = doc_html.DocumentNode.SelectNodes("//a").ToList();
@@ -133,7 +156,7 @@ namespace FootballData
 
                                     string news_related_url = null;
                                     string news_related_title = null;
-                                    string news_related_description = "";
+                                    // string news_related_description = "";
 
                                     try
                                     {

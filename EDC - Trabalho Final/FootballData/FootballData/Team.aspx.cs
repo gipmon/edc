@@ -288,6 +288,7 @@ namespace FootballData
                     var news_link = (string)teamNew.ItemArray[2];
                     var news_description = (string)teamNew[3];
                     var news_date = (DateTime)teamNew[4];
+                    var news_img = (string)teamNew[5];
                     //PARTILHA
 
                     var node_html = (string)"<div id=\"new_id_" + id_int + "\"";
@@ -297,13 +298,25 @@ namespace FootballData
                     facebooklink += "&amp; p[url] =" +news_link;
 
                     //<a id=\"lnkFacebook" + id_int + "\" href=\"#\" runat=\"server\"><i class=\"fa fa-facebook\"></i>  Share</a>
-                    if (Context.User.Identity.IsAuthenticated)
+                    
+                    node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\">";
+
+                    if (news_img.Length == 0)
                     {
-                        node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + news_link + "\">" + news_title + "</a></h4> <p>" + news_description + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + news_date.ToString() + "</small></span><span class=\"pull-right\"><a target=\"_blank\" onclick=\"javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600')\" href=\"https://www.facebook.com/sharer/sharer.php?u=" + news_link + "&t=" + news_title + "\"><i class=\"fa fa-facebook\"></i>  Share</a></span></div></div></div>";
+                        node_html += "<a target=\"_blank\" href=\"" + news_link + "\">";
                     }
                     else
                     {
-                        node_html += "class=\"col-xs-12 col-md-6 col-lg-6\"><div class=\"well\"> <div class=\"media\"> <div class=\"media-body\"> <h4 class=\"media-heading\"><a target=\"_blank\" href=\"" + news_link + "\">" + news_title + "</a></h4> <p>" + news_description + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + news_date.ToString() + "</small></span></div></div></div>";
+                        node_html += "<a target=\"_blank\" id=\"img" + id_int + "\" data-toggle=\"preview-image\" url-img=\"" + news_img + "\" rel=\"popover\" data-content=\"\" title=\"Preview image\" href=\"" + news_link + "\">";
+                    }
+
+                    if (Context.User.Identity.IsAuthenticated)
+                    {
+                        node_html += "</h4> <p>" + news_description + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + news_date.ToString() + "</small></span><span class=\"pull-right\"><a target=\"_blank\" onclick=\"javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600')\" href=\"https://www.facebook.com/sharer/sharer.php?u=" + news_link + "&t=" + news_title + "\"><i class=\"fa fa-facebook\"></i>  Share</a></span></div></div></div>";
+                    }
+                    else
+                    {
+                        node_html += "</h4> <p>" + news_description + "</p><span class=\"text-center\"><small><i class=\"fa fa-calendar - check - o\"></i> " + news_date.ToString() + "</small></span></div></div></div>";
 
                     }
                     // related news
@@ -323,7 +336,7 @@ namespace FootballData
                             var related_id = (int)teamRelatedNews.ItemArray[0];
                             var title = (string)teamRelatedNews.ItemArray[1];
                             var link = (string)teamRelatedNews.ItemArray[2];
-
+                            
                             node_html += "<li><a target=\"_blank\" href=\"" + link + "\">" + StringExt.Truncate(title, 30) + "</a></li>";
                         }
 
