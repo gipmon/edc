@@ -49,8 +49,20 @@
             </div>
             <div class="col-md-6">
                 <h3>News</h3>
-                <% if (db_news == 0){ %>
+                <% if (db_news == 0 && subscribers == 0){ %>
                     <small>We don't have any subscription for that team, so we don't have stored feeds for that team. </small>
+                    <hr />
+                <% }else if(db_news == 0) { %>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            downloadNews();
+                        });
+                    </script>
+                    <div class="alert alert-info" id="showAlert" style="display: none;" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        News for this team are ready, please reload the page!
+                    </div>
+                    <small id="smallAlert">News for that team are currently being downloaded! </small>
                     <hr />
                 <% } %>
                 

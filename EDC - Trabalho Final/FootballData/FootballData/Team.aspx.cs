@@ -264,6 +264,11 @@ namespace FootballData
                     news_html += (node_html + "</div>");
                 }
 
+                if(subscribers == 0)
+                {
+
+                }
+
                 paginationNews = id_int;
             }
             else

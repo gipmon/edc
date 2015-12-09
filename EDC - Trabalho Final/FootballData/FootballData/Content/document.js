@@ -1,6 +1,23 @@
 ﻿var pagination_global = 0;
 var number_of_pages_global = 0;
 
+console.log("ok");
+
+function downloadNews() {
+    $.ajax({
+        url: "/downloadNews",
+        type: 'get',
+        dataType: 'text',
+        async: true,
+        success: function (data) {
+            console.log("ready");
+            $("#smallAlert").hide();
+            $("#showAlert").show();
+        }
+    });
+}
+
+
 $(function () {
 
     $('#show').on('click', function () {
@@ -37,7 +54,7 @@ $(function () {
             for (var i = 1; i <= news_length; i++) {
                 if ($("#img" + i).length != 0) {
                     var img = '<img src="' + $("#img" + i).attr("url-img") + '">';
-                    console.log(img);
+                    //console.log(img);
                     $("#img" + i).popover({ trigger: "hover", placement: 'top', html: true, content: img });
                 }
             }
