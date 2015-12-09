@@ -138,7 +138,7 @@ namespace FootballData
                         {
                             con.Open();
                             cmd_new.ExecuteNonQuery();
-                            var news_id = cmd_new.Parameters[6].Value;
+                            var news_id = cmd_new.Parameters[7].Value;
                             con.Close();
 
                             // related news

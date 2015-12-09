@@ -303,11 +303,11 @@ namespace FootballData
 
                     if (news_img.Length == 0)
                     {
-                        node_html += "<a target=\"_blank\" href=\"" + news_link + "\">";
+                        node_html += "<a target=\"_blank\" href=\"" + news_link + "\">"+news_title+"</a>";
                     }
                     else
                     {
-                        node_html += "<a target=\"_blank\" id=\"img" + id_int + "\" data-toggle=\"preview-image\" url-img=\"" + news_img + "\" rel=\"popover\" data-content=\"\" title=\"Preview image\" href=\"" + news_link + "\">";
+                        node_html += "<a target=\"_blank\" id=\"img" + id_int + "\" data-toggle=\"preview-image\" url-img=\"" + news_img + "\" rel=\"popover\" data-content=\"\" title=\"Preview image\" href=\"" + news_link + "\">" + news_title + "</a>";
                     }
 
                     if (Context.User.Identity.IsAuthenticated)
