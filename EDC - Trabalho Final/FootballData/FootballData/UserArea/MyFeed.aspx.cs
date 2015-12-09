@@ -133,11 +133,11 @@ namespace FootballData.UserArea
 
             foreach (XmlNode node in nodes_items)
             {
-                if (TeamNewRss.idCount >= 18)
+                if (TeamNewRss.idCount >= 20)
                 {
                     tn2.AddLast(new TeamNewRss(node));
                 }
-                else if (TeamNewRss.idCount >= 9)
+                else if (TeamNewRss.idCount >= 10)
                 {
                     tn1.AddLast(new TeamNewRss(node));
                 }

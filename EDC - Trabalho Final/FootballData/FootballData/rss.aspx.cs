@@ -122,39 +122,64 @@ namespace FootballData
             // get content
             teamNews = new LinkedList<TeamNew>();
 
+            string teamsList = "";
+
             foreach (String teamId in teamList)
             {
                 if (teamId.Length != 0)
                 {
-                    String CmdString = "SELECT * FROM football.udf_get_team_news(@team_id, @language)";
-                    SqlCommand cmd = new SqlCommand(CmdString, con);
-                    cmd.Parameters.AddWithValue("@team_id", Convert.ToInt32(teamId));
-                    cmd.Parameters.AddWithValue("@language", language);
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable("teamNews");
-                    sda.Fill(dt);
+                    teamsList = teamId + ",";
+                }
+            }
 
-                    foreach (DataRow teamNew in dt.Rows)
-                    {
-                        TeamNew tmp = new TeamNew(teamNew, Convert.ToInt32(teamId));
+            if (teamsList.Length == 0)
+            {
+                teamsList = ",,";
+            }
+            else
+            {
+                teamsList = "," + teamsList;
+            }
 
-                        // search for related news
-                        String CmdString1 = "SELECT * FROM football.udf_get_team_news_related(@related_id)";
-                        SqlCommand cmd1 = new SqlCommand(CmdString1, con);
-                        cmd1.Parameters.AddWithValue("@related_id", tmp.id);
-                        SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
-                        DataTable dt1 = new DataTable("relatedNews");
-                        sda1.Fill(dt1);
+            String CmdString = "SELECT * FROM football.udf_get_team_news(@teamList, @language)";
+            SqlCommand cmd = new SqlCommand(CmdString, con);
+            cmd.Parameters.AddWithValue("@team_id", teamList);
+            cmd.Parameters.AddWithValue("@language", language);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable("teamNews");
+            sda.Fill(dt);
 
-                        foreach (DataRow relatedNew in dt1.Rows)
-                        {
-                            TeamRelatedNew tmp1 = new TeamRelatedNew(relatedNew, Convert.ToInt32(teamId), tmp.pubDate);
-                            tmp.related.AddLast(tmp1);
-                        }
+            int count_news = 0;
 
-                        teamNews.AddLast(tmp);
+            foreach (DataRow teamNew in dt.Rows)
+            {
+                Page.DataBind();
+                /*
+                TeamNew tmp = new TeamNew(teamNew, Convert.ToInt32(teamId));
+
+                if(count_news++==30){
+                    break;
+                }
+
+                // search for related news
+                String CmdString1 = "SELECT * FROM football.udf_get_team_news_related(@related_id)";
+                SqlCommand cmd1 = new SqlCommand(CmdString1, con);
+                cmd1.Parameters.AddWithValue("@related_id", tmp.id);
+                SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
+                DataTable dt1 = new DataTable("relatedNews");
+                sda1.Fill(dt1);
+
+                foreach (DataRow relatedNew in dt1.Rows)
+                {
+                    TeamRelatedNew tmp1 = new TeamRelatedNew(relatedNew, Convert.ToInt32(teamId), tmp.pubDate);
+                    tmp.related.AddLast(tmp1);
+                    if(count_news++==30){
+                        break; break;
                     }
                 }
+
+                teamNews.AddLast(tmp);
+                */
             }
 
             string title = "";
