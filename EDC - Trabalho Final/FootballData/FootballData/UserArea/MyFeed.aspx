@@ -20,6 +20,7 @@
                             <div id="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <div class="panel-body">
                                   <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "title") %></a>
+                                  <%# "<br/>"+DataBinder.Eval(Container.DataItem, "description") %>
                                   <br />
                                   <i class="fa fa-futbol-o"></i> <a href="/Team.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "teamId") %>"><%# DataBinder.Eval(Container.DataItem, "team") %></a>
                               </div>
@@ -32,8 +33,7 @@
             <div class="col-md-3">
                 <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
                   <asp:Repeater runat="server" ID="rssHtmlTab1">
-                      <ItemTemplate>
-                          <div class="panel panel-default">
+                      <ItemTemplate><div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" aria-expanded="false" aria-controls="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>">
@@ -44,6 +44,7 @@
                             <div id="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <div class="panel-body">
                                   <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "title") %></a>
+                                  <%# "<br/>"+DataBinder.Eval(Container.DataItem, "description") %>
                                   <br />
                                   <i class="fa fa-futbol-o"></i> <a href="/Team.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "teamId") %>"><%# DataBinder.Eval(Container.DataItem, "team") %></a>
                               </div>
@@ -56,8 +57,7 @@
             <div class="col-md-3">
                 <div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="true">
                   <asp:Repeater runat="server" ID="rssHtmlTab2">
-                      <ItemTemplate>
-                          <div class="panel panel-default">
+                      <ItemTemplate><div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <h4 class="panel-title">
                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion3" href="#collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" aria-expanded="false" aria-controls="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>">
@@ -68,6 +68,7 @@
                             <div id="collapse<%# DataBinder.Eval(Container.DataItem, "id") %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%# DataBinder.Eval(Container.DataItem, "id") %>">
                               <div class="panel-body">
                                   <a href="<%# DataBinder.Eval(Container.DataItem, "link") %>"><%# DataBinder.Eval(Container.DataItem, "title") %></a>
+                                  <%# "<br/>"+DataBinder.Eval(Container.DataItem, "description") %>
                                   <br />
                                   <i class="fa fa-futbol-o"></i> <a href="/Team.aspx?ID=<%# DataBinder.Eval(Container.DataItem, "teamId") %>"><%# DataBinder.Eval(Container.DataItem, "team") %></a>
                               </div>

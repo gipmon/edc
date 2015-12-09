@@ -25,6 +25,9 @@
               <xsl:attribute name="teamId">
                 <xsl:value-of select="teamId"/>
               </xsl:attribute>
+              <xsl:attribute name="description">
+                <xsl:value-of select="description"/>
+              </xsl:attribute>
             </item>
           </xsl:for-each>
         </channel>

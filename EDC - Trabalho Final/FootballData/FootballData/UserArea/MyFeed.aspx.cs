@@ -162,6 +162,7 @@ namespace FootballData.UserArea
             public string link { get; set; }
             public string team { get; set; }
             public string teamId { get; set; }
+            public string description { get; set; }
             public int id { get; set; }
 
             public TeamNewRss(XmlNode xn)
@@ -170,6 +171,7 @@ namespace FootballData.UserArea
                 this.link = xn.Attributes[1].Value;
                 this.team = xn.Attributes[2].Value;
                 this.teamId = xn.Attributes[3].Value;
+                this.description = xn.Attributes[4].Value;
                 this.id = idCount++;
             }
             
