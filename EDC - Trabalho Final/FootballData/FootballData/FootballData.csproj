@@ -214,7 +214,6 @@
     <Content Include="App_Data\footballData.xsl">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="App_Data\rss.xml" />
     <Content Include="ChangeLanguage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.cerulean.css" />

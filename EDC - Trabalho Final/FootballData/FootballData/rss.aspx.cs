@@ -221,7 +221,14 @@ namespace FootballData
                 this.id = (int)dt.ItemArray[0];
                 this.title = (string)dt.ItemArray[1];
                 this.link = (string)dt.ItemArray[2];
-                this.description = (string)dt.ItemArray[3];
+                if(((string)dt.ItemArray[5]).Length != 0)
+                {
+                    this.description = (string)dt.ItemArray[3] + "<br/><img src=\"" + (string)dt.ItemArray[5] + "\" />";
+                }
+                else
+                {
+                    this.description = (string)dt.ItemArray[3];
+                }
                 this.pubDate = (DateTime)dt.ItemArray[4];
                 this.team_id = teamId;
                 this.related = new LinkedList<TeamRelatedNew>();
