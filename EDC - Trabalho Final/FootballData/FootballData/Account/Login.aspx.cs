@@ -21,6 +21,8 @@ namespace FootballData.Account
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
+
+            Page.DataBind();
         }
 
         protected void LogIn(object sender, EventArgs e)
