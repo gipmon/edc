@@ -60,11 +60,11 @@ namespace FootballData
             syncClient.Headers.Add("X-Auth-Token", "9cf843e4d69b4817ba99eba1ea051c10");
             syncClient.Headers.Add(HttpRequestHeader.ContentType, "application/json; charset=utf-8");
             var content = "";
-            var leagueTable = new LeagueTable();
+            var leagueTable = new LeagueTable();// = new LeagueTable();
             try
             {
                 content = syncClient.DownloadString(url);
-                leagueTable = JsonConvert.DeserializeObject<LeagueTable>(content);
+                leagueTable = JsonConvert.DeserializeObject<LeagueTable>(content, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
                 // http://json2csharp.com/
 
                 leagueTable_html = "";

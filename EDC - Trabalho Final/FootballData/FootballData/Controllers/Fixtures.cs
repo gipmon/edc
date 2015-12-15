@@ -8,8 +8,8 @@ namespace FootballData.Controllers
 
     public class Link
     {
-        public string self { get; set; }
-        public string soccerseason { get; set; }
+        public Self self { get; set; }
+        public Soccerseason soccerseason { get; set; }
     }
 
     public class Self
@@ -59,7 +59,7 @@ namespace FootballData.Controllers
 
     public class Fixtures
     {
-        public List<Link> _links { get; set; }
+        public Link _links { get; set; }
         public int count { get; set; }
         public List<Fixture> fixtures { get; set; }
     }

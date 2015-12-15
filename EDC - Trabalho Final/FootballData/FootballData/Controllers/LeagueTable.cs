@@ -5,10 +5,11 @@ using System.Web;
 
 namespace FootballData.Controllers
 {
+
     public class Links
     {
-        public string self { get; set; }
-        public string soccerseason { get; set; }
+        public Self self { get; set; }
+        public Soccerseason soccerseason { get; set; }
     }
 
     public class Team
