@@ -53,6 +53,13 @@
                     <small>We don't have any subscription for that team, so we don't have stored feeds for that team. </small>
                     <hr />
                 <% }else if(db_news == 0) { %>
+                    <!--
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            downloadNews();
+                        });
+                    </script> 
+                     -->
                     <div class="alert alert-info" id="showAlert" style="display: none;" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         News for this team are ready, please reload the page!
